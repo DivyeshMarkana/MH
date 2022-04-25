@@ -1,0 +1,26 @@
+.img {
+    min-height: 280px;
+}
+
+/* img {
+    width: 100%;
+    height: auto;
+} */
+
+.example-card {
+    max-width: 250px;
+}
+
+/* mat-card-title {
+    font-size: 122px;
+} */
+
+.character__wrapper {
+    max-width: 250px;   
+}
+
+
+.example-header-image {
+    /* background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg'); */
+    background-size : cover;
+}

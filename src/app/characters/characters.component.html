@@ -1,0 +1,105 @@
+<mat-card>
+  <div class="bg-gray-200 pt-3">
+    <div class=" mx-auto py-0 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+
+
+      <div class="grid grid-cols-1 gap-y-6 sm:grid-cols-2 gap-x-6 lg:grid-cols-4 xl:grid-cols-5 xl:gap-x-6">
+        <a href="#" class="group" *ngFor="let character of characters">
+          <div
+            class="w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8 hero__wrapper">
+            <img src="{{character.thumbnail.path}}.{{character.thumbnail.extension}}"
+              alt="Tall slender porcelain bottle with natural clay textured body and cork stopper."
+              class="w-full h-full object-center object-cover group-hover:opacity-75 img">
+
+            <div class="overlay">
+              <h3 class="mt-4 text-lg ms-3 text-gray-700">{{character.name}}</h3>
+
+            </div>
+          </div>
+
+        </a>
+      </div>
+    </div>
+  </div>
+</mat-card>
+
+
+<!-- <div class="d-flex justify-content-center" *ngIf="fetching">
+        <div class="spinner-grow text-primary" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div> -->
+
+
+
+<!-- <div class="container">
+  <div class="row">
+    <mat-card class="example-card p-0 m-0 row mt-3 " *ngFor="let character of characters">
+     <div class="col character__wrapper">
+      <mat-card-header>
+        <mat-card-title>
+          <h4 class="fw-bold">{{character.name}}</h4>
+        </mat-card-title>
+      </mat-card-header>
+      <img mat-card-image src="{{character.thumbnail.path}}.{{character.thumbnail.extension}}" alt="Photo of {{character.name}}" class="img m-0 p-0">
+  
+      <mat-card-actions class="ms-1">
+        <button mat-raised-button>COMICS</button>
+        <button mat-raised-button>SERIES</button>
+      </mat-card-actions>
+     </div>
+    </mat-card>
+  </div>
+</div> -->
+
+<!-- <div class="container">
+  <div class="row xl:grid-cols-5">
+    <mat-card class="example-card xl:aspect-w-7 xl:aspect-h-8" *ngFor="let character of characters">
+      <div class="character__wrapper ">
+        <mat-card-header>
+          <mat-card-title>
+            <h4 class="fw-bold">{{character.name}}</h4>
+          </mat-card-title>
+        </mat-card-header>
+        <img mat-card-image src="{{character.thumbnail.path}}.{{character.thumbnail.extension}}"
+          alt="Photo of {{character.name}}" class="img m-0 p-0">
+
+        <mat-card-actions class="ms-1">
+          <button mat-raised-button>LIKE</button>
+          <button mat-raised-button>SHARE</button>
+        </mat-card-actions>
+      </div>
+    </mat-card>
+  </div>
+</div> -->
+
+<!-- <div class="bg-gray-200 pt-3">
+  <div class=" mx-auto py-0 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+
+
+    <div class="grid grid-cols-1 gap-y-6 sm:grid-cols-2 gap-x-6 lg:grid-cols-4 xl:grid-cols-5 xl:gap-x-6">
+      <mat-card class="group" *ngFor="let character of characters">
+        <div
+          class="w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8 character__wrapper">
+
+          <mat-card-header>
+            <mat-card-title>
+              <h4 class="fw-bold">{{character.name}}</h4>
+            </mat-card-title>
+          </mat-card-header>
+
+          <img mat-card-image src="{{character.thumbnail.path}}.{{character.thumbnail.extension}}"
+            alt="Tall slender porcelain bottle with natural clay textured body and cork stopper."
+            class="w-full h-full object-center object-cover group-hover:opacity-75 img">
+
+          <mat-card-actions class="ms-1">
+            <button mat-raised-button>LIKE</button>
+            <button mat-raised-button>SHARE</button>
+          </mat-card-actions>
+
+        </div>
+
+      </mat-card>
+    </div>
+  </div>
+</div> -->

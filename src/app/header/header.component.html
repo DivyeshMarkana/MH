@@ -1,0 +1,44 @@
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-center mt-5 mat__link">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" routerLink="/characters">Characters</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/comics">Comics</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link " routerLink="/series">Series</a>
+      </li>
+    </ul>
+  </mat-drawer>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">Marvel industry</a>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="/characters">Characters</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/comics">Comics</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link " routerLink="/series">Series</a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        </form>
+
+      </div>
+      <button class="manuBtn" mat-mini-fab aria-label="Example icon button with a menu icon" (click)="drawer.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </div>
+  </nav>
+  <router-outlet></router-outlet>
+</mat-drawer-container>

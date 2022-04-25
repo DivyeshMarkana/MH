@@ -1,0 +1,38 @@
+/* .navbar {
+    position: fixed;
+    left: 0;
+    right: 0;
+} */
+
+mat-drawer-container {
+    height: 100%;
+}
+
+mat-sidenav, mat-sidenav-content {
+    padding: 16px;
+}
+
+mat-drawer  {
+    background-color: rgb(33,37,41);
+    width: 120px;
+}
+
+.manuBtn {
+    display: block;
+    background-color: transparent;
+}
+
+.mat__link {
+    font-size: 17px;
+}
+
+@media screen and (min-width: 991px) {
+    /* .manuBtn {
+        display: none;
+    } */
+
+    mat-drawer  {
+        background-color: rgb(33,37,41);
+        width: 220px;
+    }
+ }
