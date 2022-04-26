@@ -1,5 +1,5 @@
 .img {
-    min-height: 280px;
+    height: 280px;
 }
 
 /* img {
@@ -9,6 +9,10 @@
 
 .example-card {
     max-width: 250px;
+}
+
+.fw-bold {
+    font-size: 13px;
 }
 
 /* mat-card-title {

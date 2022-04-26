@@ -13,6 +13,7 @@ import { CharactersComponent } from './characters/characters.component';
 import { ComicsComponent } from './comics/comics.component';
 import { SeriesComponent } from './series/series.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ComicByHeroComponent } from './comic-by-hero/comic-by-hero.component';
 
 
 
@@ -22,8 +23,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HeaderComponent,
     CharactersComponent,
     ComicsComponent,
-    SeriesComponent
+    SeriesComponent,
+    ComicByHeroComponent
   ],
+  entryComponents: [ComicByHeroComponent],
   imports: [
     BrowserModule,
     HttpClientModule,

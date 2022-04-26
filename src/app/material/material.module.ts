@@ -5,6 +5,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatCardModule} from '@angular/material/card';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { MatListModule } from '@angular/material/list'
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 const material = [
@@ -13,7 +14,8 @@ const material = [
   MatIconModule,
   MatCardModule,
   MatProgressSpinnerModule,
-  MatListModule
+  MatListModule,
+  MatDialogModule
 ]
 
 @NgModule({

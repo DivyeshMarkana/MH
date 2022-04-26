@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ComicService } from './comics.service';
+import { GetContentService } from '../services/get-content.service';
 import { Comic } from './comicsModels/Comic';
 
 @Component({
@@ -11,14 +11,13 @@ export class ComicsComponent implements OnInit {
   comics: Comic[] = []
 
 
-  constructor(private _comicService: ComicService) { }
+  constructor(private _getContentService: GetContentService) { }
 
   ngOnInit(): void {
-    this._comicService.getComics().subscribe((response) => {
+    this._getContentService.getAllComics().subscribe((response) => {
       this.comics = response.data.results;
       console.log(response)
     })
-    // this._comicService.getComics().subscribe( (response) => console.log(response))
   }
 
 }

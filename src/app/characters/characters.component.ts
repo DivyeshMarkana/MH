@@ -1,6 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { CharacterService } from './character.service';
+import { GetContentService } from '../services/get-content.service';
 import { Character } from './characterModels/Character';
+import { MatDialog } from '@angular/material/dialog';
+import { ComicByHeroComponent } from '../comic-by-hero/comic-by-hero.component';
 
 @Component({
   selector: 'app-characters',
@@ -14,21 +16,30 @@ export class CharactersComponent implements OnInit, OnDestroy {
 
   // fetching:boolean = false;
 
-  constructor(private _cs: CharacterService) { }
+  constructor(
+    private _getContentService: GetContentService,
+    private dialog: MatDialog) { }
 
   ngOnInit(): void {
-    // this.fetching = true;
-    // this.subscription = this._cs.getCharacters().subscribe((response => this.characters = response.data.results))
-    // this.fetching = false;
-
     this.getCharacter()
   }
 
   getCharacter() {
     // this.fetching = true;
-    this.subscription = this._cs.getCharacters().subscribe((response => { this.characters = response.data.results; console.log(response);
+    this.subscription = this._getContentService.getCharacters().subscribe((response => { 
+      this.characters = response.data.results;
+      console.log(response);
+      
      }))
     // this.fetching = false;
+  }
+
+  openDialog() {
+    const dialogRef = this.dialog.open(ComicByHeroComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 
 
