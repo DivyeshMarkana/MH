@@ -3,6 +3,7 @@ import { GetContentService } from '../services/get-content.service';
 import { Character } from './characterModels/Character';
 import { MatDialog } from '@angular/material/dialog';
 import { ComicByHeroComponent } from '../comic-by-hero/comic-by-hero.component';
+import { Comic } from '../comics/comicsModels/Comic';
 
 @Component({
   selector: 'app-characters',
@@ -12,9 +13,11 @@ import { ComicByHeroComponent } from '../comic-by-hero/comic-by-hero.component';
 export class CharactersComponent implements OnInit, OnDestroy {
   characters: Character[] = []
 
+  // comics: Comic[] = []
+
   subscription
 
-  // fetching:boolean = false;
+  fetching:boolean = false;
 
   constructor(
     private _getContentService: GetContentService,
@@ -28,8 +31,13 @@ export class CharactersComponent implements OnInit, OnDestroy {
     // this.fetching = true;
     this.subscription = this._getContentService.getCharacters().subscribe((response => { 
       this.characters = response.data.results;
-      console.log(response);
-      
+      // console.log(response);
+      for (const iterator of this.characters) {
+        console.log(iterator);
+        
+      }
+
+
      }))
     // this.fetching = false;
   }
@@ -41,6 +49,17 @@ export class CharactersComponent implements OnInit, OnDestroy {
       console.log(`Dialog result: ${result}`);
     });
   }
+
+
+  // getComicsByName(id: number){
+
+  //   this.comicModal = true
+  //   this._getContentService.getComicsByHeroName(id).subscribe( (response) => {
+  //     this.comics = response.data.results;
+  //     console.log(response);
+      
+  //   } )
+  // }
 
 
 

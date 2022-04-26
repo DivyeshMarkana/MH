@@ -1,11 +1,31 @@
 <h2 mat-dialog-title>Comics by hero</h2>
 <mat-dialog-content class="mat-typography">
-  <h3>Develop across all platforms</h3>
-  <p>Learn one way to build applications with Angular and reuse your code and abilities to build
-    apps for any deployment target. For web, mobile web, native mobile and native desktop.</p>
+    <div class="bg-gray-200 rounded pt-3">
+        <div class=" mx-auto py-0 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
 
-  
+
+            <div class="grid grid-cols-1 gap-y-6 sm:grid-cols-2 gap-x-6 lg:grid-cols-4 xl:grid-cols-4 xl:gap-x-6">
+                <a class="group" *ngFor="let comic of comics">
+                    <div
+                        class="w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8 hero__wrapper">
+                        <img src="{{comic.thumbnail.path}}.{{comic.thumbnail.extension}}"
+                            alt="Tall slender porcelain bottle with natural clay textured body and cork stopper."
+                            class="w-full h-full object-center object-cover group-hover:opacity-75 img-fluid">
+
+                        <div class="overlay">
+                            <h3 class="mt-4 text-lg ms-3 text-gray-700">{{comic.title}}</h3>
+
+                        </div>
+                    </div>
+
+                </a>
+            </div>
+        </div>
+    </div>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-  <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button mat-dialog-close>Close</button>
 </mat-dialog-actions>
+
+<!-- <ng-content></ng-content> -->
+<!-- <ng-content></ng-content> -->

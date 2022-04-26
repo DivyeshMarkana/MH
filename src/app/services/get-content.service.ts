@@ -28,4 +28,26 @@ export class GetContentService {
     return this.http.get<ComicDataWrapper>(this.comicUrl)
   }
 
+
+  seriesUrl = 'https://gateway.marvel.com/v1/public/series?ts=1649611383&apikey=39b79c3e2d8f60abcd03f5d6046a7dcf&hash=788418b31f3fbc875e1cf6d7f1c9e7e6';
+
+
+  getAllSeries(): Observable<ComicDataWrapper> {
+    return this.http.get<ComicDataWrapper>(this.seriesUrl)
+  }
+
+  comicByHero = 'https://gateway.marvel.com:443/v1/public/characters/1011334/comics?ts=1649611383&apikey=39b79c3e2d8f60abcd03f5d6046a7dcf&hash=788418b31f3fbc875e1cf6d7f1c9e7e6';
+
+  getComicsByHeroName(): Observable<ComicDataWrapper>{
+    return this.http.get<ComicDataWrapper>(this.comicByHero)
+  }
+
+  // getComicsByHeroName(id:number): Observable<ComicDataWrapper>
+  // {
+
+  //  const comicByHero = `https://gateway.marvel.com:443/v1/public/characters/${id}/comics?ts=1649611383&apikey=39b79c3e2d8f60abcd03f5d6046a7dcf&hash=788418b31f3fbc875e1cf6d7f1c9e7e6`;
+
+  //   return this.http.get<ComicDataWrapper>(comicByHero)
+  // }
+
 }
