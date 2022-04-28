@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CharacterDataWrapper } from '../characters/characterModels/CharacterDataWrapper';
+import { Comic } from '../comics/comicsModels/Comic';
 import { ComicDataWrapper } from '../comics/comicsModels/comicDataWrapper';
 
 @Injectable({
@@ -13,7 +14,7 @@ export class GetContentService {
 
   //Get all characters
 
-  getCharactersURL = 'http://gateway.marvel.com/v1/public/characters?limit=20&ts=1650715932&apikey=39b79c3e2d8f60abcd03f5d6046a7dcf&hash=09170cf850ac95d9120904a5e7b2b146'
+  getCharactersURL = 'http://gateway.marvel.com/v1/public/characters?limit=50&ts=1650715932&apikey=39b79c3e2d8f60abcd03f5d6046a7dcf&hash=09170cf850ac95d9120904a5e7b2b146'
 
   getCharacters(): Observable<CharacterDataWrapper> {
     return this.http.get<CharacterDataWrapper>(this.getCharactersURL)
@@ -21,7 +22,7 @@ export class GetContentService {
 
   //Get all Comics
 
-  comicUrl = 'https://gateway.marvel.com/v1/public/comics?ts=1649611383&apikey=39b79c3e2d8f60abcd03f5d6046a7dcf&hash=788418b31f3fbc875e1cf6d7f1c9e7e6';
+  comicUrl = 'https://gateway.marvel.com/v1/public/comics?limit=50&ts=1649611383&apikey=39b79c3e2d8f60abcd03f5d6046a7dcf&hash=788418b31f3fbc875e1cf6d7f1c9e7e6';
 
 
   getAllComics(): Observable<ComicDataWrapper> {
@@ -29,25 +30,31 @@ export class GetContentService {
   }
 
 
-  seriesUrl = 'https://gateway.marvel.com/v1/public/series?ts=1649611383&apikey=39b79c3e2d8f60abcd03f5d6046a7dcf&hash=788418b31f3fbc875e1cf6d7f1c9e7e6';
+  seriesUrl = 'https://gateway.marvel.com/v1/public/series?limit=50&ts=1649611383&apikey=39b79c3e2d8f60abcd03f5d6046a7dcf&hash=788418b31f3fbc875e1cf6d7f1c9e7e6';
 
 
   getAllSeries(): Observable<ComicDataWrapper> {
     return this.http.get<ComicDataWrapper>(this.seriesUrl)
   }
 
-  comicByHero = 'https://gateway.marvel.com:443/v1/public/characters/1011334/comics?ts=1649611383&apikey=39b79c3e2d8f60abcd03f5d6046a7dcf&hash=788418b31f3fbc875e1cf6d7f1c9e7e6';
+  getComicsByHeroName(id:number): Observable<ComicDataWrapper>
+  {
 
-  getComicsByHeroName(): Observable<ComicDataWrapper>{
-    return this.http.get<ComicDataWrapper>(this.comicByHero)
+   const comicByHero = `https://gateway.marvel.com:443/v1/public/characters/${id}/comics?ts=1649611383&apikey=39b79c3e2d8f60abcd03f5d6046a7dcf&hash=788418b31f3fbc875e1cf6d7f1c9e7e6`;
+
+    return this.http.get<ComicDataWrapper>(comicByHero)
   }
 
-  // getComicsByHeroName(id:number): Observable<ComicDataWrapper>
-  // {
+  // get comic by id
 
-  //  const comicByHero = `https://gateway.marvel.com:443/v1/public/characters/${id}/comics?ts=1649611383&apikey=39b79c3e2d8f60abcd03f5d6046a7dcf&hash=788418b31f3fbc875e1cf6d7f1c9e7e6`;
+  
 
-  //   return this.http.get<ComicDataWrapper>(comicByHero)
-  // }
+  getComicsById(id:number): Observable<ComicDataWrapper>
+  {
+
+   const comicById = `https://gateway.marvel.com:443/v1/public/comics/${id}?ts=1649611383&apikey=39b79c3e2d8f60abcd03f5d6046a7dcf&hash=788418b31f3fbc875e1cf6d7f1c9e7e6`;
+
+    return this.http.get<ComicDataWrapper>(comicById)
+  }
 
 }

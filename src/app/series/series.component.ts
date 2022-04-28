@@ -9,12 +9,17 @@ import { GetContentService } from '../services/get-content.service';
 export class SeriesComponent implements OnInit {
   serieses:any[]= []
 
+  fetching:boolean = false;
+
   constructor(private _getContentService: GetContentService) { }
 
   ngOnInit(): void {
+    this.fetching = true;
     this._getContentService.getAllSeries().subscribe( (response) => {
       this.serieses = response.data.results;
-      console.log(response);
+      // console.log(response);
+      // console.log(this.serieses );
+      this.fetching = false;
       
     } )
   }

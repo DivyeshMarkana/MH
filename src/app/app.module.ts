@@ -14,6 +14,10 @@ import { ComicsComponent } from './comics/comics.component';
 import { SeriesComponent } from './series/series.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ComicByHeroComponent } from './comic-by-hero/comic-by-hero.component';
+import { FilterPipe } from './pipes/filter.pipe';
+import { ScrollingModule } from '@angular/cdk/scrolling';
+import { ComicOverviewComponent } from './comic-overview/comic-overview.component';
+import { SeriesByHeroComponent } from './series-by-hero/series-by-hero.component';
 
 
 
@@ -24,7 +28,10 @@ import { ComicByHeroComponent } from './comic-by-hero/comic-by-hero.component';
     CharactersComponent,
     ComicsComponent,
     SeriesComponent,
-    ComicByHeroComponent
+    ComicByHeroComponent,
+    FilterPipe,
+    ComicOverviewComponent,
+    SeriesByHeroComponent
   ],
   entryComponents: [ComicByHeroComponent],
   imports: [
@@ -34,6 +41,7 @@ import { ComicByHeroComponent } from './comic-by-hero/comic-by-hero.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
+    ScrollingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

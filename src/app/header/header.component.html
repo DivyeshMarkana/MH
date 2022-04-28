@@ -1,40 +1,41 @@
-<!-- <mat-drawer-container class="example-container" autosize>
+<mat-drawer-container class="example-container" autosize>
   <mat-drawer #drawer class="example-sidenav" mode="side">
     <ul class="navbar-nav me-auto mb-2 mb-lg-0  mt-5 mat__links">
-      <li class="nav-item d-inline-flex align-items-center text-white px-2" routerLink="/characters"  routerLinkActive="active">
-        <span class="material-icons me-2">
-          <span class="material-icons">
+      <li class="nav-item d-inline-flex align-items-center text-white px-2" routerLink="/characters"
+        routerLinkActive="active">
+        <span class="material-icons side_list_icon me-1">
             account_circle
-            </span>
-          </span>
-        <a class="nav-link " aria-current="page"  >Characters</a>
+        </span>
+        <a class="nav-link " aria-current="page">Characters</a>
       </li>
-      <li class="nav-item d-inline-flex align-items-center text-white px-2" routerLink="/comics" routerLinkActive="active">
-        <span class="material-icons me-2">
+      <li class="nav-item d-inline-flex align-items-center text-white px-2" routerLink="/comics"
+        routerLinkActive="active">
+        <span class="material-icons side_list_icon me-1">
           auto_stories
-          </span>
-        <a class="nav-link"  >Comics</a>
+        </span>
+        <a class="nav-link">Comics</a>
       </li>
 
-      <li class="nav-item d-inline-flex align-items-center text-white px-2"  routerLink="/series" routerLinkActive="active">
-        <span class="material-icons me-2">
+      <li class="nav-item d-inline-flex align-items-center text-white px-2" routerLink="/series"
+        routerLinkActive="active">
+        <span class="material-icons side_list_icon me-1">
           movie
-          </span>
-        <a class="nav-link " >Series</a>
+        </span>
+        <a class="nav-link ">Series</a>
       </li>
     </ul>
   </mat-drawer>
 
-  <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: #164575;">
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: var(--primary);">
     <div class="container">
-      <svg class="w-8 h-8 fill-current text-white me-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+      <svg class="w-8 h-8 fill-current text-white me-2 brand_svg " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
         fill="currentColor">
         <path
           d="M11 17a1 1 0 001.447.894l4-2A1 1 0 0017 15V9.236a1 1 0 00-1.447-.894l-4 2a1 1 0 00-.553.894V17zM15.211 6.276a1 1 0 000-1.788l-4.764-2.382a1 1 0 00-.894 0L4.789 4.488a1 1 0 000 1.788l4.764 2.382a1 1 0 00.894 0l4.764-2.382zM4.447 8.342A1 1 0 003 9.236V15a1 1 0 00.553.894l4 2A1 1 0 009 17v-5.764a1 1 0 00-.553-.894l-4-2z" />
       </svg>
       <a class="navbar-brand" href="#">Marvel Industry</a>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <ul class="navbar-nav me-auto mb-2 px-3 mb-lg-0">
           <li class="nav-item">
             <a class="nav-link " routerLinkActive="active" aria-current="page" routerLink="/characters">Characters</a>
           </li>
@@ -46,21 +47,28 @@
             <a class="nav-link " routerLinkActive="active" routerLink="/series">Series</a>
           </li>
         </ul>
-        <form class="d-flex">
+        <svg class="w-8 h-8 fill-current text-white me-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+        fill="currentColor">
+        <path
+          d="M11 17a1 1 0 001.447.894l4-2A1 1 0 0017 15V9.236a1 1 0 00-1.447-.894l-4 2a1 1 0 00-.553.894V17zM15.211 6.276a1 1 0 000-1.788l-4.764-2.382a1 1 0 00-.894 0L4.789 4.488a1 1 0 000 1.788l4.764 2.382a1 1 0 00.894 0l4.764-2.382zM4.447 8.342A1 1 0 003 9.236V15a1 1 0 00.553.894l4 2A1 1 0 009 17v-5.764a1 1 0 00-.553-.894l-4-2z" />
+      </svg>
+        <!-- <form class="d-flex">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        </form>
+        </form> -->
 
       </div>
       <button class="manuBtn" mat-mini-fab aria-label="Example icon button with a menu icon" (click)="drawer.toggle()">
         <mat-icon>menu</mat-icon>
       </button>
     </div>
-  </nav>
+  </nav>  
+
+  
   <router-outlet></router-outlet>
-</mat-drawer-container> -->
+</mat-drawer-container>
 
 
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #164575;">
+<!-- <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #164575;">
   <div class="container">
     <svg class="w-8 h-8 fill-current text-white me-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
       fill="currentColor">
@@ -86,9 +94,9 @@
       </form>
 
     </div>
-    <!-- <button class="manuBtn" mat-mini-fab aria-label="Example icon button with a menu icon" (click)="drawer.toggle()">
+    <button class="manuBtn" mat-mini-fab aria-label="Example icon button with a menu icon">
       <mat-icon>menu</mat-icon>
-    </button> -->
+    </button>
   </div>
 </nav>
-<router-outlet></router-outlet>
+<router-outlet></router-outlet> -->

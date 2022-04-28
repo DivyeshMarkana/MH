@@ -1,0 +1,49 @@
+<div class="container-fluid px-2">
+    <div class="container">
+        <div class=" comic__wrapper">
+            <div class="row" *ngFor="let comic of comics">
+                <div class="comic__img  col-sm-6 col-xs-12 col-md-6">
+                    <img class="rounded" src="{{comic.thumbnail.path}}.{{comic.thumbnail.extension}}"
+                        alt="image not found">
+                </div>
+                <div class=" col-md-6 col-sm-6 col-xs-12 ps-3">
+                    <div class="comic__info">
+                        <h1>{{comic.title | titlecase}}</h1>
+                        <div>
+                            <h2>Published:
+                                <br>
+                                <span>{{comic.dates[0].date | date}}</span>
+                            </h2>
+                            <p>{{comic.description ? comic.description : 'No description found☹️' }}</p>
+                            <button mat-raised-button routerLink="/comics" color="primary"> <span class="material-icons">
+                                arrow_back
+                                </span> Back</button>
+                        </div>
+                        <div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>Shiba Inu</mat-card-title>
+      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+    <mat-card-content>
+      <p>
+        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+        bred for hunting.
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button>LIKE</button>
+      <button mat-button>SHARE</button>
+    </mat-card-actions>
+  </mat-card> -->

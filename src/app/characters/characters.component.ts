@@ -1,23 +1,27 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { GetContentService } from '../services/get-content.service';
 import { Character } from './characterModels/Character';
 import { MatDialog } from '@angular/material/dialog';
 import { ComicByHeroComponent } from '../comic-by-hero/comic-by-hero.component';
-import { Comic } from '../comics/comicsModels/Comic';
 
 @Component({
   selector: 'app-characters',
   templateUrl: './characters.component.html',
   styleUrls: ['./characters.component.css']
 })
-export class CharactersComponent implements OnInit, OnDestroy {
-  characters: Character[] = []
+export class CharactersComponent implements OnInit, AfterViewInit, OnDestroy {
 
-  // comics: Comic[] = []
+  @ViewChild('loadButton') public loadButton:ElementRef
 
+  characters: Character[] = [];
+  dataCharacters: Character[] = [];
   subscription
+  fetching: boolean = false;
+  searchTerm: string = '';
+  loaded:boolean = false
 
-  fetching:boolean = false;
+  currentIndex = 0;
+  maxResult =  10;
 
   constructor(
     private _getContentService: GetContentService,
@@ -25,47 +29,43 @@ export class CharactersComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.getCharacter()
+    
+  }
+
+  searchCharacter(){
+    this.characters = this.dataCharacters.filter( (search) => {
+     return search.name.toLowerCase().includes(this.searchTerm.toLowerCase())
+    } );
   }
 
   getCharacter() {
-    // this.fetching = true;
-    this.subscription = this._getContentService.getCharacters().subscribe((response => { 
-      this.characters = response.data.results;
+    this.fetching = true;
+    this.subscription = this._getContentService.getCharacters().subscribe((response => {
       // console.log(response);
-      for (const iterator of this.characters) {
-        console.log(iterator);
-        
-      }
-
-
-     }))
-    // this.fetching = false;
-  }
-
-  openDialog() {
-    const dialogRef = this.dialog.open(ComicByHeroComponent);
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
-  }
-
-
-  // getComicsByName(id: number){
-
-  //   this.comicModal = true
-  //   this._getContentService.getComicsByHeroName(id).subscribe( (response) => {
-  //     this.comics = response.data.results;
-  //     console.log(response);
       
-  //   } )
-  // }
+      this.characters = response.data.results;
+      this.dataCharacters = response.data.results;
+      this.fetching = false;
+      this.loaded = true;
+    }))
+  }
 
+  openDialog(id) {
+    return this.dialog.open(ComicByHeroComponent, { data: { id: id }});
 
+    // dialogRef.afterClosed().subscribe(result => {
+    //   // console.log(`Dialog result: ${result}`);
+    // });
+  }
+
+  ngAfterViewInit(): void {
+    // this.loadButton.nativeElement.classList = 'hidden'
+      // console.log(this.loadButton);
+  }
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe()
-    console.log('character unsubscribe');
+    // console.log('character unsubscribe');
   }
 
 }
