@@ -28,22 +28,78 @@
     </div>
 </div>
 
-<!-- <mat-card class="example-card">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>Shiba Inu</mat-card-title>
-      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-    <mat-card-content>
-      <p>
-        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-        bred for hunting.
-      </p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-button>LIKE</button>
-      <button mat-button>SHARE</button>
-    </mat-card-actions>
-  </mat-card> -->
+
+
+<div *ngIf="comicCharacters.length !== 0" >
+  <div class="p-0">
+    <div class="pt-3">
+      <div class=" mx-auto py-0 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+        <h1>Retated Character</h1>
+        <div class="grid mt-2 grid-cols-1 gap-y-6 sm:grid-cols-2 gap-x-6 lg:grid-cols-4 xl:grid-cols-5 xl:gap-x-6">
+  
+          <a class="group border  rounded" *ngFor="let character of comicCharacters">
+            <mat-card
+              class="w-full p-0  aspect-w-1 aspect-h-1  rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8 sm:aspect-w-5 sm:aspect-h-3">
+  
+  
+              <mat-card-header>
+                  <mat-card-title class="p-0">
+                    <h4 class="fw-bold">{{character.name | filter}}</h4>
+                  </mat-card-title>
+              </mat-card-header>
+  
+              <div class="hero__img">
+                <img src="{{character.thumbnail.path}}.{{character.thumbnail.extension}}"
+                  alt="Tall slender porcelain bottle with natural clay textured body and cork stopper."
+                  class="w-full h-full object-center object-cover group-hover:opacity-75 img">
+              </div>
+  
+              <mat-card-actions class="ms-2 p-0 m-0 my-2">
+                <button mat-raised-button class="m-0" (click)="gotoComic(character.id);">COMICS</button>
+                <button mat-raised-button class="ms-1" (click)="gotoSeries(character.id);">SERIES</button>
+              </mat-card-actions>
+            </mat-card>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="pt-5">
+  <div class="pt-3">
+    <div class=" mx-auto py-0 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+      <h1>Recommended stories</h1>
+      <div class="grid mt-2 grid-cols-1 gap-y-4 sm:grid-cols-2 gap-x-4 lg:grid-cols-4 xl:grid-cols-5 xl:gap-x-4">
+
+        <a class="group border  rounded" *ngFor="let story of stories">
+          <mat-card
+            class="w-full p-0  aspect-w-1 aspect-h-1  rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8 sm:aspect-w-5 sm:aspect-h-3">
+            <mat-card-header>
+                <mat-card-title class="p-0">
+                  <h4 class="fw-bold" matTooltip="{{story.title}}" matTooltipPosition="above" >{{story.title | filter | titlecase}}</h4>
+                </mat-card-title>
+            </mat-card-header>
+
+            <!-- ../../../../assets/image not found.jpg -->
+            <div class="hero__img" *ngIf="story.thumbnail !== null">
+              <img src="{{story.thumbnail.path}}.{{story.thumbnail.extension}}"
+                alt="Tall slender porcelain bottle with natural clay textured body and cork stopper."
+                class="w-full h-full object-center object-cover img">
+            </div>
+
+            <div class="hero__img" *ngIf="story.thumbnail === null">
+              <img src="../../../../assets/image not found.jpg"
+                alt="Tall slender porcelain bottle with natural clay textured body and cork stopper."
+                class="w-full h-full object-center object-cover img">
+            </div>
+          </mat-card>
+
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+

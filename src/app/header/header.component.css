@@ -13,8 +13,12 @@ mat-sidenav, mat-sidenav-content {
     padding: 16px;
 }
 
+.navbar {
+    background-color: var(--dark);
+}
+
 mat-drawer  {
-    background-color: var(--primary);
+    background-color: var(--dark);
     /* background-color: #3f51b5; */ 
     /* background-color: #164575; */
     width: 90px;

@@ -15,9 +15,8 @@ import { SeriesComponent } from './series/series.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ComicByHeroComponent } from './comic-by-hero/comic-by-hero.component';
 import { FilterPipe } from './pipes/filter.pipe';
-import { ScrollingModule } from '@angular/cdk/scrolling';
 import { ComicOverviewComponent } from './comic-overview/comic-overview.component';
-import { SeriesByHeroComponent } from './series-by-hero/series-by-hero.component';
+import { ContentFunctionalityService } from './services/content-functionality.service';
 
 
 
@@ -31,7 +30,6 @@ import { SeriesByHeroComponent } from './series-by-hero/series-by-hero.component
     ComicByHeroComponent,
     FilterPipe,
     ComicOverviewComponent,
-    SeriesByHeroComponent
   ],
   entryComponents: [ComicByHeroComponent],
   imports: [
@@ -41,9 +39,8 @@ import { SeriesByHeroComponent } from './series-by-hero/series-by-hero.component
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    ScrollingModule
   ],
-  providers: [],
+  providers: [ContentFunctionalityService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

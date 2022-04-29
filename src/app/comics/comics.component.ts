@@ -33,7 +33,7 @@ export class ComicsComponent implements OnInit {
   getComic() {
     this.fetching = true;
     this.subscription = this._getContentService.getAllComics().subscribe((response => {
-      console.log(response);
+      // console.log(response);
       this.comics = response.data.results;
       this.dataComic = response.data.results;
       this.fetching = false;

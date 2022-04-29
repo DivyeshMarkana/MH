@@ -66,19 +66,18 @@ mat-card:hover .fw-bold {
 }
 
 mat-card:hover img {
-    /* transform : scale(1.1); */
     transform : translateY(-8px);
-    /* transition: 650ms cubic-bezier(.5, 0, .5, 1); */
     transition: 250ms ease-in-out;
 }
 
 .fw-bold {
     font-size: 13px;
+    text-overflow: ellipsis;
 }
 
-/* mat-card-title {
-    font-size: 122px;
-} */
+mat-card-header {
+    overflow: hidden;
+}
 
 .character__wrapper {
     max-width: 250px;
@@ -86,7 +85,6 @@ mat-card:hover img {
 
 
 .example-header-image {
-    /* background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg'); */
     background-size: cover;
 }
 
@@ -104,3 +102,44 @@ mat-card:hover img {
     }
 
 }
+
+
+/* mat-card {
+    height: 350px;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+.seriess {
+    border: 2px solid black;
+    margin-top: 1rem;
+    display: grid;
+    display: -ms-grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    -ms-grid-columns: repeat(auto-fit, minmax(300px, 1fr)) ;
+    gap: 15px;
+}
+
+.series {
+    width: 230px;
+    min-height: 350px;
+    border: 1px solid red;
+}
+
+.img__wrapper img {
+    max-width: 230px;
+    height: auto;
+} */
+
+
+/* @media screen and (min-width: 1000px) {
+    .seriess {
+     
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr ;
+        
+    }
+} */

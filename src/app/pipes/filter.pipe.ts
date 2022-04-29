@@ -12,7 +12,12 @@ export class FilterPipe implements PipeTransform {
   // }
 
   transform(value: string) {
-      return value.split('').splice(0, 30).join('').trim()
+    if (value.length < 25 ) {
+      return value;
+    }else {
+      return value.split('').splice(0, 25).join('').trim() + '...';
+    }
+      
   }
 
 }

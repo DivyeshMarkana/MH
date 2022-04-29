@@ -1,8 +1,10 @@
 import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { GetContentService } from '../services/get-content.service';
 import { Character } from './characterModels/Character';
-import { MatDialog } from '@angular/material/dialog';
-import { ComicByHeroComponent } from '../comic-by-hero/comic-by-hero.component';
+// import { MatDialog } from '@angular/material/dialog';
+// import { ComicByHeroComponent } from '../comic-by-hero/comic-by-hero.component';
+// import { SeriesByHeroComponent } from '../series-by-hero/series-by-hero.component';
+import { ContentFunctionalityService } from '../services/content-functionality.service';
 
 @Component({
   selector: 'app-characters',
@@ -25,7 +27,8 @@ export class CharactersComponent implements OnInit, AfterViewInit, OnDestroy {
 
   constructor(
     private _getContentService: GetContentService,
-    private dialog: MatDialog) { }
+    // private dialog: MatDialog,
+    private _contentFunctionality: ContentFunctionalityService) { }
 
   ngOnInit(): void {
     this.getCharacter()
@@ -41,7 +44,7 @@ export class CharactersComponent implements OnInit, AfterViewInit, OnDestroy {
   getCharacter() {
     this.fetching = true;
     this.subscription = this._getContentService.getCharacters().subscribe((response => {
-      // console.log(response);
+      console.log(response);
       
       this.characters = response.data.results;
       this.dataCharacters = response.data.results;
@@ -50,22 +53,19 @@ export class CharactersComponent implements OnInit, AfterViewInit, OnDestroy {
     }))
   }
 
-  openDialog(id) {
-    return this.dialog.open(ComicByHeroComponent, { data: { id: id }});
+  gotoComic(id) {
+    this._contentFunctionality.goComics(id)
+  }
 
-    // dialogRef.afterClosed().subscribe(result => {
-    //   // console.log(`Dialog result: ${result}`);
-    // });
+  gotoSeries(id){
+    this._contentFunctionality.goseries(id)
   }
 
   ngAfterViewInit(): void {
-    // this.loadButton.nativeElement.classList = 'hidden'
-      // console.log(this.loadButton);
   }
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe()
-    // console.log('character unsubscribe');
   }
 
 }

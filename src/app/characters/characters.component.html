@@ -12,7 +12,7 @@
 
             <mat-card-header>
                 <mat-card-title class="p-0">
-                  <h4 class="fw-bold">{{character.name | filter}}</h4>
+                  <h4 class="fw-bold" matTooltip="{{character.name}}" matTooltipPosition="above">{{character.name | filter}}</h4>
                 </mat-card-title>
             </mat-card-header>
 
@@ -22,9 +22,9 @@
                 class="w-full h-full object-center object-cover group-hover:opacity-75 img">
             </div>
 
-            <mat-card-actions class="ms-2 p-0 m-0 my-2">
-              <button mat-raised-button class="m-0" (click)="openDialog(character.id);">COMICS</button>
-              <button mat-raised-button class="ms-1" (click)="openDialog(character.id);">SERIES</button>
+            <mat-card-actions class="mx-2 p-0 m-0 my-2">
+              <button mat-raised-button class="m-0" (click)="gotoComic(character.id);">COMICS</button>
+              <button mat-raised-button class="m-0" (click)="gotoSeries(character.id);">SERIES</button>
             </mat-card-actions>
           </mat-card>
 
