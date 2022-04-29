@@ -2,23 +2,19 @@
 
     background         : url("../../assets/s3.jpg") #00000098;
     color              : var(--white);
-    /* background      :url(../../assets/s2.jpg) repeat, linear-gradient(to bottom,  #7abcff 0%,#4096ee 100%);  */
-    /* background-color: #a67bf0; */
-    /* background-image: url(../../assets/s2.jpg); */
+ 
 
-    /* background-repeat: no-repeat; */
+    background-repeat: no-repeat;
     background-size      : cover;
     background-position  : center;
     background-blend-mode: multiply;
     opacity              : 1;
     background-clip      : border-box;
-    /* filter            : blur(3px); */
 }
 
 .comic__wrapper {
     padding    : 3rem 0;
     min-height : 90vh;
-    /* border  : 2px solid var(--primary); */
 }
 
 .comic__img {

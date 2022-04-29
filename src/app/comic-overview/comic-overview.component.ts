@@ -39,8 +39,6 @@ export class ComicOverviewComponent implements OnInit {
     this._getContentService.getComicsById(id).subscribe((response) => {
       // console.log(response);
       this.comics = response.data.results;
-
-      this.comicCharacters
     })
   }
 

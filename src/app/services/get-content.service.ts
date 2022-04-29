@@ -23,10 +23,10 @@ export class GetContentService {
     return this.http.get<CharacterDataWrapper>(this.getCharactersURL)
   }
 
-  getCharacterById(id:number):Observable<Character> {
+  getCharacterById(id:number):Observable<CharacterDataWrapper> {
     const characterById = `https://gateway.marvel.com:443/v1/public/characters/${id}?ts=1649611383&apikey=39b79c3e2d8f60abcd03f5d6046a7dcf&hash=788418b31f3fbc875e1cf6d7f1c9e7e6`;
 
-    return this.http.get<Character>(characterById)
+    return this.http.get<CharacterDataWrapper>(characterById)
   }
 
   // get character by comic id

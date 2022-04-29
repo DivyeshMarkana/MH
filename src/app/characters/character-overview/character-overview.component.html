@@ -1,0 +1,29 @@
+<div class="container-fluid px-2">
+    <div class="container">
+        <div class=" comic__wrapper">
+            <div class="row" *ngFor="let character of characters">
+                <div class="comic__img  col-sm-6 col-xs-12 col-md-6">
+                    <img class="rounded" src="{{character.thumbnail.path}}.{{character.thumbnail.extension}}"
+                        alt="image not found">
+                </div>
+                <div class=" col-md-6 col-sm-6 col-xs-12 ps-3">
+                    <div class="comic__info">
+                        <h1>{{character.name | titlecase}}</h1>
+                        <div>
+                            <!-- <h2>Published:
+                                <br>
+                                <span>{{comic.dates[0].date | date}}</span>
+                            </h2> -->
+                            <p>{{character.description ? character.description : 'No description found☹️' }}</p>
+                            <button mat-raised-button routerLink="/characters" color="primary"> <span class="material-icons">
+                                arrow_back
+                                </span> Back</button>
+                        </div>
+                        <div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
