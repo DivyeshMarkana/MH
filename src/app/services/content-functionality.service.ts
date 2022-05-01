@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ComicByHeroComponent } from '../comic-by-hero/comic-by-hero.component';
+import { ComicByHeroComponent } from '../comics/comic-by-hero/comic-by-hero.component';
 import { SeriesByHeroComponent } from '../series-by-hero/series-by-hero.component';
 
 @Injectable({

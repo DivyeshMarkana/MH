@@ -21,6 +21,7 @@ img {
 }
 
 .latest {
+    padding-block: 3rem;
     max-width      : clamp(85%, 100vw, 10%);
     margin-inline  : auto;
     border-left : 5px solid #c6c6c6;

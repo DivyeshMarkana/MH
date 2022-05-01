@@ -9,12 +9,12 @@ mat-drawer-container {
     
 }
 
-mat-sidenav, mat-sidenav-content {
-    padding: 16px;
-}
-
 .navbar {
     background-color: var(--dark);
+}
+
+mat-drawer-content {
+    background-color: #e1e1e1;
 }
 
 mat-drawer  {

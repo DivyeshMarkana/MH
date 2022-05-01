@@ -1,11 +1,11 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Character } from '../characters/characterModels/Character';
-import { ComicsComponent } from '../comics/comics.component';
-import { Comic } from '../comics/comicsModels/Comic';
-import { ContentFunctionalityService } from '../services/content-functionality.service';
-import { GetContentService } from '../services/get-content.service';
-import { Story } from '../stories/storyModel/Story';
+import { Character } from '../../characters/characterModels/Character';
+import { ComicsComponent } from '../comics.component';
+import { Comic } from '../comicsModels/Comic';
+import { ContentFunctionalityService } from '../../services/content-functionality.service';
+import { GetContentService } from '../../services/get-content.service';
+import { Story } from '../../stories/storyModel/Story';
 
 @Component({
   selector: 'app-comic-overview',
