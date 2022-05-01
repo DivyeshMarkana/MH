@@ -6,6 +6,7 @@ import { ComicOverviewComponent } from './comics/comic-overview/comic-overview.c
 import { ComicsComponent } from './comics/comics.component';
 import { HomeComponent } from './home/home.component';
 import { SeriesComponent } from './series/series.component';
+import { StoriesComponent } from './stories/stories.component';
 
 const routes: Routes = [
   {
@@ -28,6 +29,9 @@ const routes: Routes = [
   },
   {
     path: 'series', component: SeriesComponent
+  },
+  {
+    path: 'stories', component: StoriesComponent
   },
 ];
 

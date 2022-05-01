@@ -21,6 +21,8 @@ import { CharacterOverviewComponent } from './characters/character-overview/char
 import { HomeComponent } from './home/home.component';
 import { SeriesByHeroComponent } from './series-by-hero/series-by-hero.component';
 import { FooterComponent } from './footer/footer.component';
+import { CreatorComponent } from './creator/creator/creator.component';
+import { StoriesComponent } from './stories/stories.component';
 
 
 
@@ -37,7 +39,9 @@ import { FooterComponent } from './footer/footer.component';
     CharacterOverviewComponent,
     HomeComponent,
     SeriesByHeroComponent,
-    FooterComponent
+    FooterComponent,
+    CreatorComponent,
+    StoriesComponent
   ],
   entryComponents: [ComicByHeroComponent, SeriesByHeroComponent],
   imports: [
