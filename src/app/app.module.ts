@@ -18,6 +18,7 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { ComicOverviewComponent } from './comic-overview/comic-overview.component';
 import { ContentFunctionalityService } from './services/content-functionality.service';
 import { CharacterOverviewComponent } from './characters/character-overview/character-overview.component';
+import { HomeComponent } from './home/home.component';
 
 
 
@@ -32,6 +33,7 @@ import { CharacterOverviewComponent } from './characters/character-overview/char
     FilterPipe,
     ComicOverviewComponent,
     CharacterOverviewComponent,
+    HomeComponent,
   ],
   entryComponents: [ComicByHeroComponent],
   imports: [

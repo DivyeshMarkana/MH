@@ -4,11 +4,15 @@ import { CharacterOverviewComponent } from './characters/character-overview/char
 import { CharactersComponent } from './characters/characters.component';
 import { ComicOverviewComponent } from './comic-overview/comic-overview.component';
 import { ComicsComponent } from './comics/comics.component';
+import { HomeComponent } from './home/home.component';
 import { SeriesComponent } from './series/series.component';
 
 const routes: Routes = [
   {
-    path: '', redirectTo: 'characters', pathMatch: 'full'
+    path: '', redirectTo: 'marvel', pathMatch: 'full'
+  },
+  {
+    path: 'marvel', component: HomeComponent
   },
   {
     path: 'characters', component: CharactersComponent

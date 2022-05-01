@@ -1,0 +1,73 @@
+<!-- <div class="container"></div> -->
+<div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="../../assets/theme1.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="../../assets/theme2.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="../../assets/theme3.jpg" class="d-block w-100" alt="...">
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+
+<div class="latest" *ngIf="loaded">
+    <div class="movies">
+        <h1>Recommanded movies</h1>
+        <div class="recommanded">
+            <div class="recommanded__movies" *ngFor="let rec of recommanded">
+                <div class="movie__image">
+                    <img src="{{rec.src}}" alt="">
+                </div>
+                <div class="movie__title">
+                    <h3>{{rec.title}}
+                        <div class="underline"></div>
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="poster">
+        <div class="content">
+            <img src="../../assets/poster/poster__logo.webp" alt="">
+            <p>Nothing can prepare you for the Multiverse. Experience Marvel Studios' Doctor Strange in the Multiverse of Madness, only in theatres May 6th.</p>
+        </div>
+    </div>
+
+    <div class="movies">
+        <h1>Upcoming 2022 / 2023</h1>
+        <div class="recommanded">
+            <div class="recommanded__movies" *ngFor="let upcoming of upcomings">
+                <div class="movie__image">
+                    <img src="{{upcoming.src}}" alt="">
+                </div>
+                <div class="movie__title">
+                    <h3>{{upcoming.title}}
+                        <div class="underline"></div>
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- <div class="poster">
+    <div class="content">
+        <h3>Hey there! click here</h3>
+        <button mat-raised-button>Click</button>
+    </div>
+</div> -->
+

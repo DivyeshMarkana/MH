@@ -6,11 +6,11 @@
       <div class="grid mt-2 grid-cols-1 gap-y-6 sm:grid-cols-2 gap-x-6 lg:grid-cols-4 xl:grid-cols-5 xl:gap-x-6">
 
         <a class="group border  rounded" *ngFor="let character of characters">
-          <mat-card [routerLink]="['/character-detail', character.id]" [queryParams]="{character: character.name}"
+          <mat-card 
             class="w-full p-0  aspect-w-1 aspect-h-1  rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8 sm:aspect-w-5 sm:aspect-h-3">
 
 
-            <mat-card-header>
+            <mat-card-header [routerLink]="['/character-detail', character.id]" [queryParams]="{character: character.name}">
                 <mat-card-title class="p-0">
                   <h4 class="fw-bold" matTooltip="{{character.name}}" matTooltipPosition="above">{{character.name | filter}}</h4>
                 </mat-card-title>
