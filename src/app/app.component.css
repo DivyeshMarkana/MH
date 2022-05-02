@@ -1,0 +1,140 @@
+/* card css starts */
+
+.img {
+    height: 280px;
+}
+
+.seachBar {
+    margin-top: 10px;
+}
+
+.example-card {
+    max-width: 250px;
+}
+
+mat-card:hover .fw-bold {
+    color: var(--white);
+}
+
+mat-card:hover mat-card-header {
+    transition      : 450ms ease-in-out;
+    background-color: var(--primary);
+}
+
+.image__wrapper {
+    overflow: hidden;
+}
+
+mat-card:hover img {
+    transform : scale(1.1);
+    transition: 650ms cubic-bezier(.5, 0, .5, 1);
+}
+
+.fw-bold {
+    font-size: 13px !important;
+}
+
+.character__wrapper {
+    max-width: 250px;
+}
+
+.loading__spiner {
+    display        : flex;
+    flex-direction : column;
+    justify-content: center;
+    align-items    : center;
+    text-align     : center;
+}
+
+@media screen and (max-width: 400) {
+    mat-card {
+        height: 200px;
+    }
+}
+
+/* card css ends */
+
+
+/* overview css starts */
+
+
+.main__container {
+
+    background: url("../assets/s3.jpg") #00000098;
+    color     : var(--white);
+
+
+    background-repeat    : no-repeat;
+    background-size      : cover;
+    background-position  : center;
+    background-blend-mode: multiply;
+    opacity              : 1;
+    background-clip      : border-box;
+}
+
+.overview__wrapper {
+    padding   : 3rem 0;
+    min-height: 90vh;
+}
+
+.overview__img {
+    max-width      : 400px;
+    max-height     : 450px;
+    height         : auto;
+    display        : flex;
+    justify-content: center;
+    align-items    : center;
+}
+
+.overview__img img {
+    max-width : 300px;
+    max-height: 450px;
+}
+
+
+
+h1 {
+    font-weight: 900;
+}
+
+.overview__info h2 {
+    font-weight: 400;
+}
+
+.overview__info li {
+    max-width: 90px;
+    display: flex;
+    justify-content: space-between;
+    flex     : 1;
+}
+
+span {
+    font-size: 15px;
+}
+
+/* @media screen and (max-width: 600) {
+
+    .overview__img {
+        max-width: 300px;
+        height   : 300px;
+
+    }
+
+    .overview__img img {
+        max-width: 300px;
+        height   : auto;
+    }
+
+} */
+
+@media screen and (min-width: 600px) {
+
+    .overview__wrapper {
+        max-width: 80%;
+    }
+
+    .overview__img img {
+        max-width : 300px;
+        min-height: 350px;
+    }
+}

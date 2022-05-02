@@ -4,10 +4,13 @@ import { CharacterOverviewComponent } from './characters/character-overview/char
 import { CharactersComponent } from './characters/characters.component';
 import { ComicOverviewComponent } from './comics/comic-overview/comic-overview.component';
 import { ComicsComponent } from './comics/comics.component';
+import { CreatorOverviewComponent } from './creator/creator-overview/creator-overview.component';
 import { CreatorComponent } from './creator/creator/creator.component';
 import { HomeComponent } from './home/home.component';
+import { SeriesOverviewComponent } from './series/series-overview/series-overview.component';
 import { SeriesComponent } from './series/series.component';
 import { StoriesComponent } from './stories/stories.component';
+import { StoryOverviewComponent } from './stories/story-overview/story-overview.component';
 
 const routes: Routes = [
   {
@@ -32,14 +35,20 @@ const routes: Routes = [
     path: 'series', component: SeriesComponent
   },
   {
+    path: 'series/:id', component: SeriesOverviewComponent
+  },
+  {
     path: 'stories', component: StoriesComponent
   },
   {
-    path: 'Creator', component: CreatorComponent
+    path: 'story/:id', component: StoryOverviewComponent
   },
-  // {
-  //   path: 'Creator/:id', component: CreatorComponent
-  // },
+  {
+    path: 'creator', component: CreatorComponent
+  },
+  {
+    path: 'creator/:id', component: CreatorOverviewComponent
+  },
 ];
 
 @NgModule({

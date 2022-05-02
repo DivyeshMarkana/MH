@@ -1,11 +1,11 @@
-<div class="container-fluid px-2">
+<div class="main__container px-2">
   <button mat-button (click)="goBack()"> <span class="material-icons">
     arrow_back
   </span> Back</button>
   <div class="container">
-    <div class=" comic__wrapper">
+    <div class=" overview__wrapper">
       <div class="row" *ngFor="let comic of comics">
-        <div class="comic__img  col-sm-6 col-xs-12 col-md-6">
+        <div class="overview__img  col-sm-6 col-xs-12 col-md-6">
           <img class="rounded" src="{{comic.thumbnail.path}}.{{comic.thumbnail.extension}}" alt="image not found">
         </div>
         <div class=" col-md-6 col-sm-6 col-xs-12 ps-3">
@@ -47,7 +47,7 @@
                 </mat-card-title>
               </mat-card-header>
 
-              <div class="hero__img">
+              <div class="image__wrapper">
                 <img src="{{character.thumbnail.path}}.{{character.thumbnail.extension}}"
                   alt="Tall slender porcelain bottle with natural clay textured body and cork stopper."
                   class="w-full h-full object-center object-cover group-hover:opacity-75 img">
@@ -85,13 +85,13 @@
               </mat-card-header>
 
               <!-- ../../../../assets/image not found.jpg -->
-              <div class="hero__img" *ngIf="story.thumbnail !== null">
+              <div class="hero__imimage__wrapper" *ngIf="story.thumbnail !== null">
                 <img src="{{story.thumbnail.path}}.{{story.thumbnail.extension}}"
                   alt="Tall slender porcelain bottle with natural clay textured body and cork stopper."
                   class="w-full h-full object-center object-cover img">
               </div>
 
-              <div class="hero__img" *ngIf="story.thumbnail === null">
+              <div class="image__wrapper" *ngIf="story.thumbnail === null">
                 <img src="../../../../assets/image not found.jpg"
                   alt="Tall slender porcelain bottle with natural clay textured body and cork stopper."
                   class="w-full h-full object-center object-cover img">

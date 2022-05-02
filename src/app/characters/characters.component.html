@@ -16,7 +16,7 @@
                 </mat-card-title>
             </mat-card-header>
 
-            <div class="hero__img">
+            <div class="image__wrapper">
               <img src="{{character.thumbnail.path}}.{{character.thumbnail.extension}}"
                 alt="Tall slender porcelain bottle with natural clay textured body and cork stopper."
                 class="w-full h-full object-center object-cover group-hover:opacity-75 img">
@@ -38,10 +38,8 @@
 
 
 <div class="container">
-  <div class="text-center" *ngIf="fetching">
-    <!-- <div class="spinner-grow text-primary" role="status"></div> -->
+  <div class="loading__spiner" *ngIf="fetching">
     <mat-progress-bar mode="indeterminate"></mat-progress-bar>
-
     <div>Loading please wait...</div>
   </div>
 </div>

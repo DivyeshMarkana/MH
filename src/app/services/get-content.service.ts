@@ -1,9 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Character } from '../characters/characterModels/Character';
 import { CharacterDataWrapper } from '../characters/characterModels/CharacterDataWrapper';
-import { Comic } from '../comics/comicsModels/Comic';
 import { ComicDataWrapper } from '../comics/comicsModels/comicDataWrapper';
 import { CreatorDataWrapper } from '../creator/creator/creatorModel/CreatorDataWrapper';
 import { SeriesDataWrapper } from '../series/seriesModels/SeriesDataWrapper';
@@ -75,6 +73,11 @@ export class GetContentService {
     return this.http.get<SeriesDataWrapper>(this.seriesUrl)
   }
 
+  getSeriesById(id:number):Observable<SeriesDataWrapper> {
+      const seriesById = `https://gateway.marvel.com:443/v1/public/series/${id}?ts=1649611383&apikey=39b79c3e2d8f60abcd03f5d6046a7dcf&hash=788418b31f3fbc875e1cf6d7f1c9e7e6`;
+      return this.http.get<SeriesDataWrapper>(seriesById);
+  }
+
 
   // get series by hero's name
 
@@ -103,6 +106,14 @@ export class GetContentService {
     return this.http.get<StoryDataWrapper>(this.storiesUrl)
   }
 
+   // get story by id
+
+   getStoryById(id:number): Observable<StoryDataWrapper> {
+    const getStory = `https://gateway.marvel.com:443/v1/public/stories/${id}?ts=1649611383&apikey=39b79c3e2d8f60abcd03f5d6046a7dcf&hash=788418b31f3fbc875e1cf6d7f1c9e7e6`;
+
+    return this.http.get<StoryDataWrapper>(getStory)  
+  }
+
 
   creatorUrl = 'https://gateway.marvel.com/v1/public/creators?limit=30&ts=1649611383&apikey=39b79c3e2d8f60abcd03f5d6046a7dcf&hash=788418b31f3fbc875e1cf6d7f1c9e7e6';
 
@@ -124,6 +135,18 @@ export class GetContentService {
     const getComic = `https://gateway.marvel.com:443/v1/public/creators/${id}/comics?ts=1649611383&apikey=39b79c3e2d8f60abcd03f5d6046a7dcf&hash=788418b31f3fbc875e1cf6d7f1c9e7e6`;
 
     return this.http.get<ComicDataWrapper>(getComic);
+  }
+
+  getSeriesByCreator(id:number):Observable<SeriesDataWrapper>{
+    const getSeries = `https://gateway.marvel.com:443/v1/public/creators/${id}/series?ts=1649611383&apikey=39b79c3e2d8f60abcd03f5d6046a7dcf&hash=788418b31f3fbc875e1cf6d7f1c9e7e6`;
+
+    return this.http.get<SeriesDataWrapper>(getSeries);
+  }
+  
+  getStoriesByCreator(id:number):Observable<StoryDataWrapper>{
+    const getStories = `https://gateway.marvel.com:443/v1/public/creators/${id}/stories?ts=1649611383&apikey=39b79c3e2d8f60abcd03f5d6046a7dcf&hash=788418b31f3fbc875e1cf6d7f1c9e7e6`;
+
+    return this.http.get<StoryDataWrapper>(getStories);
   }
 
 }

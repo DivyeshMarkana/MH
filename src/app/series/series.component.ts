@@ -17,7 +17,7 @@ export class SeriesComponent implements OnInit {
     this.fetching = true;
     this._getContentService.getAllSeries().subscribe( (response) => {
       this.serieses = response.data.results;
-      // console.log(response);
+      console.log(response);
       // console.log(this.serieses );
       this.fetching = false;
       

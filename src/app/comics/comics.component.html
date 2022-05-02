@@ -14,7 +14,7 @@
                 </mat-card-title>
             </mat-card-header>
 
-            <div class="hero__img">
+            <div class="image__wrapper">
               <img src="{{comic.thumbnail.path}}.{{comic.thumbnail.extension}}"
                 alt="Tall slender porcelain bottle with natural clay textured body and cork stopper."
                 class="w-full h-full object-center object-cover img">
@@ -27,7 +27,7 @@
 </div>
   
   <div class="container">
-    <div class="text-center" *ngIf="fetching">
+    <div class="loading__spiner" *ngIf="fetching">
       <mat-progress-bar mode="indeterminate"></mat-progress-bar>
       <div>Loading please wait...</div>
     </div>

@@ -23,6 +23,9 @@ import { SeriesByHeroComponent } from './series-by-hero/series-by-hero.component
 import { FooterComponent } from './footer/footer.component';
 import { CreatorComponent } from './creator/creator/creator.component';
 import { StoriesComponent } from './stories/stories.component';
+import { SeriesOverviewComponent } from './series/series-overview/series-overview.component';
+import { StoryOverviewComponent } from './stories/story-overview/story-overview.component';
+import { CreatorOverviewComponent } from './creator/creator-overview/creator-overview.component';
 
 
 
@@ -41,7 +44,10 @@ import { StoriesComponent } from './stories/stories.component';
     SeriesByHeroComponent,
     FooterComponent,
     CreatorComponent,
-    StoriesComponent
+    StoriesComponent,
+    SeriesOverviewComponent,
+    StoryOverviewComponent,
+    CreatorOverviewComponent
   ],
   entryComponents: [ComicByHeroComponent, SeriesByHeroComponent],
   imports: [
