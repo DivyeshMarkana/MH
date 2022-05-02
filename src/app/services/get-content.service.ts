@@ -5,6 +5,7 @@ import { Character } from '../characters/characterModels/Character';
 import { CharacterDataWrapper } from '../characters/characterModels/CharacterDataWrapper';
 import { Comic } from '../comics/comicsModels/Comic';
 import { ComicDataWrapper } from '../comics/comicsModels/comicDataWrapper';
+import { CreatorDataWrapper } from '../creator/creator/creatorModel/CreatorDataWrapper';
 import { SeriesDataWrapper } from '../series/seriesModels/SeriesDataWrapper';
 import { StoryDataWrapper } from '../stories/storyModel/StoryDataWrapper';
 
@@ -100,6 +101,29 @@ export class GetContentService {
 
   getAllStories(): Observable<StoryDataWrapper> {
     return this.http.get<StoryDataWrapper>(this.storiesUrl)
+  }
+
+
+  creatorUrl = 'https://gateway.marvel.com/v1/public/creators?limit=30&ts=1649611383&apikey=39b79c3e2d8f60abcd03f5d6046a7dcf&hash=788418b31f3fbc875e1cf6d7f1c9e7e6';
+
+
+  getAllcreator(): Observable<CreatorDataWrapper> {
+    return this.http.get<CreatorDataWrapper>(this.creatorUrl)
+  }
+  
+
+  // get creator by id
+
+  getCreatorById(id:number): Observable<CreatorDataWrapper> {
+    const getCreator = `https://gateway.marvel.com:443/v1/public/creators/${id}?ts=1649611383&apikey=39b79c3e2d8f60abcd03f5d6046a7dcf&hash=788418b31f3fbc875e1cf6d7f1c9e7e6`;
+
+    return this.http.get<CreatorDataWrapper>(getCreator)
+  }
+
+  getComicByCreator(id:number):Observable<ComicDataWrapper>{
+    const getComic = `https://gateway.marvel.com:443/v1/public/creators/${id}/comics?ts=1649611383&apikey=39b79c3e2d8f60abcd03f5d6046a7dcf&hash=788418b31f3fbc875e1cf6d7f1c9e7e6`;
+
+    return this.http.get<ComicDataWrapper>(getComic);
   }
 
 }

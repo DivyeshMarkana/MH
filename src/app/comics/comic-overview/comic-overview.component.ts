@@ -6,6 +6,7 @@ import { Comic } from '../comicsModels/Comic';
 import { ContentFunctionalityService } from '../../services/content-functionality.service';
 import { GetContentService } from '../../services/get-content.service';
 import { Story } from '../../stories/storyModel/Story';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-comic-overview',
@@ -25,7 +26,12 @@ export class ComicOverviewComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
     private _getContentService: GetContentService,
-    private _contentFunctionality: ContentFunctionalityService) { }
+    private _contentFunctionality: ContentFunctionalityService,
+    private location: Location) {
+    route.paramMap.subscribe(params => {
+      this.ngOnInit();
+    });
+  }
 
   ngOnInit(): void {
     const id = this.route.snapshot.params['id']
@@ -57,6 +63,10 @@ export class ComicOverviewComponent implements OnInit {
 
   gotoSeries(id) {
     this._contentFunctionality.goseries(id)
+  }
+
+  goBack() {
+    this._contentFunctionality.goBack()
   }
 
   getStoriesById(id) {

@@ -4,6 +4,7 @@ import { CharacterOverviewComponent } from './characters/character-overview/char
 import { CharactersComponent } from './characters/characters.component';
 import { ComicOverviewComponent } from './comics/comic-overview/comic-overview.component';
 import { ComicsComponent } from './comics/comics.component';
+import { CreatorComponent } from './creator/creator/creator.component';
 import { HomeComponent } from './home/home.component';
 import { SeriesComponent } from './series/series.component';
 import { StoriesComponent } from './stories/stories.component';
@@ -33,6 +34,12 @@ const routes: Routes = [
   {
     path: 'stories', component: StoriesComponent
   },
+  {
+    path: 'Creator', component: CreatorComponent
+  },
+  // {
+  //   path: 'Creator/:id', component: CreatorComponent
+  // },
 ];
 
 @NgModule({

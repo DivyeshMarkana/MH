@@ -1,5 +1,8 @@
 <div class="container-fluid px-2">
     <div class="container">
+        <button mat-button (click)="goBack()"> <span class="material-icons">
+            arrow_back
+            </span> Back</button>
         <div class=" comic__wrapper">
             <div class="row" *ngFor="let character of characters">
                 <div class="comic__img  col-sm-6 col-xs-12 col-md-6">
@@ -10,14 +13,7 @@
                     <div class="comic__info">
                         <h1>{{character.name | titlecase}}</h1>
                         <div>
-                            <!-- <h2>Published:
-                                <br>
-                                <span>{{comic.dates[0].date | date}}</span>
-                            </h2> -->
                             <p>{{character.description ? character.description : 'No description found☹️' }}</p>
-                            <button mat-raised-button routerLink="/characters" color="primary"> <span class="material-icons">
-                                arrow_back
-                                </span> Back</button>
                         </div>
                         <div>
                         </div>

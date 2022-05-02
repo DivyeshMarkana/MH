@@ -13,20 +13,18 @@ export class ComicByHeroComponent implements OnInit {
   comics: Comic[] = []
 
   fetching:boolean = false;
+  loaded:boolean = false;
 
   constructor(private _getContentService: GetContentService,
     @Inject(MAT_DIALOG_DATA) public data: { id: number}) { }
 
   ngOnInit(): void {
     this.fetching = true
-    // console.log(this.id);
-    // console.log(this.data.id);
-    // this.id = this.data.id;
-    
     this._getContentService.getComicsByHeroName(this.data.id).subscribe( (response) => {
       this.comics = response.data.results
       // console.log(response);
       this.fetching = false
+      this.loaded = true;
     } )
     
   }

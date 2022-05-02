@@ -1,1 +1,24 @@
-<p>creator works!</p>
+<div class="p-0 py-5">
+  <div class="pt-3">
+    <div class=" mx-auto py-0 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+      <div class="grid mt-2 grid-cols-1 gap-y-4 sm:grid-cols-2 gap-x-4 lg:grid-cols-4 xl:grid-cols-5 xl:gap-x-4">
+        <a class="group border  rounded" *ngFor="let creator of creators">
+          <mat-card
+            class="w-full p-0  aspect-w-1 aspect-h-1  rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8 sm:aspect-w-5 sm:aspect-h-3">
+            <mat-card-header>
+              <mat-card-title class="p-0">
+                <h4 class="fw-bold" matTooltip="{{creator.fullName}}" matTooltipPosition="above">{{creator.fullName |
+                  filter |
+                  titlecase}}</h4>
+              </mat-card-title>
+            </mat-card-header>
+            <img src="{{creator.thumbnail.path}}.{{creator.thumbnail.extension}}"
+              alt="Tall slender porcelain bottle with natural clay textured body and cork stopper."
+              class="w-full h-full object-center object-cover img">
+          </mat-card>
+
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

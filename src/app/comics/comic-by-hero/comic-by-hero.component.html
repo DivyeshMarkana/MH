@@ -1,6 +1,15 @@
+
+<div class="container">
+    <div class="text-center" *ngIf="fetching">
+      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+      <div>Loading please wait...</div>
+    </div>
+  </div>
+
+<ng-container *ngIf="loaded">
 <h2 mat-dialog-title>Comics by hero</h2>
 <mat-dialog-content class="mat-typography">
-    <div class="bg-gray-200 rounded pt-3">
+    <div class=" rounded pt-3">
         <div class=" mx-auto py-0 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
 
 
@@ -26,3 +35,4 @@
 <mat-dialog-actions align="end">
     <button mat-button mat-dialog-close>Close</button>
 </mat-dialog-actions>
+</ng-container>

@@ -1,0 +1,62 @@
+.img {
+    height: 320px;
+}
+
+.seachBar {
+    margin-top: 10px;
+}
+
+.example-card {
+    max-width: 250px;
+}
+
+mat-card {
+    height: 350px;
+}
+
+mat-card:hover .fw-bold {
+    color: #1e60a1;
+}
+
+.card__img {
+    overflow: hidden;
+}
+
+mat-card:hover img {
+    transform : translateY(-8px);
+    transition: 250ms ease-in-out;
+}
+
+.fw-bold {
+    font-size: 13px;
+    text-overflow: ellipsis;
+}
+
+mat-card-header {
+    overflow: hidden;
+}
+
+.card__wrapper {
+    max-width: 250px;
+}
+
+
+.example-header-image {
+    background-size: cover;
+}
+
+.Show__spinner {
+    display        : flex;
+    flex-direction : column;
+    justify-content: center;
+    align-items    : center;
+    text-align: center;
+}
+
+@media screen and (max-width: 400) {
+
+    mat-card {
+        height: 200px;
+    }
+
+}

@@ -1,59 +1,58 @@
 <div class="container-fluid px-2">
-    <div class="container">
-        <div class=" comic__wrapper">
-            <div class="row" *ngFor="let comic of comics">
-                <div class="comic__img  col-sm-6 col-xs-12 col-md-6">
-                    <img class="rounded" src="{{comic.thumbnail.path}}.{{comic.thumbnail.extension}}"
-                        alt="image not found">
-                </div>
-                <div class=" col-md-6 col-sm-6 col-xs-12 ps-3">
-                    <div class="comic__info">
-                        <h1>{{comic.title | titlecase}}</h1>
-                        <div>
-                            <h2>Published:
-                                <br>
-                                <span>{{comic.dates[0].date | date}}</span>
-                            </h2>
-                            <p>{{comic.description ? comic.description : 'No description found☹️' }}</p>
-                            <button mat-raised-button routerLink="/comics" color="primary"> <span class="material-icons">
-                                arrow_back
-                                </span> Back</button>
-                        </div>
-                        <div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <button mat-button (click)="goBack()"> <span class="material-icons">
+    arrow_back
+  </span> Back</button>
+  <div class="container">
+    <div class=" comic__wrapper">
+      <div class="row" *ngFor="let comic of comics">
+        <div class="comic__img  col-sm-6 col-xs-12 col-md-6">
+          <img class="rounded" src="{{comic.thumbnail.path}}.{{comic.thumbnail.extension}}" alt="image not found">
         </div>
+        <div class=" col-md-6 col-sm-6 col-xs-12 ps-3">
+          <div class="comic__info">
+            <h1>{{comic.title | titlecase}}</h1>
+            <div>
+              <h2>Published:
+                <br>
+                <span>{{comic.dates[0].date | date}}</span>
+              </h2>
+              <p>{{comic.description ? comic.description : 'No description found☹️' }}</p>
+            </div>
+            <div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
 
 
 
-<div *ngIf="comicCharacters.length !== 0" >
+<ng-container *ngIf="comicCharacters.length !== 0">
   <div class="p-0">
     <div class="pt-3">
       <div class=" mx-auto py-0 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
         <h1>Retated Character</h1>
         <div class="grid mt-2 grid-cols-1 gap-y-6 sm:grid-cols-2 gap-x-6 lg:grid-cols-4 xl:grid-cols-5 xl:gap-x-6">
-  
+
           <a class="group border  rounded" *ngFor="let character of comicCharacters">
             <mat-card
               class="w-full p-0  aspect-w-1 aspect-h-1  rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8 sm:aspect-w-5 sm:aspect-h-3">
-  
-  
-              <mat-card-header>
-                  <mat-card-title class="p-0">
-                    <h4 class="fw-bold">{{character.name | filter}}</h4>
-                  </mat-card-title>
+
+
+              <mat-card-header  [routerLink]="['/character-detail', character.id]" [queryParams]="{character: character.name}">
+                <mat-card-title class="p-0">
+                  <h4 class="fw-bold">{{character.name | filter}}</h4>
+                </mat-card-title>
               </mat-card-header>
-  
+
               <div class="hero__img">
                 <img src="{{character.thumbnail.path}}.{{character.thumbnail.extension}}"
                   alt="Tall slender porcelain bottle with natural clay textured body and cork stopper."
                   class="w-full h-full object-center object-cover group-hover:opacity-75 img">
               </div>
-  
+
               <mat-card-actions class="ms-2 p-0 m-0 my-2">
                 <button mat-raised-button class="m-0" (click)="gotoComic(character.id);">COMICS</button>
                 <button mat-raised-button class="ms-1" (click)="gotoSeries(character.id);">SERIES</button>
@@ -64,42 +63,45 @@
       </div>
     </div>
   </div>
-</div>
+</ng-container>
 
 
+<ng-container *ngIf="stories.length !== 0">
 
-<div class="pt-5 py-5">
-  <div class="pt-3">
-    <div class=" mx-auto py-0 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-      <h1>Recommended stories</h1>
-      <div class="grid mt-2 grid-cols-1 gap-y-4 sm:grid-cols-2 gap-x-4 lg:grid-cols-4 xl:grid-cols-5 xl:gap-x-4">
+  <div class="pt-5 py-5">
+    <div class="pt-3">
+      <div class=" mx-auto py-0 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+        <h1>Recommended stories</h1>
+        <div class="grid mt-2 grid-cols-1 gap-y-4 sm:grid-cols-2 gap-x-4 lg:grid-cols-4 xl:grid-cols-5 xl:gap-x-4">
 
-        <a class="group border  rounded" *ngFor="let story of stories">
-          <mat-card
-            class="w-full p-0  aspect-w-1 aspect-h-1  rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8 sm:aspect-w-5 sm:aspect-h-3">
-            <mat-card-header>
+          <a class="group border  rounded" *ngFor="let story of stories">
+            <mat-card
+              class="w-full p-0  aspect-w-1 aspect-h-1  rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8 sm:aspect-w-5 sm:aspect-h-3">
+              <mat-card-header>
                 <mat-card-title class="p-0">
-                  <h4 class="fw-bold" matTooltip="{{story.title}}" matTooltipPosition="above" >{{story.title | filter | titlecase}}</h4>
+                  <h4 class="fw-bold" matTooltip="{{story.title}}" matTooltipPosition="above">{{story.title | filter |
+                    titlecase}}</h4>
                 </mat-card-title>
-            </mat-card-header>
+              </mat-card-header>
 
-            <!-- ../../../../assets/image not found.jpg -->
-            <div class="hero__img" *ngIf="story.thumbnail !== null">
-              <img src="{{story.thumbnail.path}}.{{story.thumbnail.extension}}"
-                alt="Tall slender porcelain bottle with natural clay textured body and cork stopper."
-                class="w-full h-full object-center object-cover img">
-            </div>
+              <!-- ../../../../assets/image not found.jpg -->
+              <div class="hero__img" *ngIf="story.thumbnail !== null">
+                <img src="{{story.thumbnail.path}}.{{story.thumbnail.extension}}"
+                  alt="Tall slender porcelain bottle with natural clay textured body and cork stopper."
+                  class="w-full h-full object-center object-cover img">
+              </div>
 
-            <div class="hero__img" *ngIf="story.thumbnail === null">
-              <img src="../../../../assets/image not found.jpg"
-                alt="Tall slender porcelain bottle with natural clay textured body and cork stopper."
-                class="w-full h-full object-center object-cover img">
-            </div>
-          </mat-card>
+              <div class="hero__img" *ngIf="story.thumbnail === null">
+                <img src="../../../../assets/image not found.jpg"
+                  alt="Tall slender porcelain bottle with natural clay textured body and cork stopper."
+                  class="w-full h-full object-center object-cover img">
+              </div>
+            </mat-card>
 
-        </a>
+          </a>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
+</ng-container>

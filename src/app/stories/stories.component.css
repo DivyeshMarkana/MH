@@ -6,13 +6,6 @@
     margin-top: 10px;
 }
 
-/* img {
-    width: 100%;
-    height: auto;
-} */
-
-
-
 .example-card {
     max-width: 250px;
 }
@@ -25,7 +18,7 @@ mat-card:hover .fw-bold {
     color: #1e60a1;
 }
 
-.hero__img {
+.card__img {
     overflow: hidden;
 }
 
@@ -43,7 +36,7 @@ mat-card-header {
     overflow: hidden;
 }
 
-.character__wrapper {
+.card__wrapper {
     max-width: 250px;
 }
 
@@ -52,11 +45,12 @@ mat-card-header {
     background-size: cover;
 }
 
-.text-center {
+.Show__spinner {
     display        : flex;
     flex-direction : column;
     justify-content: center;
     align-items    : center;
+    text-align: center;
 }
 
 @media screen and (max-width: 400) {

@@ -1,6 +1,3 @@
-/* #carouselExampleFade {
-    height: 80vh;
-} */
 
 *,
 *::after,
@@ -15,9 +12,25 @@ img {
     height: 60%;
 }
 
-.carousel-inner {
-    max-height: 100vh;
+.landing__poster {
+    /* background: url('../../assets/theme1.jpg'); */
+    background-repeat: no-repeat;
+    max-width: 100vw;
+    max-height: 75vh;
+    position: relative;
+}
+
+.landing__poster img {
+    max-height: 75vh;
     object-fit: cover;
+}
+
+.landing__content {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    color: var(--white);
 }
 
 .latest {
@@ -31,7 +44,6 @@ img {
 .movies {
     max-width    : 90%;
     margin-inline: auto;
-    margin-top   : 2rem;
 }
 
 .movies h1 {
@@ -82,7 +94,6 @@ img {
 
 .recommanded__movies:hover .movie__title {
     text-decoration: underline;
-    /* box-shadow:inset 230px 0 0 0 var(--dark); */
 }
 
 .movie__title {
@@ -101,30 +112,8 @@ img {
     margin       : 0;
 }
 
-/* .movie__title h3::after {
-    content: '';
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    bottom: -10px;
-    width: max-content;
-    background: #000;
-    height: 3px;
-} */
-
-/* .underline {
-    width: 33px;
-    height: 3px;
-    background: #000;
-    position: absolute;
-    bottom: 4px;
-} */
-
-
-
 .poster {
     min-height: 280px;
-    /* border: 2px solid var(--dark); */
     border-radius: 4px;
     background: #00000099 url(../../assets/poster/poster.jpg);
     background-blend-mode: multiply;
@@ -161,27 +150,18 @@ img {
     font-size: clamp(0.8rem, 2.3vw, 1rem);
 }
 
-/* .poster__content {
-    width: 60%;
-    height: 350px;
-    background-color: var(--white);
-    transform: skew(-25deg);
-    clip-path: polygon(0 0,0 100%,100% 92%,100% 0);
-}
-
-.poster__image {
-    width: 40%;
-    height: 100%;
-    transform: skew(25deg);
-} */
 
 
 
-@media screen and (min-width:550px) {
+@media screen and (min-width:750px) {
+
+    /* .carousel {
+        max-height: 75vh;
+    }
 
     .carousel-inner {
         max-height: 75vh;
-    }
+    } */
 
     .poster {
         min-height: 350px;

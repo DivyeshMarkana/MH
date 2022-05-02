@@ -8,6 +8,9 @@ mat-drawer-container {
     height: 100%;
     
 }
+.home__icon {
+    color: var(--white);
+}
 
 .navbar {
     background-color: var(--dark);
@@ -56,6 +59,15 @@ mat-drawer  {
     border-radius: 5px;
     /* box-shadow: inset 0 0 10px 5px #163f67; */
     box-shadow:inset 0 0 6px 1px #ffffff50;
+}
+
+.form-select {
+    background-color: transparent;
+    color: var(--white);
+}
+
+option {
+    color: var(--dark);
 }
 
 @media screen and (max-width: 400) {
