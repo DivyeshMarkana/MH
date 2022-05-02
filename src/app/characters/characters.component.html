@@ -27,10 +27,9 @@
               <button mat-raised-button class="m-0" (click)="gotoSeries(character.id);">SERIES</button>
             </mat-card-actions>
           </mat-card>
-
         </a>
       </div>
-      <!-- <button *ngIf="loaded" mat-raised-button color="primary" class="mt-2">Load more</button> -->
+      <button (click)="loadMore()" *ngIf="loaded" mat-button color="primary" class="mt-2" >Load more</button>
     </div>
   </div>
 </div>

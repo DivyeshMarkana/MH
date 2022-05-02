@@ -16,10 +16,20 @@ export class GetContentService {
 
   //Get all characters
 
-  getCharactersURL = 'http://gateway.marvel.com/v1/public/characters?limit=50&ts=1650715932&apikey=39b79c3e2d8f60abcd03f5d6046a7dcf&hash=09170cf850ac95d9120904a5e7b2b146'
+  // getCharactersURL = 'http://gateway.marvel.com/v1/public/characters?limit=10&ts=1650715932&apikey=39b79c3e2d8f60abcd03f5d6046a7dcf&hash=09170cf850ac95d9120904a5e7b2b146'
 
-  getCharacters(): Observable<CharacterDataWrapper> {
-    return this.http.get<CharacterDataWrapper>(this.getCharactersURL)
+  // getCharacters(): Observable<CharacterDataWrapper> {
+  //   return this.http.get<CharacterDataWrapper>(this.getCharactersURL)
+  // }
+
+
+  // offset character
+
+  offsetCharacter(offset: number): Observable<CharacterDataWrapper>  {
+
+   const offsetCharacter = `https://gateway.marvel.com:443/v1/public/characters?limit=15&offset=${offset}&ts=1650715932&apikey=39b79c3e2d8f60abcd03f5d6046a7dcf&hash=09170cf850ac95d9120904a5e7b2b146`;
+
+    return this.http.get<CharacterDataWrapper>(offsetCharacter)
   }
 
   getCharacterById(id: number): Observable<CharacterDataWrapper> {
