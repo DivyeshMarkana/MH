@@ -61,11 +61,13 @@ export class CharactersComponent implements OnInit {
   // }
 
   offsetChar(offset: number) {
+      this.fetching = true;
     this._getContentService.offsetCharacter(offset).subscribe((response => {
       this.characters = response.data.results;
       this.dataCharacters = response.data.results;
       this.loaded = true;
       this.currentOffset += 15;
+        this.fetching = false;
     }))
   }
 

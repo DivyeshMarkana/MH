@@ -42,7 +42,7 @@
           <h1>Related Comics</h1>
           <div class="grid mt-2 grid-cols-1 gap-y-4 sm:grid-cols-2 gap-x-4 lg:grid-cols-4 xl:grid-cols-5 xl:gap-x-4">
             <a class="group border  rounded" *ngFor="let comic of comics">
-              <mat-card [routerLink]="['/comic-overview', comic.id]" [queryParams]="{comic_name: comic.title}"
+              <mat-card [routerLink]="['/comic', comic.id]" [queryParams]="{comic_name: comic.title}"
                 class="w-full p-0  aspect-w-1 aspect-h-1  rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8 sm:aspect-w-5 sm:aspect-h-3">
                 <mat-card-header>
                   <mat-card-title class="p-0">
@@ -71,7 +71,7 @@
           <h1>Related Series</h1>
           <div class="grid mt-2 grid-cols-1 gap-y-4 sm:grid-cols-2 gap-x-4 lg:grid-cols-4 xl:grid-cols-5 xl:gap-x-4">
             <a class="group border  rounded" *ngFor="let series of seriess">
-              <mat-card [routerLink]="['/series', series.id]" [queryParams]="{comic_name: series.title}"
+              <mat-card [routerLink]="['/series', series.id]" [queryParams]="{seris_name: series.title}"
                 class="w-full p-0  aspect-w-1 aspect-h-1  rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8 sm:aspect-w-5 sm:aspect-h-3">
                 <mat-card-header>
                   <mat-card-title class="p-0">
@@ -104,7 +104,7 @@
                 class="w-full p-0  aspect-w-1 aspect-h-1  rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8 sm:aspect-w-5 sm:aspect-h-3">
                 <mat-card-header>
                   <mat-card-title class="p-0">
-                    <h4 class="fw-bold" matTooltip="{{story.title}}" matTooltipPosition="above">{{story.title | filter |
+                    <h4 class="fw-bold" matTooltip="{{story.title}}" matTooltipPosition="above">{{story.title ? story.title : 'No title available' | filter |
                       titlecase}}</h4>
                   </mat-card-title>
                 </mat-card-header>

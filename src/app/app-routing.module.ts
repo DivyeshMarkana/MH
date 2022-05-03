@@ -23,13 +23,13 @@ const routes: Routes = [
     path: 'characters', component: CharactersComponent
   },
   {
-    path: 'character-detail/:id', component: CharacterOverviewComponent
+    path: 'character/:id', component: CharacterOverviewComponent
   },
   {
     path: 'comics', component: ComicsComponent
   },
   {
-    path: 'comic-overview/:id', component: ComicOverviewComponent
+    path: 'comic/:id', component: ComicOverviewComponent
   },
   {
     path: 'series', component: SeriesComponent

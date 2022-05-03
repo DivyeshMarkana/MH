@@ -12,6 +12,13 @@
     max-width: 250px;
 }
 
+/* mat-card-actions button {
+    border       : 1px solid var(--dark);
+    padding      : 3px 7px;
+    border-radius: 4px;
+    margin-left: 4px;
+} */
+
 mat-card:hover .fw-bold {
     color: var(--white);
 }
@@ -102,10 +109,10 @@ h1 {
 }
 
 .overview__info li {
-    max-width: 90px;
-    display: flex;
+    max-width      : 90px;
+    display        : flex;
     justify-content: space-between;
-    flex     : 1;
+    flex           : 1;
 }
 
 span {

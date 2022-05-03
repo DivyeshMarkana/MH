@@ -21,16 +21,16 @@
     </button>
 </div> -->
 
-
+<!-- 
 <div class="landing__poster">
-    <img src="../../assets/theme1.jpg" class="img-fluid" alt="">
+    <img src="../../assets/theme1.jpg" class="" alt="">
     <div class="landing__content">
         <h1>Hey there!</h1>
     </div>
-</div>
+</div> -->
 
 
-<div class="latest" *ngIf="loaded">
+<!-- <div class="latest" *ngIf="loaded">
     <div class="movies">
         <h1>Recommanded movies</h1>
         <div class="recommanded">
@@ -69,13 +69,187 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 
-<!-- <div class="poster">
-    <div class="content">
-        <h3>Hey there! click here</h3>
-        <button mat-raised-button>Click</button>
+
+<!-- <div *ngIf="images && images.length > 0" class="carouse__container img-fluid">
+
+    <img *ngFor="let image of images; let i = index" [src]="image.imgSrc" alt=""
+        [ngClass]="{'image-active' : selectedIndex === i}" class="img-fluid">
+
+    <div *ngIf="indicators" class="carousel-dot-container">
+        <span *ngFor="let dot of images; let i = index" class="dot" [ngClass]="{'active' : selectedIndex === i}"
+            (click)="selectImage(i)">
+        </span>
+    </div>
+
+    <div *ngIf="controls" class="btn-carousel btn-prev">
+        <span class="material-icons text-white icon-carousel icon-prev"
+        (click)="onPrevClick()">
+            arrow_back_ios
+        </span>
+    </div>
+
+    <div *ngIf="controls" class="btn-carousel btn-next">
+        <span class="material-icons text-white icon-carousel icon-next"
+        (click)="onPrevClick()">
+            arrow_forward_ios
+        </span>
     </div>
 </div> -->
 
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+            aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+            aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="../../assets/111.jpg" class="d-block" alt="...">
+            <div class="carousel-caption mb-3 d-md-block">
+                <h5>First slide label</h5>
+                <p>Some representative placeholder content for the first slide.</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="../../assets/222.jpg" class="d-block " alt="...">
+            <div class="carousel-caption mb-3 d-md-block">
+                <h5>Second slide label</h5>
+                <p>Some representative placeholder content for the second slide.</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="../../assets/333.jpg" class="d-block" alt="...">
+            <div class="carousel-caption mb-3 d-md-block">
+                <h5>Third slide label</h5>
+                <p>Some representative placeholder content for the third slide.</p>
+            </div>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+
+
+
+
+<div class="p-0 py-3">
+    <div class="pt-3">
+        <div class=" mx-auto py-0 px-4 sm:py-24 sm:px-6 lg:max-w-5xl lg:px-8">
+            <h2 class="sub__heading">Marvel characters</h2>
+            <div
+                class="grid mt-2 pt-2 grid-cols-1 gap-y-6 sm:grid-cols-2 gap-x-6 lg:grid-cols-4 xl:grid-cols-4 xl:gap-x-6">
+                <a class="group border  rounded" *ngFor="let character of characters">
+                    <mat-card [routerLink]="['/character', character.id]"
+                        class="w-full p-0  aspect-w-1 aspect-h-1  rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8 sm:aspect-w-5 sm:aspect-h-3">
+                        <mat-card-header [routerLink]="['/character-detail', character.id]"
+                            [queryParams]="{character: character.name}">
+                            <mat-card-title class="p-0">
+                                <h4 class="fw-bold" matTooltip="{{character.name}}" matTooltipPosition="above">
+                                    {{character.name | filter}}</h4>
+                            </mat-card-title>
+                        </mat-card-header>
+                        <div class="image__wrapper">
+                            <img src="{{character.thumbnail.path}}.{{character.thumbnail.extension}}"
+                                alt="Tall slender porcelain bottle with natural clay textured body and cork stopper."
+                                class="w-full h-full object-center object-cover group-hover:opacity-75 img">
+                        </div>
+                    </mat-card>
+                </a>
+            </div>
+            <button mat-button color="primary" routerLink="/characters" class="float-right pt-2">More
+                <span class="material-icons">
+                    arrow_right_alt
+                </span>
+            </button>
+        </div>
+    </div>
+</div>
+
+
+<ng-container *ngIf="comics.length !== 0">
+    <div class="p-0 py-3">
+        <div class="pt-3">
+            <div class=" mx-auto py-0 px-4 sm:py-24 sm:px-6 lg:max-w-5xl lg:px-8">
+                <h2 class="sub__heading">Marvel comics</h2>
+                <div
+                    class="grid mt-2 pt-2 grid-cols-1 gap-y-6 sm:grid-cols-2 gap-x-6 lg:grid-cols-4 xl:grid-cols-4 xl:gap-x-6">
+
+                    <a class="group border  rounded" *ngFor="let comic of comics">
+                        <mat-card [routerLink]="['/character', comic.id]"
+                            class="w-full p-0  aspect-w-1 aspect-h-1  rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8 sm:aspect-w-5 sm:aspect-h-3">
+                            <mat-card-header [routerLink]="['/comic', comic.id]" [queryParams]="{comic: comic.title}">
+                                <mat-card-title class="p-0">
+                                    <h4 class="fw-bold" matTooltip="{{comic.title}}" matTooltipPosition="above">
+                                        {{comic.title | filter}}</h4>
+                                </mat-card-title>
+                            </mat-card-header>
+                            <div class="image__wrapper">
+                                <img src="{{comic.thumbnail.path}}.{{comic.thumbnail.extension}}"
+                                    alt="Tall slender porcelain bottle with natural clay textured body and cork stopper."
+                                    class="w-full h-full object-center object-cover group-hover:opacity-75 img">
+                            </div>
+                        </mat-card>
+                    </a>
+                </div>
+                <button mat-button color="primary" routerLink="/comics" class="float-right pt-2">More
+                    <span class="material-icons">
+                        arrow_right_alt
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+</ng-container>
+
+<div class="poster">
+    <div class="content">
+        <img src="../../assets/poster/poster__logo.webp" alt="">
+        <p>Nothing can prepare you for the Multiverse. Experience Marvel Studios' Doctor Strange in the Multiverse of Madness, only in theatres May 6th.</p>
+    </div>
+</div>
+
+<div class="p-0 py-3">
+    <div class="pt-3">
+        <div class=" mx-auto py-0 px-4 sm:py-24 sm:px-6 lg:max-w-5xl lg:px-8">
+            <h2 class="sub__heading">Series related to Doctor strange</h2>
+            <div
+                class="grid mt-2 pt-2 grid-cols-1 gap-y-6 sm:grid-cols-2 gap-x-6 lg:grid-cols-4 xl:grid-cols-4 xl:gap-x-6">
+
+                <a class="group border  rounded" *ngFor="let series of seriess">
+                    <mat-card [routerLink]="['/series', series.id]"
+                        class="w-full p-0  aspect-w-1 aspect-h-1  rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8 sm:aspect-w-5 sm:aspect-h-3">
+                        <mat-card-header [routerLink]="['/series', series.id]" [queryParams]="{series: series.title}">
+                            <mat-card-title class="p-0">
+                                <h4 class="fw-bold" matTooltip="{{series.title}}" matTooltipPosition="above">
+                                    {{series.title | filter}}</h4>
+                            </mat-card-title>
+                        </mat-card-header>
+                        <div class="image__wrapper">
+                            <img src="{{series.thumbnail.path}}.{{series.thumbnail.extension}}"
+                                alt="Tall slender porcelain bottle with natural clay textured body and cork stopper."
+                                class="w-full h-full object-center object-cover group-hover:opacity-75 img">
+                        </div>
+                    </mat-card>
+                </a>
+            </div>
+            <button mat-button color="primary" routerLink="/series" class="float-right pt-2">More
+                <span class="material-icons">
+                    arrow_right_alt
+                </span>
+            </button>
+        </div>
+    </div>
+</div>

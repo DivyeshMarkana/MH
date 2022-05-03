@@ -19,7 +19,7 @@ import { ComicOverviewComponent } from './comics/comic-overview/comic-overview.c
 import { ContentFunctionalityService } from './services/content-functionality.service';
 import { CharacterOverviewComponent } from './characters/character-overview/character-overview.component';
 import { HomeComponent } from './home/home.component';
-import { SeriesByHeroComponent } from './series-by-hero/series-by-hero.component';
+import { SeriesByHeroComponent } from './series/series-by-hero/series-by-hero.component';
 import { FooterComponent } from './footer/footer.component';
 import { CreatorComponent } from './creator/creator/creator.component';
 import { StoriesComponent } from './stories/stories.component';

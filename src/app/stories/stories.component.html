@@ -1,4 +1,4 @@
-<div class="p-0 py-5">
+<div class="p-0 py-3">
     <div class="pt-3">
       <div class=" mx-auto py-0 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
   
@@ -31,6 +31,7 @@
   
           </a>
         </div>
+        <button (click)="loadMore()" *ngIf="loaded" mat-button color="primary" class="mt-2" >Load more</button>
       </div>
     </div>
   </div>

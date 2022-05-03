@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { series } from '../series/seriesModels/series';
-import { GetContentService } from '../services/get-content.service';
+import { series } from '../seriesModels/series';
+import { GetContentService } from '../../services/get-content.service';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({

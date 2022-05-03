@@ -2,7 +2,7 @@ import { Location } from '@angular/common';
 import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ComicByHeroComponent } from '../comics/comic-by-hero/comic-by-hero.component';
-import { SeriesByHeroComponent } from '../series-by-hero/series-by-hero.component';
+import { SeriesByHeroComponent } from '../series/series-by-hero/series-by-hero.component';
 
 @Injectable({
   providedIn: 'root'

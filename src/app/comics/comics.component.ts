@@ -14,31 +14,51 @@ export class ComicsComponent implements OnInit {
   fetching: boolean = false;
   loaded: boolean = false;
   searchTerm: string = ''
+  currentOffset = 0;
   subscription
 
 
   constructor(private _getContentService: GetContentService) { }
 
   ngOnInit(): void {
-    this.getComic()
+    this.getComic(this.currentOffset)
   }
 
   searchComic() {
     this.comics = this.dataComic.filter((search) => {
       return search.title.toLowerCase().includes(this.searchTerm.toLowerCase())
     });
-    //  console.log(this.comics);
   }
 
-  getComic() {
+  // getComic() {
+  //   this.fetching = true;
+  //   this.subscription = this._getContentService.getAllComics().subscribe((response => {
+  //     // console.log(response);
+  //     this.comics = response.data.results;
+  //     this.dataComic = response.data.results;
+  //     this.fetching = false;
+  //     this.loaded = true;
+  //   }))
+  // }
+
+
+  getComic(offset: number) {
     this.fetching = true;
-    this.subscription = this._getContentService.getAllComics().subscribe((response => {
-      // console.log(response);
+    this._getContentService.getAllComics(offset).subscribe((response) => {
       this.comics = response.data.results;
       this.dataComic = response.data.results;
+      this.currentOffset += 15
       this.fetching = false;
       this.loaded = true;
-    }))
+    })
+  }
+
+  loadMore() {
+    this.currentOffset += 15;
+    this._getContentService.getAllComics(this.currentOffset).subscribe((response) => {
+      this.comics = this.comics.concat(response.data.results);
+      this.currentOffset += 15
+    })
   }
 
 }

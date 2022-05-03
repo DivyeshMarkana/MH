@@ -30,7 +30,7 @@ export class CreatorOverviewComponent implements OnInit {
 
     this._getContentService.getCreatorById(id).subscribe((response) => {
       this.creators = response.data.results;
-      console.log(response);
+      // console.log(response);
       this.getComics(id)
       this.getSeries(id)
       this.getStories(id)

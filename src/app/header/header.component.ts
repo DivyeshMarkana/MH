@@ -1,7 +1,5 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { CharactersComponent } from '../characters/characters.component';
 import { Creator } from '../creator/creator/creatorModel/CreatorDataContainer';
 import { GetContentService } from '../services/get-content.service';
 
@@ -18,22 +16,17 @@ export class HeaderComponent implements OnInit {
 
   creators: Creator[] = []
 
-  selected:string = ''
+  selected: string = ''
 
-  constructor(private _getContentService: GetContentService,
-    private router: Router) { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
-
-    this._getContentService.getAllcreator().subscribe((response) => {
-      this.creators = response.data.results
-    })
   }
 
   selectChange(event: any) {
 
-this.router.navigate(['/Creator', event.target.value])
-  //  alert(event.target.value) 
+    this.router.navigate(['/Creator', event.target.value])
+    //  alert(event.target.value) 
   }
 
   // searchCharacter(){

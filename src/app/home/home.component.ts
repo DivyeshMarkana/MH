@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Character } from '../characters/characterModels/Character';
+import { Comic } from '../comics/comicsModels/Comic';
+import { series } from '../series/seriesModels/series';
+import { GetContentService } from '../services/get-content.service';
 
 @Component({
   selector: 'app-home',
@@ -7,50 +11,109 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-loaded: boolean = false;
+  characters: Character[] = [];
+  comics: Comic[] = [];
+  seriess:series[] = [];
+  loaded: boolean = false;
 
-  constructor() { }
+  constructor(private _getContentService: GetContentService) { }
 
   ngOnInit(): void {
+    this.getCharacter()
+    this.getComics()
     this.loaded = true
+    this.getSeries()
   }
 
-  recommanded = [
-    {
-      src: '../../assets/movies/movie1.jpg',
-      title: 'Thor rangnarok'
-    },
-    {
-      src: '../../assets/movies/movie2.jpg',
-      title: 'Spiderman 3'
-    },
-    {
-      src: '../../assets/movies/movie4.jpg',
-      title: 'Iron man 3'
-    },
-    {
-      src: '../../assets/movies/movie5.jpg',
-      title: 'Venom'
-    },
-  ]
+  getCharacter() {
+    this._getContentService.chracterForHome().subscribe((response) => {
+      this.characters = response.data.results
+    })
+  }
 
-  upcomings = [
-    {
-      src: '../../assets/Upcoming/upcoming1.png',
-      title: 'Doctor Strange'
-    },
-    {
-      src: '../../assets/Upcoming/upcoming5.jpg',
-      title: 'Deadpool 3'
-    },
-    {
-      src: '../../assets/Upcoming/upcoming3.jpeg',
-      title: 'The Flash'
-    },
-    {
-      src: '../../assets/Upcoming/upcoming4.jpg',
-      title: 'Wakanda Forever'
-    },
-  ]
+  getComics() {
+    this._getContentService.comicForHome().subscribe((response) => {
+      this.comics = response.data.results
+    })
+  }
+
+  getSeries() {
+    this._getContentService.seriesForHome().subscribe((response) => {
+      this.seriess = response.data.results
+      console.log(response);
+      
+    })
+  }
+  
+
+  // selectedIndex: number = 0;
+  // indicators: boolean = true;
+  // controls: boolean = true;
+  // images = [
+  //   {
+  //     imgSrc: "../../assets/theme1.jpg",
+  //   },
+  //   {
+  //     imgSrc: "../../assets/theme2.jpg",
+  //   },
+  //   {
+  //     imgSrc: "../../assets/theme3.jpg",
+  //   },
+  // ]
+
+  // selectImage(index: number) {
+  //   this.selectedIndex = index
+  // }
+
+  // onPrevClick(): void {
+  //   if (this.selectedIndex === 0) {
+  //     this.selectedIndex = this.images.length - 1
+  //   }
+  //   this.selectedIndex--
+  // }
+  // onNextClick(): void {
+  //   if (this.selectedIndex === 0) {
+  //     this.selectedIndex = 0
+  //   }
+  //   this.selectedIndex++
+  // }
+
+  // recommanded = [
+  //   {
+  //     src: '../../assets/movies/movie1.jpg',
+  //     title: 'Thor rangnarok'
+  //   },
+  //   {
+  //     src: '../../assets/movies/movie2.jpg',
+  //     title: 'Spiderman 3'
+  //   },
+  //   {
+  //     src: '../../assets/movies/movie4.jpg',
+  //     title: 'Iron man 3'
+  //   },
+  //   {
+  //     src: '../../assets/movies/movie5.jpg',
+  //     title: 'Venom'
+  //   },
+  // ]
+
+  // upcomings = [
+  //   {
+  //     src: '../../assets/Upcoming/upcoming1.png',
+  //     title: 'Doctor Strange'
+  //   },
+  //   {
+  //     src: '../../assets/Upcoming/upcoming5.jpg',
+  //     title: 'Deadpool 3'
+  //   },
+  //   {
+  //     src: '../../assets/Upcoming/upcoming3.jpeg',
+  //     title: 'The Flash'
+  //   },
+  //   {
+  //     src: '../../assets/Upcoming/upcoming4.jpg',
+  //     title: 'Wakanda Forever'
+  //   },
+  // ]
 
 }

@@ -20,7 +20,7 @@ export class CharacterOverviewComponent implements OnInit {
   ngOnInit(): void {
     const id = this.route.snapshot.params['id'];
     this._getContentService.getCharacterById(id).subscribe( (response) => {
-      console.log(response);
+      // console.log(response);
       this.characters = response.data.results;
     } )
   }
