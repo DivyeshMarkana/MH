@@ -22,7 +22,7 @@ export class StoryOverviewComponent implements OnInit {
 
     this._getContentService.getStories(undefined, undefined, id).subscribe((response) => {
       this.stories = response.data.results;
-      // console.log(response);
+      console.log(response);
     })
   }
 

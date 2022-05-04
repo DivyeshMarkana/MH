@@ -38,6 +38,8 @@ export class CharactersComponent implements OnInit {
     this._getContentService.getChar(this.limit, offset).subscribe((response) => {
       this.characters = response.data.results
       this.dataCharacters = response.data.results;
+      console.log(response);
+
       this.charoff += 15;
       this.fetching = false;
       this.loaded = true;
@@ -47,7 +49,6 @@ export class CharactersComponent implements OnInit {
   loadMore() {
     this._getContentService.getChar(this.limit, this.charoff).subscribe((response => {
       this.characters = this.characters.concat(response.data.results);
-      this.loaded = true;
       this.charoff += 15;
     }))
   }

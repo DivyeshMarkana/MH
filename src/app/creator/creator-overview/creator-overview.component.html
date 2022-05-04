@@ -22,10 +22,6 @@
               <li><span>Series :</span> <span>{{creator.series.available}}</span></li>
               <li><span>Stories :</span> <span>{{creator.stories.available}}</span></li>
             </ul>
-            <div>
-            </div>
-            <div>
-            </div>
           </div>
         </div>
       </div>
@@ -59,6 +55,7 @@
               </mat-card>
             </a>
           </div>
+          <button (click)="loadComics()" *ngIf="comicLoadBtn" mat-button color="primary" class="mt-2" >Load more</button>
         </div>
       </div>
     </div>
@@ -76,7 +73,7 @@
                 <mat-card-header>
                   <mat-card-title class="p-0">
                     <h4 class="fw-bold" matTooltip="{{series.title}}" matTooltipPosition="above">{{series.title | filter
-                   |
+                      |
                       titlecase}}</h4>
                   </mat-card-title>
                 </mat-card-header>
@@ -88,6 +85,7 @@
               </mat-card>
             </a>
           </div>
+          <button (click)="loadSeries()" *ngIf="comicLoadBtn" mat-button color="primary" class="mt-2" >Load more</button>
         </div>
       </div>
     </div>
@@ -122,6 +120,7 @@
               </mat-card>
             </a>
           </div>
+          <button (click)="loadStories()" *ngIf="storyLoadBtn" mat-button color="primary" class="mt-2" >Load more</button>
         </div>
       </div>
     </div>

@@ -19,21 +19,14 @@ export class GetContentService {
 
   constructor(private http: HttpClient) { }
 
-  //Get all characters
-  // getChar(limit: number, offset: number, id?: string): Observable<CharacterDataWrapper> {
-  //   let uri: string = id == undefined ? 'characters' : `characters${"/" + id}`;
-  //   let baseUrl: string = this.base + uri + `?limit=${limit}&offset=${offset}&` + this.token;
-
-  //   return this.http.get<CharacterDataWrapper>(baseUrl)
-  // }
-
+  // character for home page offset 603
   getChar(limit?: number, offset?: number, id?: number): Observable<CharacterDataWrapper> {
     let endpoint: string = id ? `characters${"/" + id}?` : `characters?limit=${limit}&offset=${offset}&`
-    let baseUrl: string =  this.base + endpoint + this.token;
+    let baseUrl: string = this.base + endpoint + this.token;
 
     return this.http.get<CharacterDataWrapper>(baseUrl)
   }
-
+// comic for home page offset 60
   getComics(limit?: number, offset?: number, id?: number): Observable<ComicDataWrapper> {
     let endpoint: string = id ? `comics${"/" + id}?` : `comics?limit=${limit}&offset=${offset}&`
     let baseUrl: string = this.base + endpoint + this.token;
@@ -61,6 +54,74 @@ export class GetContentService {
 
     return this.http.get<CreatorDataWrapper>(baseUrl)
   }
+
+
+  // items by comic id
+
+  charByComic(id: number, limit: number, offset: number): Observable<CharacterDataWrapper> {
+    let endpoint: string = `comics/${id}/characters?limit=${limit}&offset=${offset}&`
+    let baseUrl = this.base + endpoint + this.token;
+
+    return this.http.get<CharacterDataWrapper>(baseUrl)
+  }
+
+  storyByComic(id: number, limit: number, offset: number): Observable<StoryDataWrapper> {
+    let endpoint: string = `comics/${id}/stories?limit=${limit}&offset=${offset}&`
+    let baseUrl = this.base + endpoint + this.token;
+
+    return this.http.get<StoryDataWrapper>(baseUrl)
+  }
+
+
+  // items by creator id
+
+  comicByCreator(id: number, limit: number, offset: number): Observable<ComicDataWrapper> {
+    let endpoint: string = `creators/${id}/comics?limit=${limit}&offset=${offset}&`
+    let baseUrl = this.base + endpoint + this.token;
+
+    return this.http.get<ComicDataWrapper>(baseUrl)
+  }
+
+  seriesByCreator(id: number, limit: number, offset: number): Observable<SeriesDataWrapper> {
+    let endpoint: string = `creators/${id}/series?limit=${limit}&offset=${offset}&`
+    let baseUrl = this.base + endpoint + this.token;
+
+    return this.http.get<SeriesDataWrapper>(baseUrl)
+  }
+
+  storyByCreator(id: number, limit: number, offset: number): Observable<StoryDataWrapper> {
+    let endpoint: string = `creators/${id}/stories?limit=${limit}&offset=${offset}&`
+    let baseUrl = this.base + endpoint + this.token;
+
+    return this.http.get<StoryDataWrapper>(baseUrl)
+  }
+
+
+  // items by series id
+
+  charBySeries(id: number, limit: number, offset: number): Observable<CharacterDataWrapper> {
+    let endpoint: string = `series/${id}/characters?limit=${limit}&offset=${offset}&`
+    let baseUrl = this.base + endpoint + this.token;
+
+    return this.http.get<CharacterDataWrapper>(baseUrl)
+  }
+
+  comicBySeries(id: number, limit: number, offset: number): Observable<ComicDataWrapper> {
+    let endpoint: string = `series/${id}/comics?limit=${limit}&offset=${offset}&`
+    let baseUrl = this.base + endpoint + this.token;
+
+    return this.http.get<ComicDataWrapper>(baseUrl)
+  }
+
+  storiesBySeries(id: number, limit: number, offset: number): Observable<StoryDataWrapper> {
+    let endpoint: string = `series/${id}/stories?limit=${limit}&offset=${offset}&`
+    let baseUrl = this.base + endpoint + this.token;
+
+    return this.http.get<StoryDataWrapper>(baseUrl)
+  }
+
+
+  // items by story id
 
 
   // character for home page offset 603

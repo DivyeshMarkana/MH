@@ -1,14 +1,14 @@
 <div class="main__container px-2">
   <button mat-button (click)="goBack()"> <span class="material-icons">
-    arrow_back
-  </span> Back</button>
+      arrow_back
+    </span> Back</button>
   <div class="container">
     <div class=" overview__wrapper">
       <div class="row" *ngFor="let comic of comics">
-        <div class="overview__img  col-sm-6 col-xs-12 col-md-6">
+        <div class="overview__img   col-xs-12 col-md-4">
           <img class="rounded" src="{{comic.thumbnail.path}}.{{comic.thumbnail.extension}}" alt="image not found">
         </div>
-        <div class=" col-md-6 col-sm-6 col-xs-12 ps-3">
+        <div class=" col-md-8  col-xs-12 ps-3">
           <div class="comic__info">
             <h1>{{comic.title | titlecase}}</h1>
             <div>
@@ -16,7 +16,17 @@
                 <br>
                 <span>{{comic.dates[0].date | date}}</span>
               </h2>
-              <p>{{comic.description ? comic.description : 'No description found☹️' }}</p>
+              <h3>Available items by creator</h3>
+              <ul>
+                <!-- <li><span>Comics :</span> <span>{{comic..available}}</span></li> -->
+                <li><span>characters :</span> <span>{{comic.characters.available}}</span></li>
+                <li><span>Stories :</span> <span>{{comic.stories.available}}</span></li>
+              </ul>
+
+              <br>
+            </div>
+            <div class="discription__title">Description : <br>
+              <p class="discription">{{comic.description ? comic.description : 'No description found☹️' }}</p>
             </div>
             <div>
             </div>
@@ -29,19 +39,19 @@
 
 
 
-<ng-container *ngIf="comicCharacters.length !== 0">
+<ng-container *ngIf="characters.length !== 0">
   <div class="p-0">
     <div class="pt-3">
       <div class=" mx-auto py-0 px-4 sm:py-24 sm:px-6 lg:max-w-5xl lg:px-8">
         <h1>Retated Character</h1>
         <div class="grid mt-2 grid-cols-1 gap-y-6 sm:grid-cols-2 gap-x-6 lg:grid-cols-4 xl:grid-cols-4 xl:gap-x-6">
 
-          <a class="group border  rounded" *ngFor="let character of comicCharacters">
+          <a class="group border  rounded" *ngFor="let character of characters">
             <mat-card
               class="w-full p-0  aspect-w-1 aspect-h-1  rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8 sm:aspect-w-5 sm:aspect-h-3">
 
 
-              <mat-card-header  [routerLink]="['/character', character.id]" [queryParams]="{character: character.name}">
+              <mat-card-header [routerLink]="['/character', character.id]" [queryParams]="{character: character.name}">
                 <mat-card-title class="p-0">
                   <h4 class="fw-bold">{{character.name | filter}}</h4>
                 </mat-card-title>
@@ -60,7 +70,7 @@
             </mat-card>
           </a>
         </div>
-        <button (click)="loadChar()" *ngIf="loaded" mat-button color="primary" class="mt-2" >Load more</button>
+        <button (click)="loadChar()" *ngIf="loaded" mat-button color="primary" class="mt-2">Load more</button>
       </div>
     </div>
   </div>
@@ -80,7 +90,8 @@
               class="w-full p-0  aspect-w-1 aspect-h-1  rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8 sm:aspect-w-5 sm:aspect-h-3">
               <mat-card-header>
                 <mat-card-title class="p-0">
-                  <h4 class="fw-bold" matTooltip="{{story.title}}" matTooltipPosition="above">{{story.title | filter }}</h4>
+                  <h4 class="fw-bold" matTooltip="{{story.title}}" matTooltipPosition="above">{{story.title | filter }}
+                  </h4>
                 </mat-card-title>
               </mat-card-header>
 
@@ -100,7 +111,9 @@
 
           </a>
         </div>
-        <button (click)="loadMoreStory()" *ngIf="loaded" mat-button color="primary" class="mt-2" >Load more</button>
+        <ng-container>
+          <button (click)="loadMoreStory()" *ngIf="sLoaded" mat-button color="primary" class="mt-2">Load more</button>
+        </ng-container>
       </div>
     </div>
   </div>

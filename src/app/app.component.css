@@ -80,7 +80,8 @@ mat-card:hover img {
 }
 
 .overview__wrapper {
-    padding   : 3rem 0;
+    /* padding   : 3rem 0; */
+    margin-inline: auto;
     min-height: 90vh;
 }
 
@@ -113,6 +114,14 @@ h1 {
     display        : flex;
     justify-content: space-between;
     flex           : 1;
+}
+
+.discription__title {
+    font-size: 17px;
+}
+
+.discription {
+    font-size: 14px;
 }
 
 span {

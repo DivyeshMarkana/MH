@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Character } from 'src/app/characters/characterModels/Character';
+import { Comic } from 'src/app/comics/comicsModels/Comic';
 import { ContentFunctionalityService } from 'src/app/services/content-functionality.service';
 import { GetContentService } from 'src/app/services/get-content.service';
+import { Story } from 'src/app/stories/storyModel/Story';
 import { series } from '../seriesModels/series';
 
 @Component({
@@ -12,25 +15,102 @@ import { series } from '../seriesModels/series';
 export class SeriesOverviewComponent implements OnInit {
 
   seriess: series[] = []
+  characters: Character[] = []
+  comics: Comic[] = []
+  stories: Story[] = []
+
+  limit: number = 4;
+  charOffset: number = 0;
+  comicOffset: number = 0;
+  storyOffset: number = 0;
+
+  charLoadBtn: boolean = false;
+  comicLoadBtn: boolean = false;
+  storyLoadBtn: boolean = false;
+
   loaded: boolean = false;
-  fetching: boolean = false
+  fetching: boolean = false;
+
+  id = this.route.snapshot.params['id'];
 
   constructor(private _getContentService: GetContentService,
     private _contentFunctionality: ContentFunctionalityService
     , private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    const id = this.route.snapshot.params['id'];
+
     this.fetching = false;
-    this._getContentService.getSeries( undefined, undefined, id).subscribe((response) => {
+    this._getContentService.getSeries(undefined, undefined, this.id).subscribe((response) => {
       this.seriess = response.data.results;
+      // console.log(response);
       this.fetching = true;
       this.loaded = true;
+
+
+      this.getCharacters(this.id, this.charOffset)
+      this.getComics(this.id, this.comicOffset)
+      this.getStories(this.id, this.storyOffset)
+    })
+  }
+
+  getCharacters(id: number, offset: number) {
+    this._getContentService.charBySeries(id, this.limit, offset).subscribe((response) => {
+      this.characters = response.data.results
+      this.charOffset += 4;
+      this.charLoadBtn = true;
+    })
+  }
+
+  loadChar() {
+    this._getContentService.charBySeries(this.id, this.limit, this.charOffset).subscribe((response) => {
+      this.characters = this.characters.concat(response.data.results)
+      this.charOffset += 4;
+    })
+  }
+
+  getComics(id: number, offset: number) {
+    this._getContentService.comicBySeries(id, this.limit, offset).subscribe((response) => {
+      this.comics = response.data.results
+      this.comicOffset += 4;
+      this.comicLoadBtn = true;
+    })
+  }
+
+  loadComic() {
+    this._getContentService.comicBySeries(this.id, this.limit, this.comicOffset).subscribe((response) => {
+      this.comics = this.comics.concat(response.data.results)
+      this.comicOffset += 4;
+    })
+  }
+
+  getStories(id: number, offset: number) {
+    this._getContentService.storiesBySeries(id, this.limit, offset).subscribe((response) => {
+      this.stories = response.data.results
+      console.log(response);
+
+      this.storyOffset += 4;
+      this.storyLoadBtn = true;
+    })
+  }
+
+  loadStories() {
+    this._getContentService.storiesBySeries(this.id, this.limit, this.storyOffset).subscribe((response) => {
+      this.stories = this.stories.concat(response.data.results)
+      console.log(response);
+      this.storyOffset += 4;
     })
   }
 
   goBack() {
     this._contentFunctionality.goBack()
+  }
+
+  gotoComic(id: number) {
+    this._contentFunctionality.goComics(id)
+  }
+  
+  gotoSeries(id: number) {
+    this._contentFunctionality.goseries(id)
   }
 
 }
