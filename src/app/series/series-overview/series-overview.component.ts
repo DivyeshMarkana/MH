@@ -22,7 +22,7 @@ export class SeriesOverviewComponent implements OnInit {
   ngOnInit(): void {
     const id = this.route.snapshot.params['id'];
     this.fetching = false;
-    this._getContentService.getSeriesById(id).subscribe((response) => {
+    this._getContentService.getSeries( undefined, undefined, id).subscribe((response) => {
       this.seriess = response.data.results;
       this.fetching = true;
       this.loaded = true;

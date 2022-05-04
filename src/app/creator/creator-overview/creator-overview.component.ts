@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ComicList } from 'src/app/characters/characterModels/ComicList';
 import { Comic } from 'src/app/comics/comicsModels/Comic';
 import { series } from 'src/app/series/seriesModels/series';
 import { ContentFunctionalityService } from 'src/app/services/content-functionality.service';
@@ -20,20 +19,21 @@ export class CreatorOverviewComponent implements OnInit {
   seriess: series[] = [];
   stories: Story[] = [];
   loaded:boolean = false;
+  currentOffset:number = 0
+
+  id = this.route.snapshot.params['id'];
 
   constructor(private _getContentService: GetContentService,
     private _contentFunctionality: ContentFunctionalityService
     , private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    const id = this.route.snapshot.params['id'];
-
-    this._getContentService.getCreatorById(id).subscribe((response) => {
+    this._getContentService.getCreators(undefined, undefined, this.id).subscribe((response) => {
       this.creators = response.data.results;
       // console.log(response);
-      this.getComics(id)
-      this.getSeries(id)
-      this.getStories(id)
+      this.getComics(this.id)
+      this.getSeries(this.id)
+      this.getStories(this.id)
       this.loaded = true
 
     })

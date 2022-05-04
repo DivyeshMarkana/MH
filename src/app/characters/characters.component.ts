@@ -16,15 +16,15 @@ export class CharactersComponent implements OnInit {
   fetching: boolean = false;
   searchTerm: string = '';
   loaded: boolean = false
-  currentOffset = 0;
+  charoff: number = 0;
+  limit: number = 15
 
   constructor(
     private _getContentService: GetContentService,
     private _contentFunctionality: ContentFunctionalityService) { }
 
   ngOnInit(): void {
-    // this.getCharacter()
-    this.offsetChar(this.currentOffset)
+    this.getCharacter(this.charoff)
   }
 
   searchCharacter() {
@@ -33,58 +33,30 @@ export class CharactersComponent implements OnInit {
     });
   }
 
-  // getCharacter() {
-  //   this.fetching = true;
-  //   this.subscription = this._getContentService.getCharacters().subscribe((response => {
-  //     console.log(response);
-
-  //     this.characters = response.data.results;
-  //     this.dataCharacters = response.data.results;
-  //     this.fetching = false;
-  //     this.loaded = true;
-  //   }))
-  // }
-
-  // offsetChar(offset: number) {
-  //   this._getContentService.offsetCharacter(offset).subscribe((response => {
-  //     this.characters = response.data.results;
-  //     this.dataCharacters = response.data.results;
-  //     this.fetching = false;
-  //     this.loaded = true;
-  //   }))
-  // }
-
-  // loadMore() {
-  //   this.currentOffset += 15
-  //   const updated = this.offsetChar(this.currentOffset)
-  //   this.characters.concat(this.characters);
-  // }
-
-  offsetChar(offset: number) {
-      this.fetching = true;
-    this._getContentService.offsetCharacter(offset).subscribe((response => {
-      this.characters = response.data.results;
+  getCharacter(offset: number) {
+    this.fetching = true;
+    this._getContentService.getChar(this.limit, offset).subscribe((response) => {
+      this.characters = response.data.results
       this.dataCharacters = response.data.results;
+      this.charoff += 15;
+      this.fetching = false;
       this.loaded = true;
-      this.currentOffset += 15;
-        this.fetching = false;
-    }))
+    })
   }
 
   loadMore() {
-    this.currentOffset += 15;
-    this._getContentService.offsetCharacter(this.currentOffset).subscribe((response => {
+    this._getContentService.getChar(this.limit, this.charoff).subscribe((response => {
       this.characters = this.characters.concat(response.data.results);
       this.loaded = true;
-
+      this.charoff += 15;
     }))
   }
 
-  gotoComic(id) {
+  gotoComic(id: number) {
     this._contentFunctionality.goComics(id)
   }
 
-  gotoSeries(id) {
+  gotoSeries(id: number) {
     this._contentFunctionality.goseries(id)
   }
 }

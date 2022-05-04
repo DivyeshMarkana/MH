@@ -12,30 +12,63 @@ import { StoryDataWrapper } from '../stories/storyModel/StoryDataWrapper';
 })
 export class GetContentService {
 
+  private base: string = 'https://gateway.marvel.com:443/v1/public/';
+  // public endpoint: string = '';
+  private token: string = 'ts=1650715932&apikey=39b79c3e2d8f60abcd03f5d6046a7dcf&hash=09170cf850ac95d9120904a5e7b2b146'
+
+
   constructor(private http: HttpClient) { }
 
   //Get all characters
+  // getChar(limit: number, offset: number, id?: string): Observable<CharacterDataWrapper> {
+  //   let uri: string = id == undefined ? 'characters' : `characters${"/" + id}`;
+  //   let baseUrl: string = this.base + uri + `?limit=${limit}&offset=${offset}&` + this.token;
 
-  // getCharactersURL = 'http://gateway.marvel.com/v1/public/characters?limit=10&ts=1650715932&apikey=39b79c3e2d8f60abcd03f5d6046a7dcf&hash=09170cf850ac95d9120904a5e7b2b146'
-
-  // getCharacters(): Observable<CharacterDataWrapper> {
-  //   return this.http.get<CharacterDataWrapper>(this.getCharactersURL)
+  //   return this.http.get<CharacterDataWrapper>(baseUrl)
   // }
 
+  getChar(limit?: number, offset?: number, id?: number): Observable<CharacterDataWrapper> {
+    let endpoint: string = id ? `characters${"/" + id}?` : `characters?limit=${limit}&offset=${offset}&`
+    let baseUrl: string =  this.base + endpoint + this.token;
 
-  // offset character
-  offsetCharacter(offset: number): Observable<CharacterDataWrapper> {
-    const offsetCharacter = `https://gateway.marvel.com:443/v1/public/characters?limit=15&offset=${offset}&ts=1650715932&apikey=39b79c3e2d8f60abcd03f5d6046a7dcf&hash=09170cf850ac95d9120904a5e7b2b146`;
-
-    return this.http.get<CharacterDataWrapper>(offsetCharacter)
+    return this.http.get<CharacterDataWrapper>(baseUrl)
   }
+
+  getComics(limit?: number, offset?: number, id?: number): Observable<ComicDataWrapper> {
+    let endpoint: string = id ? `comics${"/" + id}?` : `comics?limit=${limit}&offset=${offset}&`
+    let baseUrl: string = this.base + endpoint + this.token;
+
+    return this.http.get<ComicDataWrapper>(baseUrl)
+  }
+
+  getSeries(limit?: number, offset?: number, id?: number): Observable<SeriesDataWrapper> {
+    let endpoint: string = id ? `series${"/" + id}?` : `series?limit=${limit}&offset=${offset}&`
+    let baseUrl: string = this.base + endpoint + this.token;
+
+    return this.http.get<SeriesDataWrapper>(baseUrl)
+  }
+
+  getStories(limit?: number, offset?: number, id?: number): Observable<StoryDataWrapper> {
+    let endpoint: string = id ? `stories${"/" + id}?` : `stories?limit=${limit}&offset=${offset}&`
+    let baseUrl: string = this.base + endpoint + this.token;
+
+    return this.http.get<StoryDataWrapper>(baseUrl)
+  }
+
+  getCreators(limit?: number, offset?: number, id?: number): Observable<CreatorDataWrapper> {
+    let endpoint: string = id ? `creators${"/" + id}?` : `creators?limit=${limit}&offset=${offset}&`
+    let baseUrl: string = this.base + endpoint + this.token;
+
+    return this.http.get<CreatorDataWrapper>(baseUrl)
+  }
+
 
   // character for home page offset 603
-  homeCharacter = 'https://gateway.marvel.com:443/v1/public/characters?limit=4&offset=345&ts=1650715932&apikey=39b79c3e2d8f60abcd03f5d6046a7dcf&hash=09170cf850ac95d9120904a5e7b2b146';
+  // homeCharacter = 'https://gateway.marvel.com:443/v1/public/characters?limit=4&offset=345&ts=1650715932&apikey=39b79c3e2d8f60abcd03f5d6046a7dcf&hash=09170cf850ac95d9120904a5e7b2b146';
 
-  chracterForHome(): Observable<CharacterDataWrapper> {
-    return this.http.get<CharacterDataWrapper>(this.homeCharacter)
-  }
+  // chracterForHome(): Observable<CharacterDataWrapper> {
+  //   return this.http.get<CharacterDataWrapper>(this.homeCharacter)
+  // }
 
 
   // comic for home page offset 605
@@ -60,8 +93,8 @@ export class GetContentService {
 
   // get character by comic id
 
-  getCharacterByComic(id: number): Observable<CharacterDataWrapper> {
-    const characterByComic = `https://gateway.marvel.com:443/v1/public/comics/${id}/characters?ts=1649611383&apikey=39b79c3e2d8f60abcd03f5d6046a7dcf&hash=788418b31f3fbc875e1cf6d7f1c9e7e6`;
+  getCharacterByComic(id: number, offset: number): Observable<CharacterDataWrapper> {
+    const characterByComic = `https://gateway.marvel.com:443/v1/public/comics/${id}/characters?limit=4&offset=${offset}&ts=1649611383&apikey=39b79c3e2d8f60abcd03f5d6046a7dcf&hash=788418b31f3fbc875e1cf6d7f1c9e7e6`;
 
     return this.http.get<CharacterDataWrapper>(characterByComic);
   }
@@ -85,6 +118,12 @@ export class GetContentService {
   // get comic by hero's name
   getComicsByHeroName(id: number): Observable<ComicDataWrapper> {
     const comicByHero = `https://gateway.marvel.com:443/v1/public/characters/${id}/comics?ts=1649611383&apikey=39b79c3e2d8f60abcd03f5d6046a7dcf&hash=788418b31f3fbc875e1cf6d7f1c9e7e6`;
+
+    return this.http.get<ComicDataWrapper>(comicByHero)
+  }
+
+  getComicsByCharacter(id: number, offset: number): Observable<ComicDataWrapper> {
+    const comicByHero = `https://gateway.marvel.com:443/v1/public/characters/${id}/comics?limit=4&offset=${offset}&ts=1649611383&apikey=39b79c3e2d8f60abcd03f5d6046a7dcf&hash=788418b31f3fbc875e1cf6d7f1c9e7e6`;
 
     return this.http.get<ComicDataWrapper>(comicByHero)
   }
@@ -132,8 +171,8 @@ export class GetContentService {
   }
 
 
-  getStoriesByComic(id: number): Observable<StoryDataWrapper> {
-    const storiesByComic = `https://gateway.marvel.com:443/v1/public/comics/${id}/stories?ts=1649611383&apikey=39b79c3e2d8f60abcd03f5d6046a7dcf&hash=788418b31f3fbc875e1cf6d7f1c9e7e6`;
+  getStoriesByComic(id: number, offset: number): Observable<StoryDataWrapper> {
+    const storiesByComic = `https://gateway.marvel.com:443/v1/public/comics/${id}/stories?limit=4&offset=${offset}&ts=1649611383&apikey=39b79c3e2d8f60abcd03f5d6046a7dcf&hash=788418b31f3fbc875e1cf6d7f1c9e7e6`;
 
     return this.http.get<StoryDataWrapper>(storiesByComic)
   }

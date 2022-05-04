@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { GetContentService } from '../services/get-content.service';
 import { Comic } from './comicsModels/Comic';
 
@@ -13,15 +12,16 @@ export class ComicsComponent implements OnInit {
   dataComic: Comic[] = [];
   fetching: boolean = false;
   loaded: boolean = false;
-  searchTerm: string = ''
-  currentOffset = 0;
+  searchTerm: string = '';
+  limit: number = 15
+  comicOffset: number = 0;
   subscription
 
 
   constructor(private _getContentService: GetContentService) { }
 
   ngOnInit(): void {
-    this.getComic(this.currentOffset)
+    this.getComic(this.comicOffset)
   }
 
   searchComic() {
@@ -30,34 +30,42 @@ export class ComicsComponent implements OnInit {
     });
   }
 
-  // getComic() {
+  // getComic(offset: number) {
   //   this.fetching = true;
-  //   this.subscription = this._getContentService.getAllComics().subscribe((response => {
-  //     // console.log(response);
+  //   this._getContentService.getAllComics(offset).subscribe((response) => {
   //     this.comics = response.data.results;
   //     this.dataComic = response.data.results;
+  //     this.currentOffset += 15
   //     this.fetching = false;
   //     this.loaded = true;
-  //   }))
+  //   })
+  // }
+
+  // loadMore() {
+  //   this.currentOffset += 15;
+  //   this._getContentService.getAllComics(this.currentOffset).subscribe((response) => {
+  //     this.comics = this.comics.concat(response.data.results);
+  //     this.currentOffset += 15
+  //   })
   // }
 
 
   getComic(offset: number) {
     this.fetching = true;
-    this._getContentService.getAllComics(offset).subscribe((response) => {
+    this._getContentService.getComics(this.limit, offset).subscribe((response) => {
       this.comics = response.data.results;
       this.dataComic = response.data.results;
-      this.currentOffset += 15
+      this.comicOffset += 15
       this.fetching = false;
       this.loaded = true;
     })
   }
 
   loadMore() {
-    this.currentOffset += 15;
-    this._getContentService.getAllComics(this.currentOffset).subscribe((response) => {
+    this._getContentService.getComics(this.limit, this.comicOffset).subscribe((response) => {
       this.comics = this.comics.concat(response.data.results);
-      this.currentOffset += 15
+      this.loaded = true;
+      this.comicOffset += 15;
     })
   }
 

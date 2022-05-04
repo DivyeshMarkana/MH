@@ -20,15 +20,13 @@ export class StoryOverviewComponent implements OnInit {
   ngOnInit(): void {
     const id = this.route.snapshot.params['id'];
 
-    this._getContentService.getStoryById(id).subscribe((response) => {
+    this._getContentService.getStories(undefined, undefined, id).subscribe((response) => {
       this.stories = response.data.results;
       // console.log(response);
-      
     })
   }
 
   goBack(){
     this._contentFunctionality.goBack()
   }
-
 }

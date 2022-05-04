@@ -12,7 +12,8 @@ export class StoriesComponent implements OnInit {
   stories: Story[] = []
   fetching: boolean = false;
   loaded: boolean = false;
-  currentOffset: number = 0
+  currentOffset: number = 0;
+  limit:number = 15;
   constructor(private _getContentService: GetContentService) { }
 
   ngOnInit(): void {
@@ -21,7 +22,7 @@ export class StoriesComponent implements OnInit {
 
   getStories(offset: number) {
     this.fetching = true;
-    this._getContentService.getAllStories(offset).subscribe((response) => {
+    this._getContentService.getStories(this.limit, offset).subscribe((response) => {
       this.stories = response.data.results
       // console.log(response);
       this.currentOffset += 15;
@@ -36,4 +37,21 @@ export class StoriesComponent implements OnInit {
       this.stories = this.stories.concat(response.data.results);
     })
   }
+  // getStories(offset: number) {
+  //   this.fetching = true;
+  //   this._getContentService.getAllStories(offset).subscribe((response) => {
+  //     this.stories = response.data.results
+  //     // console.log(response);
+  //     this.currentOffset += 15;
+  //     this.fetching = false;
+  //     this.loaded = true;
+  //   })
+  // }
+
+  // loadMore() {
+  //   this.currentOffset += 15;
+  //   this._getContentService.getAllStories(this.currentOffset).subscribe((response) => {
+  //     this.stories = this.stories.concat(response.data.results);
+  //   })
+  // }
 }

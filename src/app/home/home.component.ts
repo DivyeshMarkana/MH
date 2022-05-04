@@ -15,6 +15,8 @@ export class HomeComponent implements OnInit {
   comics: Comic[] = [];
   seriess:series[] = [];
   loaded: boolean = false;
+  limit: number = 4;
+  offset:number = 603
 
   constructor(private _getContentService: GetContentService) { }
 
@@ -26,7 +28,7 @@ export class HomeComponent implements OnInit {
   }
 
   getCharacter() {
-    this._getContentService.chracterForHome().subscribe((response) => {
+    this._getContentService.getChar(this.limit, this.offset).subscribe((response) => {
       this.characters = response.data.results
     })
   }
