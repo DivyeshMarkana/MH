@@ -110,6 +110,13 @@ export class MarvelApiService {
     return this.http.get<marvelDataWrapper<Comic>>(requestUrl)
   }
 
+  seriesCharacter(id: number, limit: number, offset: number): Observable<marvelDataWrapper<series>> {
+    let endpoint: string = `characters/${id}/series?limit=${limit}&offset=${offset}&`
+    let requestUrl = this.baseUrl + endpoint + this.token;
+
+    return this.http.get<marvelDataWrapper<series>>(requestUrl)
+  }
+
   storyByCharacter(id: number, limit: number, offset: number): Observable<marvelDataWrapper<Story>> {
     let endpoint: string = `characters/${id}/stories?limit=${limit}&offset=${offset}&`
     let requestUrl = this.baseUrl + endpoint + this.token;
