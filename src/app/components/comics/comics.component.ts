@@ -11,7 +11,7 @@ export class ComicsComponent implements OnInit {
   comics: Comic[] = []
   dataComic: Comic[] = [];
   fetching: boolean = false;
-  loaded: boolean = false;
+  comicLoadBtn: boolean = false;
   searchTerm: string = '';
   limit: number = 15
   comicOffset: number = 0;
@@ -37,14 +37,14 @@ export class ComicsComponent implements OnInit {
       this.dataComic = response.data.results;
       this.comicOffset += 15
       this.fetching = false;
-      this.loaded = true;
+      this.comicLoadBtn = true;
     })
   }
 
   loadMore() {
     this._getContentService.getComics(this.limit, this.comicOffset).subscribe((response) => {
       this.comics = this.comics.concat(response.data.results);
-      this.loaded = true;
+      this.comicLoadBtn = true;
       this.comicOffset += 15;
     })
   }

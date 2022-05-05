@@ -30,37 +30,13 @@
 
 
 <ng-container *ngIf="characters.length !== 0">
-  <app-character [characters]="characters" (loadCharacter)="loadChararacter()"></app-character>
+  <app-character [characters]="characters" [characterLoadBtn]="characterLoadBtn" [isOverviewMode]="true" (loadCharacter)="loadChararacter()"></app-character>
 </ng-container>
 
 
+
 <ng-container *ngIf="comics.length !== 0">
-  <div class="p-0 py-3">
-    <div class="pt-3">
-      <div class=" mx-auto py-0 px-4 sm:py-24 sm:px-6 lg:max-w-5xl lg:px-8">
-        <h1>Related Comics</h1>
-        <div class="grid mt-2 grid-cols-1 gap-y-4 sm:grid-cols-2 gap-x-4 lg:grid-cols-4 xl:grid-cols-4 xl:gap-x-4">
-          <a class="group border  rounded" *ngFor="let comic of comics">
-            <mat-card [routerLink]="['/comic', comic.id]" [queryParams]="{comic_name: comic.title}"
-              class="w-full p-0  aspect-w-1 aspect-h-1  rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8 sm:aspect-w-5 sm:aspect-h-3">
-              <mat-card-header>
-                <mat-card-title class="p-0">
-                  <h4 class="fw-bold" matTooltip="{{comic.title}}" matTooltipPosition="above">{{comic.title | filter |
-                    titlecase}}</h4>
-                </mat-card-title>
-              </mat-card-header>
-              <div class="image__wrapper">
-                <img src="{{comic.thumbnail.path}}.{{comic.thumbnail.extension}}"
-                  alt="Tall slender porcelain bottle with natural clay textured body and cork stopper."
-                  class="w-full h-full object-center object-cover img">
-              </div>
-            </mat-card>
-          </a>
-        </div>
-        <button (click)="loadComic()" *ngIf="comicLoadBtn" mat-button color="primary" class="mt-2">Load more</button>
-      </div>
-    </div>
-  </div>
+  <app-comic (load)="loadComics()" [comics]="comics" [comicLoadBtn]="comicLoadBtn" [isOverviewMode]="true" ></app-comic>
 </ng-container>
 
 

@@ -13,7 +13,7 @@ export class SeriesComponent implements OnInit {
   dataSeries: series[] = []
   searchTerm: string = '';
   fetching: boolean = false;
-  loaded:boolean = false;
+  seriesLoadBtn:boolean = false;
   SeriesOffset: number = 0;
   limit: number = 15;
 
@@ -57,7 +57,7 @@ export class SeriesComponent implements OnInit {
       // console.log(response);
       this.SeriesOffset += 15;
       this.fetching = false;
-      this.loaded = true;
+      this.seriesLoadBtn = true;
     })
   }
 

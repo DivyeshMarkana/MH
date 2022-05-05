@@ -24,7 +24,7 @@ export class SeriesOverviewComponent implements OnInit {
   comicOffset: number = 0;
   storyOffset: number = 0;
 
-  charLoadBtn: boolean = false;
+  characterLoadBtn: boolean = false;
   comicLoadBtn: boolean = false;
   storyLoadBtn: boolean = false;
 
@@ -57,7 +57,7 @@ export class SeriesOverviewComponent implements OnInit {
     this._getContentService.characterBySeries(id, this.limit, offset).subscribe((response) => {
       this.characters = response.data.results
       this.charOffset += 4;
-      this.charLoadBtn = true;
+      this.characterLoadBtn = true;
     })
   }
 
@@ -76,7 +76,7 @@ export class SeriesOverviewComponent implements OnInit {
     })
   }
 
-  loadComic() {
+  loadComics() {
     this._getContentService.comicBySeries(this.id, this.limit, this.comicOffset).subscribe((response) => {
       this.comics = this.comics.concat(response.data.results)
       this.comicOffset += 4;

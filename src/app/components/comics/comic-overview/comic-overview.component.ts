@@ -16,7 +16,7 @@ export class ComicOverviewComponent implements OnInit, OnChanges {
   comics: Comic[];
   characters: Character[] = [];
   stories: Story[] = [];
-  loaded: boolean = false;
+  characterLoadBtn: boolean = false;
   sLoaded: boolean = false;
   characterOffset: number = 0;
   storyOffset: number = 0;
@@ -55,7 +55,7 @@ export class ComicOverviewComponent implements OnInit, OnChanges {
       this.characters = response.data.results
       this.characterOffset += 4;
       // console.log(response);
-      this.loaded = true;
+      this.characterLoadBtn = true;
     })
   }
 
