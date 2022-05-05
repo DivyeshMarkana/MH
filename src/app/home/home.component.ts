@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Character } from '../characters/characterModels/Character';
-import { Comic } from '../comics/comicsModels/Comic';
-import { series } from '../series/seriesModels/series';
-import { GetContentService } from '../services/get-content.service';
+import { Character } from '../Models/characterModels/Character';
+import { Comic } from '../Models/comicsModels/Comic';
+import { series } from '../Models/seriesModels/series';
+import { MarvelApiService } from '../services/marvel-api.service';
 
 @Component({
   selector: 'app-home',
@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
   limit: number = 4;
   offset:number = 603
 
-  constructor(private _getContentService: GetContentService) { }
+  constructor(private _getContentService: MarvelApiService) { }
 
   ngOnInit(): void {
     this.getCharacter()
@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
   }
 
   getCharacter() {
-    this._getContentService.getChar(this.limit, this.offset).subscribe((response) => {
+    this._getContentService.getCharacters(this.limit, this.offset).subscribe((response) => {
       this.characters = response.data.results
     })
   }

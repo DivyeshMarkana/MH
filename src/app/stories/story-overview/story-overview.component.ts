@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ContentFunctionalityService } from 'src/app/services/content-functionality.service';
-import { GetContentService } from 'src/app/services/get-content.service';
-import { Story } from '../storyModel/Story';
+import { MarvelApiService } from 'src/app/services/marvel-api.service';
+import { Story } from '../../Models/storyModel/Story';
 
 @Component({
   selector: 'app-story-overview',
@@ -13,7 +13,7 @@ export class StoryOverviewComponent implements OnInit {
 
   stories: Story[] = []
 
-  constructor(private _getContentService: GetContentService,
+  constructor(private _getContentService: MarvelApiService,
     private _contentFunctionality: ContentFunctionalityService
     , private route: ActivatedRoute) { }
 

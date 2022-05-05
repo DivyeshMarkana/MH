@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { GetContentService } from '../services/get-content.service';
-import { Comic } from './comicsModels/Comic';
+import { MarvelApiService } from '../services/marvel-api.service';
+import { Comic } from '../Models/comicsModels/Comic';
 
 @Component({
   selector: 'app-comics',
@@ -18,7 +18,7 @@ export class ComicsComponent implements OnInit {
   subscription
 
 
-  constructor(private _getContentService: GetContentService) { }
+  constructor(private _getContentService: MarvelApiService) { }
 
   ngOnInit(): void {
     this.getComic(this.comicOffset)

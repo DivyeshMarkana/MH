@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { GetContentService } from '../services/get-content.service';
-import { Story } from './storyModel/Story';
+import { MarvelApiService } from '../services/marvel-api.service';
+import { Story } from '../Models/storyModel/Story';
 
 @Component({
   selector: 'app-stories',
@@ -14,7 +14,7 @@ export class StoriesComponent implements OnInit {
   loaded: boolean = false;
   currentOffset: number = 0;
   limit:number = 15;
-  constructor(private _getContentService: GetContentService) { }
+  constructor(private _getContentService: MarvelApiService) { }
 
   ngOnInit(): void {
     this.getStories(this.currentOffset)

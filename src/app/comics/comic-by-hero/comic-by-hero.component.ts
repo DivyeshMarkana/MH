@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { Comic } from '../comicsModels/Comic';
-import { GetContentService } from '../../services/get-content.service';
+import { Comic } from '../../Models/comicsModels/Comic';
+import { MarvelApiService } from '../../services/marvel-api.service';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
@@ -15,7 +15,7 @@ export class ComicByHeroComponent implements OnInit {
   fetching:boolean = false;
   loaded:boolean = false;
 
-  constructor(private _getContentService: GetContentService,
+  constructor(private _getContentService: MarvelApiService,
     @Inject(MAT_DIALOG_DATA) public data: { id: number}) { }
 
   ngOnInit(): void {

@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Comic } from 'src/app/comics/comicsModels/Comic';
-import { series } from 'src/app/series/seriesModels/series';
+import { Comic } from 'src/app/Models/comicsModels/Comic';
+import { series } from 'src/app/Models/seriesModels/series';
 import { ContentFunctionalityService } from 'src/app/services/content-functionality.service';
-import { GetContentService } from 'src/app/services/get-content.service';
-import { Story } from 'src/app/stories/storyModel/Story';
-import { Creator } from '../creator/creatorModel/CreatorDataContainer';
+import { MarvelApiService } from 'src/app/services/marvel-api.service';
+import { Story } from 'src/app/Models/storyModel/Story';
+import { Creator } from '../../Models/creatorModel/CreatorDataContainer';
 
 @Component({
   selector: 'app-creator-overview',
@@ -28,7 +28,7 @@ export class CreatorOverviewComponent implements OnInit {
   limit: number = 4;
   id = this.route.snapshot.params['id'];
 
-  constructor(private _getContentService: GetContentService,
+  constructor(private _getContentService: MarvelApiService,
     private _contentFunctionality: ContentFunctionalityService
     , private route: ActivatedRoute) { }
 

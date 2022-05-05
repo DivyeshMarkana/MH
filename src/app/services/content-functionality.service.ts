@@ -2,7 +2,7 @@ import { Location } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { CharacterDataWrapper } from '../characters/characterModels/CharacterDataWrapper';
+import { CharacterDataWrapper } from '../Models/characterModels/CharacterDataWrapper';
 import { ComicByHeroComponent } from '../comics/comic-by-hero/comic-by-hero.component';
 import { SeriesByHeroComponent } from '../series/series-by-hero/series-by-hero.component';
 

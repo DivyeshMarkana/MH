@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { GetContentService } from 'src/app/services/get-content.service';
-import { Creator } from './creatorModel/CreatorDataContainer';
+import { MarvelApiService } from 'src/app/services/marvel-api.service';
+import { Creator } from '../../Models/creatorModel/CreatorDataContainer';
 
 @Component({
   selector: 'app-creator',
@@ -15,7 +15,7 @@ export class CreatorComponent implements OnInit {
   currentOffset: number = 0;
   limit: number = 15;
 
-  constructor(private _getContentService: GetContentService) { }
+  constructor(private _getContentService: MarvelApiService) { }
 
   ngOnInit(): void {
     this.getCreators(this.currentOffset)

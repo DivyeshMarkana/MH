@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { GetContentService } from '../services/get-content.service';
-import { Character } from './characterModels/Character';
+import { MarvelApiService } from '../services/marvel-api.service';
+import { Character } from '../Models/characterModels/Character';
 import { ContentFunctionalityService } from '../services/content-functionality.service';
 
 @Component({
@@ -20,7 +20,7 @@ export class CharactersComponent implements OnInit {
   limit: number = 15
 
   constructor(
-    private _getContentService: GetContentService,
+    private _getContentService: MarvelApiService,
     private _contentFunctionality: ContentFunctionalityService) { }
 
   ngOnInit(): void {
@@ -35,7 +35,7 @@ export class CharactersComponent implements OnInit {
 
   getCharacter(offset: number) {
     this.fetching = true;
-    this._getContentService.getChar(this.limit, offset).subscribe((response) => {
+    this._getContentService.getCharacters(this.limit, offset).subscribe((response) => {
       this.characters = response.data.results
       this.dataCharacters = response.data.results;
       console.log(response);
@@ -47,7 +47,7 @@ export class CharactersComponent implements OnInit {
   }
 
   loadMore() {
-    this._getContentService.getChar(this.limit, this.charoff).subscribe((response => {
+    this._getContentService.getCharacters(this.limit, this.charoff).subscribe((response => {
       this.characters = this.characters.concat(response.data.results);
       this.charoff += 15;
     }))

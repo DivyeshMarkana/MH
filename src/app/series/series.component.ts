@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { GetContentService } from '../services/get-content.service';
-import { series } from './seriesModels/series';
+import { MarvelApiService } from '../services/marvel-api.service';
+import { series } from '../Models/seriesModels/series';
 
 @Component({
   selector: 'app-series',
@@ -17,7 +17,7 @@ export class SeriesComponent implements OnInit {
   SeriesOffset: number = 0;
   limit: number = 15;
 
-  constructor(private _getContentService: GetContentService) { }
+  constructor(private _getContentService: MarvelApiService) { }
 
   ngOnInit(): void {
     this.getSeries(this.SeriesOffset)

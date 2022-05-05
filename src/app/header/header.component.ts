@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Creator } from '../creator/creator/creatorModel/CreatorDataContainer';
-import { GetContentService } from '../services/get-content.service';
+import { Creator } from '../Models/creatorModel/CreatorDataContainer';
+import { MarvelApiService } from '../services/marvel-api.service';
 
 @Component({
   selector: 'app-header',

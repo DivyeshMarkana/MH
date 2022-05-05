@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { series } from '../seriesModels/series';
-import { GetContentService } from '../../services/get-content.service';
+import { series } from '../../Models/seriesModels/series';
+import { MarvelApiService } from '../../services/marvel-api.service';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
@@ -12,7 +12,7 @@ export class SeriesByHeroComponent implements OnInit {
 
   seriess: series[] = []
 
-  constructor(private _getContentService: GetContentService,
+  constructor(private _getContentService: MarvelApiService,
     @Inject(MAT_DIALOG_DATA) public data: { id: number}) { }
 
   ngOnInit(): void {

@@ -1,16 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { CharacterDataWrapper } from '../characters/characterModels/CharacterDataWrapper';
-import { ComicDataWrapper } from '../comics/comicsModels/comicDataWrapper';
-import { CreatorDataWrapper } from '../creator/creator/creatorModel/CreatorDataWrapper';
-import { SeriesDataWrapper } from '../series/seriesModels/SeriesDataWrapper';
-import { StoryDataWrapper } from '../stories/storyModel/StoryDataWrapper';
+import { CharacterDataWrapper } from '../Models/characterModels/CharacterDataWrapper';
+import { ComicDataWrapper } from '../Models/comicsModels/comicDataWrapper';
+import { CreatorDataWrapper } from '../Models/creatorModel/CreatorDataWrapper';
+import { SeriesDataWrapper } from '../Models/seriesModels/SeriesDataWrapper';
+import { StoryDataWrapper } from '../Models/storyModel/StoryDataWrapper';
 
 @Injectable({
   providedIn: 'root'
 })
-export class GetContentService {
+export class MarvelApiService {
 
   private base: string = 'https://gateway.marvel.com:443/v1/public/';
   // public endpoint: string = '';
@@ -20,39 +20,41 @@ export class GetContentService {
   constructor(private http: HttpClient) { }
 
   // character for home page offset 603
-  getChar(limit?: number, offset?: number, id?: number): Observable<CharacterDataWrapper> {
+  getCharacters(limit?: number, offset?: number, id?: number): Observable<CharacterDataWrapper> {
     let endpoint: string = id ? `characters${"/" + id}?` : `characters?limit=${limit}&offset=${offset}&`
-    let baseUrl: string = this.base + endpoint + this.token;
+    let requestUrl: string = this.base + endpoint + this.token;
 
-    return this.http.get<CharacterDataWrapper>(baseUrl)
+    return this.http.get<CharacterDataWrapper>(requestUrl)
   }
+
+  
 // comic for home page offset 60
   getComics(limit?: number, offset?: number, id?: number): Observable<ComicDataWrapper> {
     let endpoint: string = id ? `comics${"/" + id}?` : `comics?limit=${limit}&offset=${offset}&`
-    let baseUrl: string = this.base + endpoint + this.token;
+    let requestUrl: string = this.base + endpoint + this.token;
 
-    return this.http.get<ComicDataWrapper>(baseUrl)
+    return this.http.get<ComicDataWrapper>(requestUrl)
   }
 
   getSeries(limit?: number, offset?: number, id?: number): Observable<SeriesDataWrapper> {
     let endpoint: string = id ? `series${"/" + id}?` : `series?limit=${limit}&offset=${offset}&`
-    let baseUrl: string = this.base + endpoint + this.token;
+    let requestUrl: string = this.base + endpoint + this.token;
 
-    return this.http.get<SeriesDataWrapper>(baseUrl)
+    return this.http.get<SeriesDataWrapper>(requestUrl)
   }
 
   getStories(limit?: number, offset?: number, id?: number): Observable<StoryDataWrapper> {
     let endpoint: string = id ? `stories${"/" + id}?` : `stories?limit=${limit}&offset=${offset}&`
-    let baseUrl: string = this.base + endpoint + this.token;
+    let requestUrl: string = this.base + endpoint + this.token;
 
-    return this.http.get<StoryDataWrapper>(baseUrl)
+    return this.http.get<StoryDataWrapper>(requestUrl)
   }
 
   getCreators(limit?: number, offset?: number, id?: number): Observable<CreatorDataWrapper> {
     let endpoint: string = id ? `creators${"/" + id}?` : `creators?limit=${limit}&offset=${offset}&`
-    let baseUrl: string = this.base + endpoint + this.token;
+    let requestUrl: string = this.base + endpoint + this.token;
 
-    return this.http.get<CreatorDataWrapper>(baseUrl)
+    return this.http.get<CreatorDataWrapper>(requestUrl)
   }
 
 
@@ -60,16 +62,16 @@ export class GetContentService {
 
   charByComic(id: number, limit: number, offset: number): Observable<CharacterDataWrapper> {
     let endpoint: string = `comics/${id}/characters?limit=${limit}&offset=${offset}&`
-    let baseUrl = this.base + endpoint + this.token;
+    let requestUrl = this.base + endpoint + this.token;
 
-    return this.http.get<CharacterDataWrapper>(baseUrl)
+    return this.http.get<CharacterDataWrapper>(requestUrl)
   }
 
   storyByComic(id: number, limit: number, offset: number): Observable<StoryDataWrapper> {
     let endpoint: string = `comics/${id}/stories?limit=${limit}&offset=${offset}&`
-    let baseUrl = this.base + endpoint + this.token;
+    let requestUrl = this.base + endpoint + this.token;
 
-    return this.http.get<StoryDataWrapper>(baseUrl)
+    return this.http.get<StoryDataWrapper>(requestUrl)
   }
 
 
@@ -77,23 +79,23 @@ export class GetContentService {
 
   comicByCreator(id: number, limit: number, offset: number): Observable<ComicDataWrapper> {
     let endpoint: string = `creators/${id}/comics?limit=${limit}&offset=${offset}&`
-    let baseUrl = this.base + endpoint + this.token;
+    let requestUrl = this.base + endpoint + this.token;
 
-    return this.http.get<ComicDataWrapper>(baseUrl)
+    return this.http.get<ComicDataWrapper>(requestUrl)
   }
 
   seriesByCreator(id: number, limit: number, offset: number): Observable<SeriesDataWrapper> {
     let endpoint: string = `creators/${id}/series?limit=${limit}&offset=${offset}&`
-    let baseUrl = this.base + endpoint + this.token;
+    let requestUrl = this.base + endpoint + this.token;
 
-    return this.http.get<SeriesDataWrapper>(baseUrl)
+    return this.http.get<SeriesDataWrapper>(requestUrl)
   }
 
   storyByCreator(id: number, limit: number, offset: number): Observable<StoryDataWrapper> {
     let endpoint: string = `creators/${id}/stories?limit=${limit}&offset=${offset}&`
-    let baseUrl = this.base + endpoint + this.token;
+    let requestUrl = this.base + endpoint + this.token;
 
-    return this.http.get<StoryDataWrapper>(baseUrl)
+    return this.http.get<StoryDataWrapper>(requestUrl)
   }
 
 
@@ -101,23 +103,23 @@ export class GetContentService {
 
   charBySeries(id: number, limit: number, offset: number): Observable<CharacterDataWrapper> {
     let endpoint: string = `series/${id}/characters?limit=${limit}&offset=${offset}&`
-    let baseUrl = this.base + endpoint + this.token;
+    let requestUrl = this.base + endpoint + this.token;
 
-    return this.http.get<CharacterDataWrapper>(baseUrl)
+    return this.http.get<CharacterDataWrapper>(requestUrl)
   }
 
   comicBySeries(id: number, limit: number, offset: number): Observable<ComicDataWrapper> {
     let endpoint: string = `series/${id}/comics?limit=${limit}&offset=${offset}&`
-    let baseUrl = this.base + endpoint + this.token;
+    let requestUrl = this.base + endpoint + this.token;
 
-    return this.http.get<ComicDataWrapper>(baseUrl)
+    return this.http.get<ComicDataWrapper>(requestUrl)
   }
 
   storiesBySeries(id: number, limit: number, offset: number): Observable<StoryDataWrapper> {
     let endpoint: string = `series/${id}/stories?limit=${limit}&offset=${offset}&`
-    let baseUrl = this.base + endpoint + this.token;
+    let requestUrl = this.base + endpoint + this.token;
 
-    return this.http.get<StoryDataWrapper>(baseUrl)
+    return this.http.get<StoryDataWrapper>(requestUrl)
   }
 
 

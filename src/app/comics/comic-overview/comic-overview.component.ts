@@ -1,10 +1,10 @@
 import { Component, DoCheck, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Character } from '../../characters/characterModels/Character';
-import { Comic } from '../comicsModels/Comic';
+import { Character } from '../../Models/characterModels/Character';
+import { Comic } from '../../Models/comicsModels/Comic';
 import { ContentFunctionalityService } from '../../services/content-functionality.service';
-import { GetContentService } from '../../services/get-content.service';
-import { Story } from '../../stories/storyModel/Story';
+import { MarvelApiService } from '../../services/marvel-api.service';
+import { Story } from '../../Models/storyModel/Story';
 
 @Component({
   selector: 'app-comic-overview',
@@ -24,7 +24,7 @@ export class ComicOverviewComponent implements OnInit, OnChanges {
   id = this.route.snapshot.params['id'];
 
   constructor(private route: ActivatedRoute,
-    private _getContentService: GetContentService,
+    private _getContentService: MarvelApiService,
     private _contentFunctionality: ContentFunctionalityService) {
     // route.paramMap.subscribe(() => {
     //   this.ngOnInit();

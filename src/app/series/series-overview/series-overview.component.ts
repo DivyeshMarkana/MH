@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Character } from 'src/app/characters/characterModels/Character';
-import { Comic } from 'src/app/comics/comicsModels/Comic';
+import { Character } from 'src/app/Models/characterModels/Character';
+import { Comic } from 'src/app/Models/comicsModels/Comic';
 import { ContentFunctionalityService } from 'src/app/services/content-functionality.service';
-import { GetContentService } from 'src/app/services/get-content.service';
-import { Story } from 'src/app/stories/storyModel/Story';
-import { series } from '../seriesModels/series';
+import { MarvelApiService } from 'src/app/services/marvel-api.service';
+import { Story } from 'src/app/Models/storyModel/Story';
+import { series } from '../../Models/seriesModels/series';
 
 @Component({
   selector: 'app-series-overview',
@@ -33,7 +33,7 @@ export class SeriesOverviewComponent implements OnInit {
 
   id = this.route.snapshot.params['id'];
 
-  constructor(private _getContentService: GetContentService,
+  constructor(private _getContentService: MarvelApiService,
     private _contentFunctionality: ContentFunctionalityService
     , private route: ActivatedRoute) { }
 
