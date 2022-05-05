@@ -1,4 +1,4 @@
-.container-fluid {
+/* .container-fluid {
 
     background         : url(../../../../assets/s3.jpg) #00000098;
     color              : var(--white);
@@ -19,7 +19,6 @@
 
 .comic__img {
     max-width      : 400px;
-    /* max-height     : 450px; */
     height         : auto;
     display        : flex;
     justify-content: center;
@@ -63,4 +62,4 @@ span {
     .comic__wrapper {
         max-width: 80%;
     }
-}
+} */
