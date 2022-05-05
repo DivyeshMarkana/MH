@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MarvelApiService } from '../services/marvel-api.service';
-import { series } from '../Models/seriesModels/series';
+import { MarvelApiService } from '../../services/marvel-api.service';
+import { series } from '../../Models/seriesModels/series';
 
 @Component({
   selector: 'app-series',

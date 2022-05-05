@@ -5,7 +5,7 @@ import { Comic } from 'src/app/Models/comicsModels/Comic';
 import { ContentFunctionalityService } from 'src/app/services/content-functionality.service';
 import { MarvelApiService } from 'src/app/services/marvel-api.service';
 import { Story } from 'src/app/Models/storyModel/Story';
-import { series } from '../../Models/seriesModels/series';
+import { series } from '../../../Models/seriesModels/series';
 
 @Component({
   selector: 'app-series-overview',

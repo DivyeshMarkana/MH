@@ -18,7 +18,6 @@
               </h2>
               <h3>Available items by creator</h3>
               <ul>
-                <!-- <li><span>Comics :</span> <span>{{comic..available}}</span></li> -->
                 <li><span>characters :</span> <span>{{comic.characters.available}}</span></li>
                 <li><span>Stories :</span> <span>{{comic.stories.available}}</span></li>
               </ul>
@@ -90,7 +89,6 @@
                 </mat-card-title>
               </mat-card-header>
 
-              <!-- ../../../../assets/image not found.jpg -->
               <div class="  image__wrapper" *ngIf="story.thumbnail !== null">
                 <img src="{{story.thumbnail.path}}.{{story.thumbnail.extension}}"
                   alt="Tall slender porcelain bottle with natural clay textured body and cork stopper."

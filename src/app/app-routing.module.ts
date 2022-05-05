@@ -4,11 +4,11 @@ import { CharacterOverviewComponent } from './characters/character-overview/char
 import { CharactersComponent } from './characters/characters.component';
 import { ComicOverviewComponent } from './components/comics/comic-overview/comic-overview.component';
 import { ComicsComponent } from './components/comics/comics.component';
-import { CreatorOverviewComponent } from './creator/creator-overview/creator-overview.component';
-import { CreatorComponent } from './creator/creator/creator.component';
-import { HomeComponent } from './home/home.component';
-import { SeriesOverviewComponent } from './series/series-overview/series-overview.component';
-import { SeriesComponent } from './series/series.component';
+import { CreatorOverviewComponent } from './components/creator/creator-overview/creator-overview.component';
+import { CreatorComponent } from './components/creator/creator/creator.component';
+import { HomeComponent } from './components/home/home.component';
+import { SeriesOverviewComponent } from './components/series/series-overview/series-overview.component';
+import { SeriesComponent } from './components/series/series.component';
 import { StoriesComponent } from './stories/stories.component';
 import { StoryOverviewComponent } from './stories/story-overview/story-overview.component';
 

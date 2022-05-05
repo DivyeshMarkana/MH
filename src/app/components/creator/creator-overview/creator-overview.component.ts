@@ -5,7 +5,7 @@ import { series } from 'src/app/Models/seriesModels/series';
 import { ContentFunctionalityService } from 'src/app/services/content-functionality.service';
 import { MarvelApiService } from 'src/app/services/marvel-api.service';
 import { Story } from 'src/app/Models/storyModel/Story';
-import { Creator } from '../../Models/creatorModels/Creator';
+import { Creator } from '../../../Models/creatorModels/Creator';
 
 @Component({
   selector: 'app-creator-overview',

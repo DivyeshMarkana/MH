@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Character } from '../Models/characterModels/Character';
-import { Comic } from '../Models/comicsModels/Comic';
-import { series } from '../Models/seriesModels/series';
-import { MarvelApiService } from '../services/marvel-api.service';
+import { Character } from '../../Models/characterModels/Character';
+import { Comic } from '../../Models/comicsModels/Comic';
+import { series } from '../../Models/seriesModels/series';
+import { MarvelApiService } from '../../services/marvel-api.service';
 
 @Component({
   selector: 'app-home',

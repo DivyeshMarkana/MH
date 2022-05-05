@@ -8,10 +8,10 @@
           <mat-card [routerLink]="['/comic', comic.id]" [queryParams]="{comic_name: comic.title}"
             class="w-full p-0  aspect-w-1 aspect-h-1  rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8 sm:aspect-w-5 sm:aspect-h-3">
             <mat-card-header>
-                <mat-card-title class="p-0">
-                  <h4 class="fw-bold" matTooltip="{{comic.title}}" matTooltipPosition="above" >{{comic.title | filter | titlecase}}</h4>
-                  <!-- <h4>{{series.modified}}</h4> -->
-                </mat-card-title>
+              <mat-card-title class="p-0">
+                <h4 class="fw-bold" matTooltip="{{comic.title}}" matTooltipPosition="above">{{comic.title | filter |
+                  titlecase}}</h4>
+              </mat-card-title>
             </mat-card-header>
 
             <div class="image__wrapper">
@@ -22,14 +22,14 @@
           </mat-card>
         </a>
       </div>
-      <button (click)="loadMore()" *ngIf="loaded" mat-button color="primary" class="mt-2" >Load more</button>
+      <button (click)="loadMore()" *ngIf="loaded" mat-button color="primary" class="mt-2">Load more</button>
     </div>
   </div>
 </div>
-  
-  <div class="container">
-    <div class="loading__spiner" *ngIf="fetching">
-      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
-      <div>Loading please wait...</div>
-    </div>
+
+<div class="container">
+  <div class="loading__spiner" *ngIf="fetching">
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    <div>Loading please wait...</div>
   </div>
+</div>

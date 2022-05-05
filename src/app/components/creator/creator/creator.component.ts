@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MarvelApiService } from 'src/app/services/marvel-api.service';
-import { Creator } from '../../Models/creatorModels/Creator';
+import { Creator } from '../../../Models/creatorModels/Creator';
 
 @Component({
   selector: 'app-creator',
