@@ -16,7 +16,9 @@ export class HomeComponent implements OnInit {
   seriess:series[] = [];
   loaded: boolean = false;
   limit: number = 4;
-  offset:number = 603
+  CharacterOffset:number = 603
+  comicOffset:number = 605
+  seriesOffset: number = 600
 
   constructor(private _getContentService: MarvelApiService) { }
 
@@ -28,19 +30,19 @@ export class HomeComponent implements OnInit {
   }
 
   getCharacter() {
-    this._getContentService.getCharacters(this.limit, this.offset).subscribe((response) => {
+    this._getContentService.getCharacters(this.limit, this.CharacterOffset).subscribe((response) => {
       this.characters = response.data.results
     })
   }
 
   getComics() {
-    this._getContentService.comicForHome().subscribe((response) => {
+    this._getContentService.getComics(this.limit, this.comicOffset).subscribe((response) => {
       this.comics = response.data.results
     })
   }
 
   getSeries() {
-    this._getContentService.seriesForHome().subscribe((response) => {
+    this._getContentService.getSeries(this.limit, this.seriesOffset).subscribe((response) => {
       this.seriess = response.data.results
       console.log(response);
       

@@ -40,7 +40,7 @@ export class SeriesOverviewComponent implements OnInit {
   ngOnInit(): void {
 
     this.fetching = false;
-    this._getContentService.getSeries(undefined, undefined, this.id).subscribe((response) => {
+    this._getContentService.getSeriesById( this.id).subscribe((response) => {
       this.seriess = response.data.results;
       // console.log(response);
       this.fetching = true;
@@ -54,7 +54,7 @@ export class SeriesOverviewComponent implements OnInit {
   }
 
   getCharacters(id: number, offset: number) {
-    this._getContentService.charBySeries(id, this.limit, offset).subscribe((response) => {
+    this._getContentService.characterBySeries(id, this.limit, offset).subscribe((response) => {
       this.characters = response.data.results
       this.charOffset += 4;
       this.charLoadBtn = true;
@@ -62,7 +62,7 @@ export class SeriesOverviewComponent implements OnInit {
   }
 
   loadChar() {
-    this._getContentService.charBySeries(this.id, this.limit, this.charOffset).subscribe((response) => {
+    this._getContentService.characterBySeries(this.id, this.limit, this.charOffset).subscribe((response) => {
       this.characters = this.characters.concat(response.data.results)
       this.charOffset += 4;
     })

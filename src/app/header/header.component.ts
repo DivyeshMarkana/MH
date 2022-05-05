@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Creator } from '../Models/creatorModel/CreatorDataContainer';
-import { MarvelApiService } from '../services/marvel-api.service';
 
 @Component({
   selector: 'app-header',
@@ -13,8 +11,6 @@ export class HeaderComponent implements OnInit {
   // @ViewChild(CharactersComponent) public child: CharactersComponent
 
   // searchTerm:string = ''
-
-  creators: Creator[] = []
 
   selected: string = ''
 

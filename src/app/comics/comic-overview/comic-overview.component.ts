@@ -32,9 +32,9 @@ export class ComicOverviewComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(): void {
-      this.route.paramMap.subscribe(() => {
-      this.ngOnInit();
-    });
+    //   this.route.paramMap.subscribe(() => {
+    //   this.ngOnInit();
+    // });
   }
 
   ngOnInit(): void {
@@ -54,14 +54,14 @@ export class ComicOverviewComponent implements OnInit, OnChanges {
   // }
 
   getComicById(id:number) {
-    this._getContentService.getComics(undefined, undefined, id).subscribe((response) => {
+    this._getContentService.getComic(id).subscribe((response) => {
       // console.log(response);
       this.comics = response.data.results;
     })
   }
 
   getCharacters(id: number, offset: number) {
-    this._getContentService.charByComic(id, this.limit, offset).subscribe((response) => {
+    this._getContentService.characterByComic(id, this.limit, offset).subscribe((response) => {
       this.characters = response.data.results
       this.characterOffset += 4;
       // console.log(response);
@@ -71,7 +71,7 @@ export class ComicOverviewComponent implements OnInit, OnChanges {
 
   loadChar() {
     
-    this._getContentService.charByComic(this.id, this.limit, this.characterOffset).subscribe((response) => {
+    this._getContentService.characterByComic(this.id, this.limit, this.characterOffset).subscribe((response) => {
       this.characters = this.characters.concat(response.data.results)
       // console.log(response);
       this.characterOffset += 4;

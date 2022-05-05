@@ -26,34 +26,34 @@ export class CharacterOverviewComponent implements OnInit {
     // this._getContentService.getCharacterById(this.id).subscribe((response) => {
     //   this.characters = response.data.results;
     // })
-    this.charById(this.id)
+    this.characterById(this.id)
 
-    this.getComics(this.id, this.currentOffset);
+    // this.getComics(this.id, this.currentOffset);
     this.loaded = true;
   }
 
-  charById(id:number) {
-    this._getContentService.getCharacters(undefined, undefined, id).subscribe((response) => {
+  characterById(id:number) {
+    this._getContentService.getCharacter(id).subscribe((response) => {
       this.characters = response.data.results
       console.log(id);
       
     })
   }
 
-  getComics(id: number, offset: number) {
-    this._getContentService.getComicsByCharacter(id, offset).subscribe((response) => {
-      this.comics = this.comics.concat(response.data.results);
-      console.log(response);
-      this.currentOffset += 4;
-    })
-  }
+  // getComics(id: number, offset: number) {
+  //   this._getContentService.getComicsByCharacter(id, offset).subscribe((response) => {
+  //     this.comics = this.comics.concat(response.data.results);
+  //     console.log(response);
+  //     this.currentOffset += 4;
+  //   })
+  // }
 
-  loadMore() {
-    this._getContentService.getComicsByCharacter(this.id, this.currentOffset).subscribe((response) => {
-      this.comics = this.comics.concat(response.data.results);
-      this.currentOffset += 4;
-    })
-  }
+  // loadMore() {
+  //   this._getContentService.getComicsByCharacter(this.id, this.currentOffset).subscribe((response) => {
+  //     this.comics = this.comics.concat(response.data.results);
+  //     this.currentOffset += 4;
+  //   })
+  // }
 
   goBack() {
     this._contentFunctionality.goBack()

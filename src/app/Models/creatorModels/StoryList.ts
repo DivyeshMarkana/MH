@@ -1,10 +1,9 @@
 import { StorySummary } from "./StorySummary";
 
 
-
 export interface StoryList {
-    available: number;
-    returned: number;
+    available: string;
+    returned: string;
     collectionURI: string;
     items: StorySummary[];
 }

@@ -19,13 +19,13 @@ export class ComicByHeroComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: { id: number}) { }
 
   ngOnInit(): void {
-    this.fetching = true
-    this._getContentService.getComicsByHeroName(this.data.id).subscribe( (response) => {
-      this.comics = response.data.results
-      // console.log(response);
-      this.fetching = false
-      this.loaded = true;
-    } )
+    // this.fetching = true
+    // this._getContentService.getComicsByHeroName(this.data.id).subscribe( (response) => {
+    //   this.comics = response.data.results
+    //   // console.log(response);
+    //   this.fetching = false
+    //   this.loaded = true;
+    // } )
     
   }
 }

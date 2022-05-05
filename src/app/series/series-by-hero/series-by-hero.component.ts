@@ -17,9 +17,9 @@ export class SeriesByHeroComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this._getContentService.getSeriesByHeroName(this.data.id).subscribe( (response) => {
-      this.seriess = response.data.results;
-    } )
+    // this._getContentService.getSeriesByHeroName(this.data.id).subscribe( (response) => {
+    //   this.seriess = response.data.results;
+    // } )
   }
 
 }

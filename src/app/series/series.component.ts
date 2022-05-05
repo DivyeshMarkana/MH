@@ -62,9 +62,9 @@ export class SeriesComponent implements OnInit {
   }
 
   loadMore() {
-    this.SeriesOffset += 15;
-    this._getContentService.getAllSeries(this.SeriesOffset).subscribe((response) => {
+    this._getContentService.getSeries(this.limit, this.SeriesOffset).subscribe((response) => {
       this.serieses = this.serieses.concat(response.data.results)
+      this.SeriesOffset += 15;
     })
   }
 

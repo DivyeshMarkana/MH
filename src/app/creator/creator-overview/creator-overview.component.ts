@@ -5,7 +5,7 @@ import { series } from 'src/app/Models/seriesModels/series';
 import { ContentFunctionalityService } from 'src/app/services/content-functionality.service';
 import { MarvelApiService } from 'src/app/services/marvel-api.service';
 import { Story } from 'src/app/Models/storyModel/Story';
-import { Creator } from '../../Models/creatorModel/CreatorDataContainer';
+import { Creator } from '../../Models/creatorModels/Creator';
 
 @Component({
   selector: 'app-creator-overview',
@@ -18,9 +18,9 @@ export class CreatorOverviewComponent implements OnInit {
   comics: Comic[] = [];
   seriess: series[] = [];
   stories: Story[] = [];
-  comicLoadBtn:boolean = false;
-  seriesLoadBtn:boolean = false;
-  storyLoadBtn:boolean = false;
+  comicLoadBtn: boolean = false;
+  seriesLoadBtn: boolean = false;
+  storyLoadBtn: boolean = false;
   loaded: boolean = false;
   comicOffset: number = 0;
   seriesOffset: number = 0;
@@ -33,7 +33,7 @@ export class CreatorOverviewComponent implements OnInit {
     , private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this._getContentService.getCreators(undefined, undefined, this.id).subscribe((response) => {
+    this._getContentService.getCreator(this.id).subscribe((response) => {
       this.creators = response.data.results;
       // console.log(response);
       this.getComics(this.id, this.comicOffset)
@@ -57,7 +57,7 @@ export class CreatorOverviewComponent implements OnInit {
       this.comics = this.comics.concat(response.data.results);
       console.log(response);
       this.comicOffset += 4;
-      
+
     })
   }
 
@@ -75,7 +75,7 @@ export class CreatorOverviewComponent implements OnInit {
       this.seriess = this.seriess.concat(response.data.results);
       console.log(response);
       this.seriesOffset += 4;
-      
+
     })
   }
 

@@ -1,9 +1,9 @@
-import { ComicsSummary } from "./ComicsSummary";
+import { ComicSummary } from "./ComicSummary";
 
 
 export interface ComicList {
     available: number;
     returned: number;
     collectionURI: string;
-    items: ComicsSummary[];
+    items: ComicSummary[];
 }

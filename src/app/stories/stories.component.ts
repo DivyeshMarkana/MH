@@ -33,7 +33,7 @@ export class StoriesComponent implements OnInit {
 
   loadMore() {
     this.currentOffset += 15;
-    this._getContentService.getAllStories(this.currentOffset).subscribe((response) => {
+    this._getContentService.getStories(this.limit, this.currentOffset).subscribe((response) => {
       this.stories = this.stories.concat(response.data.results);
     })
   }
