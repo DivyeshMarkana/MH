@@ -11,12 +11,17 @@
                 </div>
                 <div class=" col-md-6 col-sm-6 col-xs-12 ps-3">
                     <div class="comic__info">
-                        <h1>{{character.name | titlecase}}</h1>
-                        <div>
-                            <p>{{character.description ? character.description : 'No description found☹️' }}</p>
-                        </div>
-                        <div>
-                        </div>
+                      <h1>{{character.name | titlecase}}</h1>
+                      <h3>Available items by character</h3>
+                      <ul>
+                        <li><span>Series :</span> <span>{{character.series.available}}</span></li>
+                        <li><span>Comics :</span> <span>{{character.comics.available}}</span></li>
+                        <li><span>Stories :</span> <span>{{character.stories.available}}</span></li>
+                      </ul>
+                      <br>
+                      <div class="discription__title">Description : <br>
+                        <p class="discription">{{character.description ? character.description : 'No description found☹️' }}</p>
+                      </div>
                     </div>
                 </div>
             </div>
@@ -47,7 +52,42 @@
               </mat-card>
             </a>
           </div>
-          <!-- <button (click)="loadMore()" *ngIf="loaded" mat-button color="primary" class="mt-2" >Load more</button> -->
+          <button (click)="loadComics()" *ngIf="comicLoadBtn" mat-button color="primary" class="mt-2" >Load more</button>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="stories.length !== 0">
+    <div class="p-0 py-3">
+      <div class="pt-3">
+        <div class=" mx-auto py-0 px-4 sm:py-24 sm:px-6 lg:max-w-5xl lg:px-8">
+          <h1>Related Stories</h1>
+          <div class="grid mt-2 grid-cols-1 gap-y-4 sm:grid-cols-2 gap-x-4 lg:grid-cols-4 xl:grid-cols-4   xl:gap-x-4">
+            <a class="group border  rounded" *ngFor="let story of stories">
+              <mat-card [routerLink]="['/story', story.id]" [queryParams]="{story: story.title}"
+                class="w-full p-0  aspect-w-1 aspect-h-1  rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8 sm:aspect-w-5 sm:aspect-h-3">
+                <mat-card-header>
+                  <mat-card-title class="p-0">
+                    <h4 class="fw-bold" matTooltip="{{story.title}}" matTooltipPosition="above">{{story.title | filter |
+                      titlecase}}</h4>
+                  </mat-card-title>
+                </mat-card-header>
+  
+                <div class="image__wrapper" *ngIf="story.thumbnail !== null">
+                  <img src="{{story.thumbnail.path}}.{{story.thumbnail.extension}}"
+                    alt="Tall slender porcelain bottle with natural clay textured body and cork stopper."
+                    class="w-full h-full object-center object-cover img">
+                </div>
+                <div class="image__wrapper" *ngIf="story.thumbnail === null">
+                  <img src="../../../assets/image not found.jpg"
+                    alt="Tall slender porcelain bottle with natural clay textured body and cork stopper."
+                    class="w-full h-full object-center object-cover img">
+                </div>
+              </mat-card>
+            </a>
+          </div>
+          <button (click)="loadStories()" *ngIf="storyLoadBtn" mat-button color="primary" class="mt-2">Load more</button>
         </div>
       </div>
     </div>
