@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MarvelApiService } from '../services/marvel-api.service';
-import { Character } from '../Models/characterModels/Character';
-import { ContentFunctionalityService } from '../services/content-functionality.service';
+import { MarvelApiService } from '../../services/marvel-api.service';
+import { Character } from '../../Models/characterModels/Character';
+import { ContentFunctionalityService } from '../../services/content-functionality.service';
 
 @Component({
   selector: 'app-characters',

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CharacterOverviewComponent } from './characters/character-overview/character-overview.component';
-import { CharactersComponent } from './characters/characters.component';
+import { CharacterOverviewComponent } from './components/characters/character-overview/character-overview.component';
+import { CharactersComponent } from './components/characters/characters.component';
 import { ComicOverviewComponent } from './components/comics/comic-overview/comic-overview.component';
 import { ComicsComponent } from './components/comics/comics.component';
 import { CreatorOverviewComponent } from './components/creator/creator-overview/creator-overview.component';
