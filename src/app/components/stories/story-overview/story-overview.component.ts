@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ContentFunctionalityService } from 'src/app/services/content-functionality.service';
 import { MarvelApiService } from 'src/app/services/marvel-api.service';
-import { Story } from '../../Models/storyModel/Story';
+import { Story } from '../../../Models/storyModel/Story';
 
 @Component({
   selector: 'app-story-overview',

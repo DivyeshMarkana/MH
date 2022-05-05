@@ -20,9 +20,9 @@ import { CharacterOverviewComponent } from './characters/character-overview/char
 import { HomeComponent } from './components/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CreatorComponent } from './components/creator/creator/creator.component';
-import { StoriesComponent } from './stories/stories.component';
+import { StoriesComponent } from './components/stories/stories.component';
 import { SeriesOverviewComponent } from './components/series/series-overview/series-overview.component';
-import { StoryOverviewComponent } from './stories/story-overview/story-overview.component';
+import { StoryOverviewComponent } from './components/stories/story-overview/story-overview.component';
 import { CreatorOverviewComponent } from './components/creator/creator-overview/creator-overview.component';
 
 

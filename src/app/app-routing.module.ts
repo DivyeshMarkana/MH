@@ -9,8 +9,8 @@ import { CreatorComponent } from './components/creator/creator/creator.component
 import { HomeComponent } from './components/home/home.component';
 import { SeriesOverviewComponent } from './components/series/series-overview/series-overview.component';
 import { SeriesComponent } from './components/series/series.component';
-import { StoriesComponent } from './stories/stories.component';
-import { StoryOverviewComponent } from './stories/story-overview/story-overview.component';
+import { StoriesComponent } from './components/stories/stories.component';
+import { StoryOverviewComponent } from './components/stories/story-overview/story-overview.component';
 
 const routes: Routes = [
   {
