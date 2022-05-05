@@ -1,27 +1,15 @@
 import { Location } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { marvelDataWrapper } from '../Models/marvelDataWrapper';
-import { ComicByHeroComponent } from '../comics/comic-by-hero/comic-by-hero.component';
-import { SeriesByHeroComponent } from '../series/series-by-hero/series-by-hero.component';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ContentFunctionalityService {
 
-  constructor(private dialog: MatDialog,
+  constructor(
     private location: Location,
     private http: HttpClient) { }
-
-  goComics(id: number) {
-    return this.dialog.open(ComicByHeroComponent, { data: { id: id } });
-  }
-
-  goseries(id: number) {
-    return this.dialog.open(SeriesByHeroComponent, { data: { id: id } });
-  }
 
   goBack() {
     this.location.back();

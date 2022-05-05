@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MarvelApiService } from '../services/marvel-api.service';
-import { Comic } from '../Models/comicsModels/Comic';
+import { MarvelApiService } from '../../services/marvel-api.service';
+import { Comic } from '../../Models/comicsModels/Comic';
 
 @Component({
   selector: 'app-comics',
@@ -29,26 +29,6 @@ export class ComicsComponent implements OnInit {
       return search.title.toLowerCase().includes(this.searchTerm.toLowerCase())
     });
   }
-
-  // getComic(offset: number) {
-  //   this.fetching = true;
-  //   this._getContentService.getAllComics(offset).subscribe((response) => {
-  //     this.comics = response.data.results;
-  //     this.dataComic = response.data.results;
-  //     this.currentOffset += 15
-  //     this.fetching = false;
-  //     this.loaded = true;
-  //   })
-  // }
-
-  // loadMore() {
-  //   this.currentOffset += 15;
-  //   this._getContentService.getAllComics(this.currentOffset).subscribe((response) => {
-  //     this.comics = this.comics.concat(response.data.results);
-  //     this.currentOffset += 15
-  //   })
-  // }
-
 
   getComic(offset: number) {
     this.fetching = true;

@@ -1,10 +1,10 @@
-import { Component, DoCheck, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component,  OnChanges, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Character } from '../../Models/characterModels/Character';
-import { Comic } from '../../Models/comicsModels/Comic';
-import { ContentFunctionalityService } from '../../services/content-functionality.service';
-import { MarvelApiService } from '../../services/marvel-api.service';
-import { Story } from '../../Models/storyModel/Story';
+import { Character } from '../../../Models/characterModels/Character';
+import { Comic } from '../../../Models/comicsModels/Comic';
+import { ContentFunctionalityService } from '../../../services/content-functionality.service';
+import { MarvelApiService } from '../../../services/marvel-api.service';
+import { Story } from '../../../Models/storyModel/Story';
 
 @Component({
   selector: 'app-comic-overview',
@@ -42,16 +42,6 @@ export class ComicOverviewComponent implements OnInit, OnChanges {
     this.getCharacters(this.id, this.characterOffset)
     this.getStories(this.id, this.storyOffset)
   }
-
-
-  // getCharacter(id: number, offset: number) {
-  //   this._contentFunctionality.testUrl<CharacterDataWrapper>(`comics/${id}/characters?limit=4&offset${offset}&`, (response: CharacterDataWrapper) => {
-  //     this.comicCharacters = response.data.results
-  //     console.log(response);
-
-  //     this.characterOffset += 4;
-  //   })
-  // }
 
   getComicById(id:number) {
     this._getContentService.getComic(id).subscribe((response) => {
@@ -97,36 +87,8 @@ export class ComicOverviewComponent implements OnInit, OnChanges {
     })
   }
 
-
-
-  gotoComic(id) {
-    this._contentFunctionality.goComics(id)
-  }
-
-  gotoSeries(id) {
-    this._contentFunctionality.goseries(id)
-  }
-
   goBack() {
     this._contentFunctionality.goBack()
   }
-
-  // getStoriesById(id: number, offset: number) {
-  //   this._getContentService.getStoriesByComic(id, offset).subscribe((response) => {
-  //     // console.log(response);
-  //     this.stories = response.data.results
-  //     this.storyOffset += 4;
-  //     // alert( this.currentOffset)
-  //   })
-  // }
-
-  // loadMoreStory() {
-  //   this._getContentService.getStoriesByComic(this.id, this.storyOffset).subscribe((response) => {
-  //     this.stories = this.stories.concat(response.data.results);
-  //     this.storyOffset += 4;
-  //   })
-
-  // }
-
 
 }

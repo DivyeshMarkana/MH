@@ -38,21 +38,4 @@ export class CreatorComponent implements OnInit {
       this.creators = this.creators.concat(response.data.results)
     } )
   }
-  // getCreators(offset: number) {
-  //   this.fetching = true;
-  //   this._getContentService.getAllcreator(offset).subscribe((response) => {
-  //     this.creators = response.data.results
-  //     // console.log(response);
-  //     this.currentOffset += 15;
-  //     this.fetching = false;
-  //     this.loaded = true;
-  //   })
-  // }
-
-  // loadMore() {
-  //   this.currentOffset += 15;
-  //   this._getContentService.getAllcreator(this.currentOffset).subscribe( (response) => {
-  //     this.creators = this.creators.concat(response.data.results)
-  //   } )
-  // }
 }

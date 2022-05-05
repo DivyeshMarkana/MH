@@ -52,12 +52,4 @@ export class CharactersComponent implements OnInit {
       this.charoff += 15;
     }))
   }
-
-  gotoComic(id: number) {
-    this._contentFunctionality.goComics(id)
-  }
-
-  gotoSeries(id: number) {
-    this._contentFunctionality.goseries(id)
-  }
 }

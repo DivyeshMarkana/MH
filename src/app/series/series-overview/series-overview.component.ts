@@ -104,13 +104,4 @@ export class SeriesOverviewComponent implements OnInit {
   goBack() {
     this._contentFunctionality.goBack()
   }
-
-  gotoComic(id: number) {
-    this._contentFunctionality.goComics(id)
-  }
-  
-  gotoSeries(id: number) {
-    this._contentFunctionality.goseries(id)
-  }
-
 }

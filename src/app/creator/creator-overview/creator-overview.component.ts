@@ -96,25 +96,6 @@ export class CreatorOverviewComponent implements OnInit {
     })
   }
 
-
-  // getComics(id: number) {
-  //   this._getContentService.getComicByCreator(id).subscribe((response) => {
-  //     this.comics = response.data.results
-  //   })
-  // }
-
-  // getSeries(id: number) {
-  //   this._getContentService.getSeriesByCreator(id).subscribe((response) => {
-  //     this.seriess = response.data.results
-  //   })
-  // }
-
-  // getStories(id: number) {
-  //   this._getContentService.getStoriesByCreator(id).subscribe((response) => {
-  //     this.stories = response.data.results
-  //   })
-  // }
-
   goBack() {
     this._contentFunctionality.goBack();
   }
