@@ -14,10 +14,10 @@ import { StoryOverviewComponent } from './stories/story-overview/story-overview.
 
 const routes: Routes = [
   {
-    path: '', redirectTo: 'marvel', pathMatch: 'full'
+    path: '', redirectTo: 'home', pathMatch: 'full'
   },
   {
-    path: 'marvel', component: HomeComponent
+    path: 'home', component: HomeComponent
   },
   {
     path: 'characters', component: CharactersComponent

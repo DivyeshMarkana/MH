@@ -18,7 +18,8 @@ export class HomeComponent implements OnInit {
   limit: number = 4;
   CharacterOffset:number = 603
   comicOffset:number = 605
-  seriesOffset: number = 600
+  seriesOffset: number = 60
+  serieId: number = 1009282
 
   constructor(private _getContentService: MarvelApiService) { }
 
@@ -42,7 +43,7 @@ export class HomeComponent implements OnInit {
   }
 
   getSeries() {
-    this._getContentService.getSeries(this.limit, this.seriesOffset).subscribe((response) => {
+    this._getContentService.seriesCharacter(this.serieId, this.limit, this.seriesOffset).subscribe((response) => {
       this.seriess = response.data.results
       console.log(response);
       
