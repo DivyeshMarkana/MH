@@ -59,7 +59,7 @@ export class ComicOverviewComponent implements OnInit, OnChanges {
     })
   }
 
-  loadChar() {
+  loadChararacter() {
     
     this._getContentService.characterByComic(this.id, this.limit, this.characterOffset).subscribe((response) => {
       this.characters = this.characters.concat(response.data.results)

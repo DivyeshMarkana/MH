@@ -15,16 +15,15 @@ export class CharactersComponent implements OnInit {
   subscription
   fetching: boolean = false;
   searchTerm: string = '';
-  loaded: boolean = false
-  charoff: number = 0;
+  characterLoadBtn: boolean = false
+  characterOffset: number = 0;
   limit: number = 15
 
   constructor(
-    private _getContentService: MarvelApiService,
-    private _contentFunctionality: ContentFunctionalityService) { }
+    private _getContentService: MarvelApiService) { }
 
   ngOnInit(): void {
-    this.getCharacter(this.charoff)
+    this.getCharacter(this.characterOffset)
   }
 
   searchCharacter() {
@@ -40,16 +39,16 @@ export class CharactersComponent implements OnInit {
       this.dataCharacters = response.data.results;
       console.log(response);
 
-      this.charoff += 15;
+      this.characterOffset += 15;
       this.fetching = false;
-      this.loaded = true;
+      this.characterLoadBtn = true;
     })
   }
 
   loadMore() {
-    this._getContentService.getCharacters(this.limit, this.charoff).subscribe((response => {
+    this._getContentService.getCharacters(this.limit, this.characterOffset).subscribe((response => {
       this.characters = this.characters.concat(response.data.results);
-      this.charoff += 15;
+      this.characterOffset += 15;
     }))
   }
 }

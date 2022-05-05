@@ -61,7 +61,7 @@ export class SeriesOverviewComponent implements OnInit {
     })
   }
 
-  loadChar() {
+  loadChararacter() {
     this._getContentService.characterBySeries(this.id, this.limit, this.charOffset).subscribe((response) => {
       this.characters = this.characters.concat(response.data.results)
       this.charOffset += 4;

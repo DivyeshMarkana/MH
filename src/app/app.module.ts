@@ -24,6 +24,7 @@ import { StoriesComponent } from './components/stories/stories.component';
 import { SeriesOverviewComponent } from './components/series/series-overview/series-overview.component';
 import { StoryOverviewComponent } from './components/stories/story-overview/story-overview.component';
 import { CreatorOverviewComponent } from './components/creator/creator-overview/creator-overview.component';
+import { CharacterComponent } from './components/characters/character/character.component';
 
 
 
@@ -43,7 +44,8 @@ import { CreatorOverviewComponent } from './components/creator/creator-overview/
     StoriesComponent,
     SeriesOverviewComponent,
     StoryOverviewComponent,
-    CreatorOverviewComponent
+    CreatorOverviewComponent,
+    CharacterComponent
   ],
   imports: [
     BrowserModule,
