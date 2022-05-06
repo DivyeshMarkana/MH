@@ -3,15 +3,15 @@ import { MarvelApiService } from 'src/app/services/marvel-api.service';
 import { Creator } from '../../../Models/creatorModels/Creator';
 
 @Component({
-  selector: 'app-creator',
-  templateUrl: './creator.component.html',
-  styleUrls: ['./creator.component.css']
+  selector: 'app-creators',
+  templateUrl: './creators.component.html',
+  styleUrls: ['./creators.component.css']
 })
-export class CreatorComponent implements OnInit {
+export class CreatorsComponent implements OnInit {
 
   creators: Creator[] = []
   fetching: boolean = false;
-  loaded:boolean = false;
+  creatorLoadBtn:boolean = false;
   currentOffset: number = 0;
   limit: number = 15;
 
@@ -28,7 +28,7 @@ export class CreatorComponent implements OnInit {
       // console.log(response);
       this.currentOffset += 15;
       this.fetching = false;
-      this.loaded = true;
+      this.creatorLoadBtn = true;
     })
   }
 

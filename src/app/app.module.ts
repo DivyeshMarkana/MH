@@ -19,7 +19,7 @@ import { ContentFunctionalityService } from './services/content-functionality.se
 import { CharacterOverviewComponent } from './components/characters/character-overview/character-overview.component';
 import { HomeComponent } from './components/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { CreatorComponent } from './components/creator/creator/creator.component';
+import { CreatorsComponent } from './components/creator/creators/creators.component';
 import { StoriesComponent } from './components/stories/stories.component';
 import { SeriesOverviewComponent } from './components/series/series-overview/series-overview.component';
 import { StoryOverviewComponent } from './components/stories/story-overview/story-overview.component';
@@ -27,6 +27,7 @@ import { CreatorOverviewComponent } from './components/creator/creator-overview/
 import { CharacterComponent } from './components/characters/character/character.component';
 import { ComicComponent } from './components/comics/comic/comic.component';
 import { SerieesComponent } from './components/series/seriees/seriees.component';
+import { CreatorComponent } from './components/creator/creator.component';
 
 
 
@@ -42,6 +43,7 @@ import { SerieesComponent } from './components/series/seriees/seriees.component'
     CharacterOverviewComponent,
     HomeComponent,
     FooterComponent,
+    CreatorsComponent,
     CreatorComponent,
     StoriesComponent,
     SeriesOverviewComponent,

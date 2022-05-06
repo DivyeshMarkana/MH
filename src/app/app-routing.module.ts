@@ -5,7 +5,7 @@ import { CharactersComponent } from './components/characters/characters.componen
 import { ComicOverviewComponent } from './components/comics/comic-overview/comic-overview.component';
 import { ComicsComponent } from './components/comics/comics.component';
 import { CreatorOverviewComponent } from './components/creator/creator-overview/creator-overview.component';
-import { CreatorComponent } from './components/creator/creator/creator.component';
+import { CreatorsComponent } from './components/creator/creators/creators.component';
 import { HomeComponent } from './components/home/home.component';
 import { SeriesOverviewComponent } from './components/series/series-overview/series-overview.component';
 import { SeriesComponent } from './components/series/series.component';
@@ -44,7 +44,7 @@ const routes: Routes = [
     path: 'story/:id', component: StoryOverviewComponent
   },
   {
-    path: 'creator', component: CreatorComponent
+    path: 'creator', component: CreatorsComponent
   },
   {
     path: 'creator/:id', component: CreatorOverviewComponent
