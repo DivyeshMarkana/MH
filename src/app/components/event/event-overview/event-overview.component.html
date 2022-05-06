@@ -38,3 +38,8 @@
   <ng-container *ngIf="comics.length !== 0">
     <app-comic (load)="loadComics()" [comics]="comics" [comicLoadBtn]="comicLoadBtn" [isOverviewMode]="true" ></app-comic>
   </ng-container>
+
+  <ng-container *ngIf="seriess.length !== 0">
+    <app-seriees [seriess]="seriess" [isOverviewMode]="true" [seriesLoadBtn]="seriesLoadBtn" (load)="loadSeries()">
+    </app-seriees>
+  </ng-container>

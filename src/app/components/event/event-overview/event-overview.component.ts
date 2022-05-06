@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Character } from 'src/app/Models/characterModels/Character';
 import { Comic } from 'src/app/Models/comicsModels/Comic';
 import { Event } from 'src/app/Models/eventModels/Event';
+import { series } from 'src/app/Models/seriesModels/series';
 import { ContentFunctionalityService } from 'src/app/services/content-functionality.service';
 import { MarvelApiService } from 'src/app/services/marvel-api.service';
 
@@ -16,13 +17,16 @@ export class EventOverviewComponent implements OnInit {
   events: Event[] = []
   characters: Character[] = []
   comics: Comic[] = []
+  seriess:series[] = []
 
   limit: number = 4
   characterOffset: number = 0
   comicOffset:number = 0
+  seriesOffset:number = 0
 
   characterLoadBtn: boolean
   comicLoadBtn: boolean
+  seriesLoadBtn: boolean
 
   id = this.route.snapshot.params['id']
 
@@ -34,6 +38,7 @@ export class EventOverviewComponent implements OnInit {
     this.getEvent(this.id)
     this.getCharacter(this.id, this.characterOffset)
     this.getComics(this.id, this.comicOffset)
+    this.getSeries(this.id, this.seriesOffset)
   }
 
   getEvent(id: number) {
@@ -69,6 +74,21 @@ export class EventOverviewComponent implements OnInit {
     this._marvelApiService.comicByEvent(this.id, this.limit, this.comicOffset).subscribe( (response) => {
       this.comics = this.comics.concat(response.data.results)
       this.comicOffset += 4
+    } )
+  }
+
+  getSeries(id: number, offset: number) {
+    this._marvelApiService.seriesByEvent(id, this.limit, offset).subscribe( (response) => {
+      this.seriess = response.data.results
+      this.seriesOffset += 4
+      this.seriesLoadBtn = true
+    } )
+  }
+
+  loadSeries(){
+    this._marvelApiService.seriesByEvent(this.id, this.limit, this.seriesOffset).subscribe( (response) => {
+      this.seriess = this.seriess.concat(response.data.results)
+      this.seriesOffset += 4
     } )
   }
 
