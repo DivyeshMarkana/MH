@@ -1,0 +1,32 @@
+<div class="main__container px-2">
+    <button mat-button (click)="goBack()"> <span class="material-icons">
+        arrow_back
+      </span> Back</button>
+    <div class="container">
+      <div class=" overview__wrapper">
+        <div class="row" *ngFor="let event of events">
+          <div class="overview__img  col-sm-6 col-xs-12 col-md-6" *ngIf="event.thumbnail !== null">
+            <img class="rounded" src="{{event.thumbnail.path}}.{{event.thumbnail.extension}}"
+              alt="image not found">
+          </div>
+          <div class=" col-md-6 col-sm-6 col-xs-12 ps-3">
+            <div class="overview__info">
+              <h1>Name: {{event.title | titlecase}}</h1>
+              <h2>Id: {{event.id}}</h2>
+              <h3>Available items by event</h3>
+              <ul>
+                <li><span>Characters :</span> <span>{{event.characters.available}}</span></li>
+                <li><span>Comics :</span> <span>{{event.comics.available}}</span></li>
+                <li><span>Series :</span> <span>{{event.series.available}}</span></li>
+                <li><span>Stories :</span> <span>{{event.stories.available}}</span></li>
+              </ul>
+              <br>
+              <div class="discription__title">Description : <br>
+                <p class="discription">{{event.description ? event.description : 'No description found☹️' }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

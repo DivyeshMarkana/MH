@@ -31,6 +31,7 @@ import { CreatorComponent } from './components/creator/creator.component';
 import { StoryComponent } from './components/stories/story/story.component';
 import { EventComponent } from './components/event/event.component';
 import { EventsComponent } from './components/event/events/events.component';
+import { EventOverviewComponent } from './components/event/event-overview/event-overview.component';
 
 
 
@@ -57,7 +58,8 @@ import { EventsComponent } from './components/event/events/events.component';
     SerieesComponent,
     StoryComponent,
     EventComponent,
-    EventsComponent
+    EventsComponent,
+    EventOverviewComponent
   ],
   imports: [
     BrowserModule,
