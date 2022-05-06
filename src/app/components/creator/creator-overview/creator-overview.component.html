@@ -21,6 +21,7 @@
               <li><span>Comics :</span> <span>{{creator.comics.available}}</span></li>
               <li><span>Series :</span> <span>{{creator.series.available}}</span></li>
               <li><span>Stories :</span> <span>{{creator.stories.available}}</span></li>
+              <li><span>Events :</span> <span>{{creator.events.available}}</span></li>
             </ul>
           </div>
         </div>
@@ -43,6 +44,10 @@
 
   <ng-container *ngIf="stories.length !== 0">
     <app-story [stories]="stories" [isOverviewMode]="true" [storyLoadBtn]="storyLoadBtn" (load)="loadStories()" ></app-story>
+  </ng-container>
+
+  <ng-container *ngIf="events.length !== 0">
+    <app-event [events]="events" [eventLoadBtn]="eventLoadBtn" [isOverviewMode]="true" (load)="loadEvents()"></app-event>
   </ng-container>
 
 </ng-container>
