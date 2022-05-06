@@ -42,3 +42,7 @@
 <ng-container *ngIf="stories.length !== 0">
   <app-story [stories]="stories" [isOverviewMode]="true" [storyLoadBtn]="storyLoadBtn" (load)="loadStories()" ></app-story>
 </ng-container>
+
+<ng-container *ngIf="events.length !== 0">
+  <app-event [events]="events" [eventLoadBtn]="eventLoadBtn" [isOverviewMode]="true" (load)="loadEvents()"></app-event>
+</ng-container>

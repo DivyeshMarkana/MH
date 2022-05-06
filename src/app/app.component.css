@@ -110,7 +110,7 @@ h1 {
 }
 
 .overview__info li {
-    max-width      : 100px;
+    max-width      : 110px;
     display        : flex;
     justify-content: space-between;
     flex           : 1;

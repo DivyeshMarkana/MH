@@ -6,6 +6,7 @@ import { Story } from 'src/app/Models/storyModel/Story';
 import { ContentFunctionalityService } from 'src/app/services/content-functionality.service';
 import { MarvelApiService } from 'src/app/services/marvel-api.service';
 import { Character } from '../../../Models/characterModels/Character';
+import { Event } from 'src/app/Models/eventModels/Event';
 
 @Component({
   selector: 'app-character-overview',
@@ -18,15 +19,18 @@ export class CharacterOverviewComponent implements OnInit {
   comics: Comic[] = [];
   stories: Story[] = []
   seriess: series[] = []
+  events: Event[] = []
   // currentOffset: number = 0;
   limit: number = 4
   comicOffset: number = 0
   seriesOffset: number = 0
   storyOffset: number = 0
+  eventOffset: number = 0
   // loaded: boolean = false;
   comicLoadBtn: boolean = false
   storyLoadBtn: boolean = false
   seriesLoadBtn:boolean = false
+  eventLoadBtn: boolean = false
   id = this.route.snapshot.params['id'];
 
   constructor(private _getContentService: MarvelApiService,
@@ -38,20 +42,20 @@ export class CharacterOverviewComponent implements OnInit {
     this.getComics(this.id, this.comicOffset)
     this.getStories(this.id, this.storyOffset)
     this.getSeries(this.id, this.seriesOffset)
+    this.getEvents(this.id, this.eventOffset)
   }
 
   characterById(id: number) {
     this._getContentService.getCharacter(id).subscribe((response) => {
       this.characters = response.data.results
       console.log(id);
-
     })
   }
 
   getComics(id: number, offset: number) {
     this._getContentService.comicsByCharacter(id, this.limit, offset).subscribe((response) => {
       this.comics = response.data.results;
-      console.log(response);
+      // console.log(response);
       this.comicOffset += 4;
       this.comicLoadBtn = true
     })
@@ -67,7 +71,7 @@ export class CharacterOverviewComponent implements OnInit {
   getStories(id: number, offset: number) {
     this._getContentService.storyByCharacter(id, this.limit, offset).subscribe((response) => {
       this.stories = response.data.results;
-      console.log(response);
+      // console.log(response);
       this.storyOffset += 4;
       this.storyLoadBtn = true
     })
@@ -83,7 +87,7 @@ export class CharacterOverviewComponent implements OnInit {
   getSeries(id: number, offset: number) {
     this._getContentService.seriesCharacter(id, this.limit, offset).subscribe((response) => {
       this.seriess = response.data.results;
-      console.log(response);
+      // console.log(response);
       this.seriesOffset += 4;
       this.seriesLoadBtn = true
     })
@@ -94,6 +98,23 @@ export class CharacterOverviewComponent implements OnInit {
       this.seriess = this.seriess.concat(response.data.results)
       this.seriesOffset += 4
     })
+  }
+
+  getEvents(id: number, offset: number) {
+    this._getContentService.eventByCharacter(id, this.limit, offset).subscribe( (response) => {
+      this.events = response.data.results
+      console.log(response);
+      
+      this.eventOffset += 4
+      this.eventLoadBtn = true
+    } )
+  }
+
+  loadEvents(){
+    this._getContentService.eventByCharacter(this.id, this.limit, this.eventOffset).subscribe( (response) => {
+      this.events = this.events.concat(response.data.results)
+      this.eventOffset += 4
+    } )
   }
 
   goBack() {
