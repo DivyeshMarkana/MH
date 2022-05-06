@@ -30,3 +30,11 @@
       </div>
     </div>
   </div>
+
+  <ng-container *ngIf="characters.length !== 0">
+    <app-character [characters]="characters" [isOverviewMode]="true" [characterLoadBtn]="characterLoadBtn" (loadCharacter)="loadCharacter()"></app-character>
+  </ng-container>
+
+  <ng-container *ngIf="comics.length !== 0">
+    <app-comic (load)="loadComics()" [comics]="comics" [comicLoadBtn]="comicLoadBtn" [isOverviewMode]="true" ></app-comic>
+  </ng-container>
