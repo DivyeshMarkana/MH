@@ -28,6 +28,7 @@ import { CharacterComponent } from './components/characters/character/character.
 import { ComicComponent } from './components/comics/comic/comic.component';
 import { SerieesComponent } from './components/series/seriees/seriees.component';
 import { CreatorComponent } from './components/creator/creator.component';
+import { StoryComponent } from './components/stories/story/story.component';
 
 
 
@@ -51,7 +52,8 @@ import { CreatorComponent } from './components/creator/creator.component';
     CreatorOverviewComponent,
     CharacterComponent,
     ComicComponent,
-    SerieesComponent
+    SerieesComponent,
+    StoryComponent
   ],
   imports: [
     BrowserModule,

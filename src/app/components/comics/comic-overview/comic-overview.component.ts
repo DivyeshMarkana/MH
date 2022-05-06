@@ -17,7 +17,7 @@ export class ComicOverviewComponent implements OnInit, OnChanges {
   characters: Character[] = [];
   stories: Story[] = [];
   characterLoadBtn: boolean = false;
-  sLoaded: boolean = false;
+  storyLoadBtn: boolean = false;
   characterOffset: number = 0;
   storyOffset: number = 0;
   limit: number = 4
@@ -74,11 +74,11 @@ export class ComicOverviewComponent implements OnInit, OnChanges {
       this.stories = response.data.results;
       // console.log(response);
       this.storyOffset += 4;
-      this.sLoaded = true;
+      this.storyLoadBtn = true;
     })
   }
 
-  loadMoreStory() {
+  loadStories() {
     this._getContentService.storyByComic(this.id, this.limit, this.storyOffset).subscribe((response) => {
       this.stories = this.stories.concat(response.data.results);
       this.storyOffset += 4;

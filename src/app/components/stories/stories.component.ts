@@ -11,7 +11,7 @@ export class StoriesComponent implements OnInit {
 
   stories: Story[] = []
   fetching: boolean = false;
-  loaded: boolean = false;
+  storyLoadBtn: boolean = false;
   currentOffset: number = 0;
   limit:number = 15;
   constructor(private _getContentService: MarvelApiService) { }
@@ -27,7 +27,7 @@ export class StoriesComponent implements OnInit {
       // console.log(response);
       this.currentOffset += 15;
       this.fetching = false;
-      this.loaded = true;
+      this.storyLoadBtn = true;
     })
   }
 
