@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Event } from 'src/app/Models/eventModels/Event';
 
 @Component({
   selector: 'app-event',
@@ -12,4 +13,12 @@ export class EventComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  @Input()events: Event[]
+  @Input()eventLoadBtn: boolean
+  @Input()isOverviewMode: boolean
+  @Output() load = new EventEmitter()
+
+  loadMore(){
+    this.load.emit()
+  }
 }

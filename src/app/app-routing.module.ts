@@ -6,6 +6,7 @@ import { ComicOverviewComponent } from './components/comics/comic-overview/comic
 import { ComicsComponent } from './components/comics/comics.component';
 import { CreatorOverviewComponent } from './components/creator/creator-overview/creator-overview.component';
 import { CreatorsComponent } from './components/creator/creators/creators.component';
+import { EventsComponent } from './components/event/events/events.component';
 import { HomeComponent } from './components/home/home.component';
 import { SeriesOverviewComponent } from './components/series/series-overview/series-overview.component';
 import { SeriesComponent } from './components/series/series.component';
@@ -48,6 +49,9 @@ const routes: Routes = [
   },
   {
     path: 'creator/:id', component: CreatorOverviewComponent
+  },
+  {
+    path: 'events', component: EventsComponent
   },
 ];
 

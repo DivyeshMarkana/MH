@@ -7,6 +7,7 @@ import { Comic } from '../Models/comicsModels/Comic';
 import { Story } from '../Models/storyModel/Story';
 import { series } from '../Models/seriesModels/series';
 import { Creator } from '../Models/creatorModels/Creator';
+import { Event } from '../Models/eventModels/Event';
 
 @Injectable({
   providedIn: 'root'
@@ -91,7 +92,7 @@ export class MarvelApiService {
     return this.http.get<marvelDataWrapper<Creator>>(requestUrl)
   }
 
-  // get single Story by id
+  // get single creator by id
   getCreator(id: number): Observable<marvelDataWrapper<Creator>> {
     let endpont: string = `creators${"/" + id}?`
     let requestUrl = this.baseUrl + endpont + this.token
@@ -99,19 +100,20 @@ export class MarvelApiService {
     return this.http.get<marvelDataWrapper<Creator>>(requestUrl)
   }
 
-  getEvents(limit?: number, offset?: number): Observable<marvelDataWrapper<Creator>> {
-    let endpoint: string = `creators?limit=${limit}&offset=${offset}&`
+  // get all events
+  getEvents(limit?: number, offset?: number): Observable<marvelDataWrapper<Event>> {
+    let endpoint: string = `events?limit=${limit}&offset=${offset}&`
     let requestUrl: string = this.baseUrl + endpoint + this.token;
 
-    return this.http.get<marvelDataWrapper<Creator>>(requestUrl)
+    return this.http.get<marvelDataWrapper<Event>>(requestUrl)
   }
 
-  // get single Story by id
-  getEvent(id: number): Observable<marvelDataWrapper<Creator>> {
-    let endpont: string = `creators${"/" + id}?`
+  // get single event by id
+  getEvent(id: number): Observable<marvelDataWrapper<Event>> {
+    let endpont: string = `events${"/" + id}?`
     let requestUrl = this.baseUrl + endpont + this.token
 
-    return this.http.get<marvelDataWrapper<Creator>>(requestUrl)
+    return this.http.get<marvelDataWrapper<Event>>(requestUrl)
   }
 
 
