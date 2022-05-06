@@ -29,6 +29,8 @@ import { ComicComponent } from './components/comics/comic/comic.component';
 import { SerieesComponent } from './components/series/seriees/seriees.component';
 import { CreatorComponent } from './components/creator/creator.component';
 import { StoryComponent } from './components/stories/story/story.component';
+import { EventComponent } from './components/event/event.component';
+import { EventsComponent } from './components/event/events/events.component';
 
 
 
@@ -53,7 +55,9 @@ import { StoryComponent } from './components/stories/story/story.component';
     CharacterComponent,
     ComicComponent,
     SerieesComponent,
-    StoryComponent
+    StoryComponent,
+    EventComponent,
+    EventsComponent
   ],
   imports: [
     BrowserModule,

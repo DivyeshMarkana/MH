@@ -99,6 +99,21 @@ export class MarvelApiService {
     return this.http.get<marvelDataWrapper<Creator>>(requestUrl)
   }
 
+  getEvents(limit?: number, offset?: number): Observable<marvelDataWrapper<Creator>> {
+    let endpoint: string = `creators?limit=${limit}&offset=${offset}&`
+    let requestUrl: string = this.baseUrl + endpoint + this.token;
+
+    return this.http.get<marvelDataWrapper<Creator>>(requestUrl)
+  }
+
+  // get single Story by id
+  getEvent(id: number): Observable<marvelDataWrapper<Creator>> {
+    let endpont: string = `creators${"/" + id}?`
+    let requestUrl = this.baseUrl + endpont + this.token
+
+    return this.http.get<marvelDataWrapper<Creator>>(requestUrl)
+  }
+
 
   // items by character id
 
