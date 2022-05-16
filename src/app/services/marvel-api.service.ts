@@ -36,7 +36,7 @@ export class MarvelApiService {
     return this.http.get<marvelDataWrapper<Character>>(requestUrl)
   }
 
-// comics for home page offset 605
+  // comics for home page offset 605
   getComics(limit?: number, offset?: number): Observable<marvelDataWrapper<Comic>> {
     let endpoint: string = `comics?limit=${limit}&offset=${offset}&`
     let requestUrl: string = this.baseUrl + endpoint + this.token;
@@ -147,7 +147,7 @@ export class MarvelApiService {
     return this.http.get<marvelDataWrapper<Event>>(requestUrl)
   }
 
-  
+
   // items by comic id
   characterByComic(id: number, limit: number, offset: number): Observable<marvelDataWrapper<Character>> {
     let endpoint: string = `comics/${id}/characters?limit=${limit}&offset=${offset}&`
@@ -217,7 +217,7 @@ export class MarvelApiService {
   }
 
   // items by events id
-  
+
   characterByEvent(id: number, limit: number, offset: number): Observable<marvelDataWrapper<Character>> {
     let endpoint: string = `events/${id}/characters?limit=${limit}&offset=${offset}&`
     let requestUrl = this.baseUrl + endpoint + this.token;
