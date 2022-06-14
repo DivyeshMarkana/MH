@@ -16,8 +16,6 @@ export class FilterPipe implements PipeTransform {
       return value;
     }else {
       return value.split('').splice(0, 25).join('').trim() + '...';
-    }
-      
+    }   
   }
-
 }

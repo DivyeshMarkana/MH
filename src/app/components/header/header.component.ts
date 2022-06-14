@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ContentFunctionalityService } from 'src/app/services/content-functionality.service';
 
 @Component({
   selector: 'app-header',
@@ -7,30 +8,24 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
-  // @ViewChild(CharactersComponent) public child: CharactersComponent
-
-  // searchTerm:string = ''
-
   selected: string = ''
 
-  constructor(private router: Router) { }
+  searchTerm:string = ''
+
+  constructor(private router: Router,
+    private _cf: ContentFunctionalityService) { }
 
   ngOnInit(): void {
   }
 
   selectChange(event: any) {
-
     this.router.navigate(['/Creator', event.target.value])
-    //  alert(event.target.value) 
   }
 
-  // searchCharacter(){
-  //   this.child.searchCharacter()
-  // }
-
-  // ngAfterViewInit(): void {
-  //  this.searchTerm = this.child.searchTerm
-  //  this.searchCharacter()
-  // }
+  search(event: any){
+    this.searchTerm = event.target.value
+    // console.log(this.searchTerm);
+    this._cf.search.next(this.searchTerm)
+    
+  }
 }

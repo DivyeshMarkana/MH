@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Event } from 'src/app/Models/eventModels/Event';
+import { ContentFunctionalityService } from 'src/app/services/content-functionality.service';
 
 @Component({
   selector: 'app-event',
@@ -8,9 +9,15 @@ import { Event } from 'src/app/Models/eventModels/Event';
 })
 export class EventComponent implements OnInit {
 
-  constructor() { }
+  searchKey:string = ''
+
+  constructor(private _cf: ContentFunctionalityService) { }
 
   ngOnInit(): void {
+    this._cf.search.subscribe( (value) => {
+      console.log(value);
+      this.searchKey = value
+    } )
   }
 
   @Input()events: Event[]

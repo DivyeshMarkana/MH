@@ -16,15 +16,19 @@ export class EventsComponent implements OnInit {
 
   constructor(private _marvelApiService: MarvelApiService) { }
 
+  fetching: boolean = false
+
   ngOnInit(): void {
     this.getEvents(this.eventOffset)
   }
 
   getEvents(offset: number) {
+    this.fetching = true;
     this._marvelApiService.getEvents(this.limit, offset).subscribe((response) => {
       this.events = response.data.results
       this.eventOffset += 15
       this.eventLoadBtn = true
+      this.fetching = false;
     })
   }
 

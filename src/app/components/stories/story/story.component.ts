@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Story } from 'src/app/Models/storyModel/Story';
+import { ContentFunctionalityService } from 'src/app/services/content-functionality.service';
 
 @Component({
   selector: 'app-story',
@@ -8,9 +9,15 @@ import { Story } from 'src/app/Models/storyModel/Story';
 })
 export class StoryComponent implements OnInit {
 
-  constructor() { }
+  searchKey:string = ''
+
+  constructor(private _cf: ContentFunctionalityService) { }
 
   ngOnInit(): void {
+    this._cf.search.subscribe( (value) => {
+      console.log(value);
+      this.searchKey = value
+    } )
   }
 
   @Input()stories:Story[]

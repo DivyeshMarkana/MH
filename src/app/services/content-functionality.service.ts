@@ -1,11 +1,14 @@
 import { Location } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ContentFunctionalityService {
+
+  search = new BehaviorSubject('')
 
   constructor(
     private location: Location,
@@ -21,10 +24,6 @@ export class ContentFunctionalityService {
     console.log(baseUrl);
     
      this.http.get<T>(baseUrl).subscribe(completion);
-  }
-
-  loadMore<T>(){
-
   }
 }
 

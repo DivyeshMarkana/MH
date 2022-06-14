@@ -32,6 +32,7 @@ import { StoryComponent } from './components/stories/story/story.component';
 import { EventComponent } from './components/event/event.component';
 import { EventsComponent } from './components/event/events/events.component';
 import { EventOverviewComponent } from './components/event/event-overview/event-overview.component';
+import { SearchPipe } from './pipes/search.pipe';
 
 
 
@@ -59,7 +60,8 @@ import { EventOverviewComponent } from './components/event/event-overview/event-
     StoryComponent,
     EventComponent,
     EventsComponent,
-    EventOverviewComponent
+    EventOverviewComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,
