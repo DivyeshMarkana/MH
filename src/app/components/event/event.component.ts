@@ -1,15 +1,17 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { Event } from 'src/app/Models/eventModels/Event';
 import { ContentFunctionalityService } from 'src/app/services/content-functionality.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-event',
   templateUrl: './event.component.html',
   styleUrls: ['./event.component.css']
 })
-export class EventComponent implements OnInit {
+export class EventComponent implements OnInit, OnDestroy {
 
   searchKey:string = ''
+  subscription: Subscription
 
   constructor(private _cf: ContentFunctionalityService) { }
 
@@ -27,5 +29,9 @@ export class EventComponent implements OnInit {
 
   loadMore(){
     this.load.emit()
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe()
   }
 }

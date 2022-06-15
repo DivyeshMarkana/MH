@@ -1,15 +1,17 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { Comic } from 'src/app/Models/comicsModels/Comic';
 import { ContentFunctionalityService } from 'src/app/services/content-functionality.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-comic',
   templateUrl: './comic.component.html',
   styleUrls: ['./comic.component.css']
 })
-export class ComicComponent implements OnInit {
+export class ComicComponent implements OnInit, OnDestroy {
 
   searchKey:string = ''
+  subscription: Subscription
 
   constructor(private _cf: ContentFunctionalityService) { }
 
@@ -29,5 +31,9 @@ export class ComicComponent implements OnInit {
 
   loadMore(){
     this.load.emit()
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe()
   }
 }
