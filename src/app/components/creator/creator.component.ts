@@ -8,16 +8,14 @@ import { Subscription } from 'rxjs';
   templateUrl: './creator.component.html',
   styleUrls: ['./creator.component.css']
 })
-export class CreatorComponent implements OnInit, OnDestroy {
+export class CreatorComponent implements OnInit {
 
   searchKey: string = ''
-  subscription: Subscription
 
   constructor(private _cf: ContentFunctionalityService) { }
 
   ngOnInit(): void {
     this._cf.search.subscribe((value) => {
-      console.log(value);
       this.searchKey = value
     })
   }
@@ -31,9 +29,4 @@ export class CreatorComponent implements OnInit, OnDestroy {
   loadMore() {
     this.load.emit()
   }
-
-  ngOnDestroy(): void {
-    this, this.subscription.unsubscribe()
-  }
-
 }

@@ -18,7 +18,7 @@
 .poster {
     min-height           : 280px;
     border-radius        : 4px;
-    background           : #00000099 url(../../../assets/poster/poster.jpg);
+    background           : #00000099 url(../../../assets/poster.jpg);
     background-blend-mode: multiply;
     background-repeat    : no-repeat;
     background-size      : cover;

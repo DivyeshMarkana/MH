@@ -9,15 +9,8 @@
 }
 
 .example-card {
-    max-width: 250px;
+    max-width: 200px;
 }
-
-/* mat-card-actions button {
-    border       : 1px solid var(--dark);
-    padding      : 3px 7px;
-    border-radius: 4px;
-    margin-left: 4px;
-} */
 
 mat-card:hover .fw-bold {
     color: var(--white);
@@ -42,7 +35,7 @@ mat-card:hover img {
 }
 
 .character__wrapper {
-    max-width: 250px;
+    max-width: 200px;
 }
 
 .loading__spiner {

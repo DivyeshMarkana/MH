@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MarvelApiService } from '../../services/marvel-api.service';
 import { series } from '../../Models/seriesModels/series';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-series',
@@ -16,6 +17,7 @@ export class SeriesComponent implements OnInit {
   seriesLoadBtn:boolean = false;
   SeriesOffset: number = 0;
   limit: number = 15;
+  subscription: Subscription
 
   constructor(private _getContentService: MarvelApiService) { }
 
@@ -23,38 +25,11 @@ export class SeriesComponent implements OnInit {
     this.getSeries(this.SeriesOffset)
   }
 
-  searchSeries() {
-    this.serieses = this.dataSeries.filter((search) => {
-      return search.title.toLowerCase().includes(this.searchTerm.toLowerCase())
-    });
-  }
-
-  // getSeries(offset: number) {
-  //   this.fetching = true;
-  //   this._getContentService.getAllSeries(offset).subscribe((response) => {
-  //     this.serieses = response.data.results;
-  //     this.dataSeries = response.data.results;
-  //     // console.log(response);
-  //     this.currentOffset += 150;
-  //     this.fetching = false;
-  //     this.loaded = true;
-  //   })
-  // }
-
-  // loadMore() {
-  //   this.currentOffset += 150;
-  //   this._getContentService.getAllSeries(this.currentOffset).subscribe((response) => {
-  //     this.serieses = this.serieses.concat(response.data.results)
-  //   })
-  // }
-
-
   getSeries(offset: number) {
     this.fetching = true;
-    this._getContentService.getSeries(this.limit, offset).subscribe((response) => {
+   this.subscription = this._getContentService.getSeries(this.limit, offset).subscribe((response) => {
       this.serieses = response.data.results;
       this.dataSeries = response.data.results;
-      // console.log(response);
       this.SeriesOffset += 15;
       this.fetching = false;
       this.seriesLoadBtn = true;
@@ -67,7 +42,8 @@ export class SeriesComponent implements OnInit {
       this.SeriesOffset += 15;
     })
   }
-
-
-
+  
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe()
+  }
 }

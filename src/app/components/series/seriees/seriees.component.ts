@@ -1,17 +1,15 @@
-import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { series } from 'src/app/Models/seriesModels/series';
 import { ContentFunctionalityService } from 'src/app/services/content-functionality.service';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-seriees',
   templateUrl: './seriees.component.html',
   styleUrls: ['./seriees.component.css']
 })
-export class SerieesComponent implements OnInit, OnDestroy {
+export class SerieesComponent implements OnInit {
 
   searchKey:string = ''
-  subscription: Subscription
 
   constructor(private _cf: ContentFunctionalityService) { }
 
@@ -31,7 +29,4 @@ export class SerieesComponent implements OnInit, OnDestroy {
     this.load.emit()
   }
 
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe()
-  }
 }

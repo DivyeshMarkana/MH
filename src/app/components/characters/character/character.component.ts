@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Character } from 'src/app/Models/characterModels/Character';
 import { ContentFunctionalityService } from 'src/app/services/content-functionality.service';
 import { Subscription } from 'rxjs';
@@ -8,7 +8,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './character.component.html',
   styleUrls: ['./character.component.css']
 })
-export class CharacterComponent implements OnInit, OnDestroy {
+export class CharacterComponent implements OnInit {
 
   searchKey:string = ''
   subscription: Subscription
@@ -16,8 +16,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
   constructor(private _cf: ContentFunctionalityService) { }
 
   ngOnInit(): void {
-  this.subscription =  this._cf.search.subscribe( (value) => {
-      // console.log(value);
+    this._cf.search.subscribe( (value) => {
       this.searchKey = value
     } )
   }
@@ -30,9 +29,4 @@ export class CharacterComponent implements OnInit, OnDestroy {
   loadMore(){
     this.loadCharacter.emit()
   }
-
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe()
-  }
-
 }
