@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve  --aot --http://localhost:4200/ /mh/ --https://divyeshmarkana.github.io/ /mh/",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
