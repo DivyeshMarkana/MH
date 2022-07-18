@@ -33,6 +33,8 @@ import { EventComponent } from './components/event/event.component';
 import { EventsComponent } from './components/event/events/events.component';
 import { EventOverviewComponent } from './components/event/event-overview/event-overview.component';
 import { SearchPipe } from './pipes/search.pipe';
+import { SharedLayoutComponent } from './components/shared-layout/shared-layout.component';
+import { MarvelDataPlaceholderComponent } from './components/marvel-data-placeholder/marvel-data-placeholder.component';
 
 
 
@@ -61,7 +63,9 @@ import { SearchPipe } from './pipes/search.pipe';
     EventComponent,
     EventsComponent,
     EventOverviewComponent,
-    SearchPipe
+    SearchPipe,
+    SharedLayoutComponent,
+    MarvelDataPlaceholderComponent
   ],
   imports: [
     BrowserModule,
