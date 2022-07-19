@@ -14,7 +14,8 @@
                 </div>
                 <div class=" col-md-6 col-sm-6 col-xs-12 ps-3">
                     <div class="overview__info">
-                        <h1>Name: {{marvelData.name | titlecase}}</h1>
+                        <h1>Name: {{marvelData.name ? marvelData.name : marvelData.fullName ? marvelData.fullName :
+                            marvelData.title | titlecase}}</h1>
                         <h2>Id: {{marvelData.id}}</h2>
                         <h3>Available items of <em> {{marvelData.name ? marvelData.name : marvelData.fullName ?
                                 marvelData.fullName : marvelData.title}}</em></h3>
@@ -62,5 +63,12 @@
     <app-shared-layout [marvelData]="characters" [loadBtn]="loadCharacters" [isOverviewMode]="isOverviewMode"
         (load)="loadMore()" (route)="navigation($event)">
         <h1>Related Characters</h1>
+    </app-shared-layout>
+</ng-container>
+
+<ng-container *ngIf="comics.length !== 0">
+    <app-shared-layout [marvelData]="comics" [loadBtn]="loadCharacters" [isOverviewMode]="isOverviewMode"
+        (load)="loadMore()" (route)="navigation($event)">
+        <h1>Related Comics</h1>
     </app-shared-layout>
 </ng-container>

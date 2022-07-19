@@ -47,6 +47,7 @@ export class MarvelOverviewComponent implements OnInit {
     switch (this.url) {
       case `/characters/${id}`:
         this.isCharacterRoute = true
+        this.getComics()
         break;
       case `/comics/${id}`:
         this.isComicsRoute = true
@@ -55,17 +56,21 @@ export class MarvelOverviewComponent implements OnInit {
       case `/events/${id}`:
         this.isEventRoute = true
         this.getCharacters()
+        this.getComics()
         break;
       case `/series/${id}`:
         this.isSeriesRoute = true
         this.getCharacters()
+        this.getComics()
         break;
       case `/stories/${id}`:
         this.isStoriesRoute = true
         this.getCharacters()
+        this.getComics()
         break;
       case `/creators/${id}`:
         this.isCreatorRoute = true
+        this.getComics()
         break;
 
       default:
@@ -89,6 +94,14 @@ export class MarvelOverviewComponent implements OnInit {
       this.characters = response.data.results
     })
     console.log('Characters called');
+  }
+
+  getComics() {
+    this.isOverviewMode = true
+    this.marvelApiService.marvelData(4, 0, `${this.url}/comics`).subscribe((response) => {
+      this.comics = response.data.results
+    })
+    console.log('Comics called');
   }
 
   loadMore() {
