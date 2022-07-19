@@ -36,6 +36,8 @@ export class MarvelOverviewComponent implements OnInit {
   isOverviewMode: boolean = false
   isCreatorRoute: boolean = false
 
+  loadCharacters: boolean = false
+
   constructor(private marvelApiService: MarvelApiService, private router: Router, private sharedService: ContentFunctionalityService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -48,15 +50,19 @@ export class MarvelOverviewComponent implements OnInit {
         break;
       case `/comics/${id}`:
         this.isComicsRoute = true
+        this.getCharacters()
         break;
       case `/events/${id}`:
         this.isEventRoute = true
+        this.getCharacters()
         break;
       case `/series/${id}`:
         this.isSeriesRoute = true
+        this.getCharacters()
         break;
       case `/stories/${id}`:
         this.isStoriesRoute = true
+        this.getCharacters()
         break;
       case `/creators/${id}`:
         this.isCreatorRoute = true
@@ -75,5 +81,21 @@ export class MarvelOverviewComponent implements OnInit {
 
   goBack() {
     this.sharedService.goBack()
+  }
+
+  getCharacters() {
+    this.isOverviewMode = true
+    this.marvelApiService.marvelData(4, 0, `${this.url}/characters`).subscribe((response) => {
+      this.characters = response.data.results
+    })
+    console.log('Characters called');
+  }
+
+  loadMore() {
+
+  }
+
+  navigation($event) {
+
   }
 }

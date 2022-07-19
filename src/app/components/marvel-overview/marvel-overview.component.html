@@ -47,8 +47,8 @@
                         </ul>
                         <br>
                         <div class="discription__title">Description : <br>
-                            <p class="discription">{{marvelData.description ? marvelData.description : 'No description
-                                found☹️' }}</p>
+                            <p class="discription">{{marvelData.description ? marvelData.description : 'No
+                                descriptionfound☹️' }}</p>
                         </div>
                     </div>
                 </div>
@@ -57,22 +57,10 @@
     </div>
 </div>
 
-<!-- <ng-container *ngIf="comics.length !== 0">
-    <app-comic (load)="loadComics()" [comics]="comics" [comicLoadBtn]="comicLoadBtn" [isOverviewMode]="true">
-    </app-comic>
-</ng-container>
 
-<ng-container *ngIf="seriess.length !== 0">
-    <app-seriees [seriess]="seriess" [isOverviewMode]="true" [seriesLoadBtn]="seriesLoadBtn" (load)="loadSeries()">
-    </app-seriees>
+<ng-container *ngIf="characters.length !== 0">
+    <app-shared-layout [marvelData]="characters" [loadBtn]="loadCharacters" [isOverviewMode]="isOverviewMode"
+        (load)="loadMore()" (route)="navigation($event)">
+        <h1>Related Characters</h1>
+    </app-shared-layout>
 </ng-container>
-
-<ng-container *ngIf="stories.length !== 0">
-    <app-story [stories]="stories" [isOverviewMode]="true" [storyLoadBtn]="storyLoadBtn" (load)="loadStories()">
-    </app-story>
-</ng-container>
-
-<ng-container *ngIf="events.length !== 0">
-    <app-event [events]="events" [eventLoadBtn]="eventLoadBtn" [isOverviewMode]="true" (load)="loadEvents()">
-    </app-event>
-</ng-container> -->
