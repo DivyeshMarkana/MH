@@ -9,6 +9,8 @@ import { series } from '../Models/seriesModels/series';
 import { Creator } from '../Models/creatorModels/Creator';
 import { Event } from '../Models/eventModels/Event';
 
+type MarvelDataWrapper = marvelDataWrapper<Character> | marvelDataWrapper<Comic> | marvelDataWrapper<series> | marvelDataWrapper<Story> | marvelDataWrapper<Creator> | marvelDataWrapper<Event>
+
 @Injectable({
   providedIn: 'root'
 })
@@ -244,6 +246,14 @@ export class MarvelApiService {
     let requestUrl = this.baseUrl + endpoint + this.token;
 
     return this.http.get<marvelDataWrapper<Story>>(requestUrl)
+  }
+
+  marvelData(limit?: number, offset?: number, currentUrl?: string): Observable<MarvelDataWrapper> {
+    let endpoint: string = `${currentUrl}?limit=${limit}&offset=${offset}&`
+    let requestUrl: string = this.baseUrl + endpoint + this.token;
+
+    return this.http.get<MarvelDataWrapper>(requestUrl)
+
   }
 
 }

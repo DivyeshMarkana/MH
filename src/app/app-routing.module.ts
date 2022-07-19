@@ -9,6 +9,7 @@ import { CreatorsComponent } from './components/creator/creators/creators.compon
 import { EventOverviewComponent } from './components/event/event-overview/event-overview.component';
 import { EventsComponent } from './components/event/events/events.component';
 import { HomeComponent } from './components/home/home.component';
+import { MarvelDataPlaceholderComponent } from './components/marvel-data-placeholder/marvel-data-placeholder.component';
 import { SeriesOverviewComponent } from './components/series/series-overview/series-overview.component';
 import { SeriesComponent } from './components/series/series.component';
 import { StoriesComponent } from './components/stories/stories.component';
@@ -22,45 +23,51 @@ const routes: Routes = [
     path: 'home', component: HomeComponent
   },
   {
-    path: 'characters', component: CharactersComponent
+    // path: 'characters', component: CharactersComponent
+    path: 'characters', component: MarvelDataPlaceholderComponent
   },
   {
-    path: 'character/:id', component: CharacterOverviewComponent
+    path: 'characters/:id', component: CharacterOverviewComponent
   },
   {
-    path: 'comics', component: ComicsComponent
+    // path: 'comics', component: ComicsComponent
+    path: 'comics', component: MarvelDataPlaceholderComponent
   },
   {
-    path: 'comic/:id', component: ComicOverviewComponent
+    path: 'comics/:id', component: ComicOverviewComponent
   },
   {
-    path: 'series', component: SeriesComponent
+    // path: 'series', component: SeriesComponent
+    path: 'series', component: MarvelDataPlaceholderComponent
   },
   {
     path: 'series/:id', component: SeriesOverviewComponent
   },
   {
-    path: 'stories', component: StoriesComponent
+    // path: 'stories', component: StoriesComponent
+    path: 'stories', component: MarvelDataPlaceholderComponent
   },
   {
-    path: 'story/:id', component: StoryOverviewComponent
+    path: 'stories/:id', component: StoryOverviewComponent
   },
   {
-    path: 'creator', component: CreatorsComponent
+    // path: 'creator', component: CreatorsComponent
+    path: 'creators', component: MarvelDataPlaceholderComponent
   },
   {
-    path: 'creator/:id', component: CreatorOverviewComponent
+    path: 'creators/:id', component: CreatorOverviewComponent
   },
   {
-    path: 'events', component: EventsComponent
+    // path: 'events', component: EventsComponent
+    path: 'events', component: MarvelDataPlaceholderComponent
   },
   {
-    path: 'event/:id', component: EventOverviewComponent
+    path: 'events/:id', component: EventOverviewComponent
   },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { useHash: true})],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

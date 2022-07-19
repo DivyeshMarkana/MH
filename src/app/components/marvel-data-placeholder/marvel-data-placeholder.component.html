@@ -1,1 +1,10 @@
-<p>marvel-data-placeholder works!</p>
+<app-shared-layout [marvelData]="marvelData" [loadBtn]="loadBtn" [isOverviewMode]="isOverviewMode" (load)="loadMore()"
+    (route)="navigation($event)">
+</app-shared-layout>
+
+<div class="container">
+    <div class="loading__spiner" *ngIf="fetching">
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+        <div>Loading please wait...</div>
+    </div>
+</div>
