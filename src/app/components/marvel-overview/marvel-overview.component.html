@@ -1,0 +1,78 @@
+<div class="main__container px-2">
+    <button mat-button (click)="goBack()"> <span class="material-icons">
+            arrow_back
+        </span> Back</button>
+    <div class="container">
+        <div class=" overview__wrapper">
+            <div class="row" *ngFor="let marvelData of marvelDataById">
+                <div class="overview__img  col-sm-6 col-xs-12 col-md-6" *ngIf="marvelData.thumbnail !== null">
+                    <img class="rounded" src="{{marvelData.thumbnail.path}}.{{marvelData.thumbnail.extension}}"
+                        alt="image not found">
+                </div>
+                <div class="overview__img  col-sm-6 col-xs-12 col-md-6" *ngIf="marvelData.thumbnail === null">
+                    <img class="rounded" src="../../../assets/image not found.jpg" alt="image not found">
+                </div>
+                <div class=" col-md-6 col-sm-6 col-xs-12 ps-3">
+                    <div class="overview__info">
+                        <h1>Name: {{marvelData.name | titlecase}}</h1>
+                        <h2>Id: {{marvelData.id}}</h2>
+                        <h3>Available items of <em> {{marvelData.name ? marvelData.name : marvelData.fullName ?
+                                marvelData.fullName : marvelData.title}}</em></h3>
+                        <ul>
+                            <!-- !isCharacterRoute && isComicsRoute && isSeriesRoute && isStoriesRoute && isEventRoute -->
+                            <ng-container *ngIf="!isCharacterRoute && marvelData.characters?.available !== null ">
+                                <li><span>Characters :</span> <span>{{marvelData.characters?.available}}</span></li>
+                            </ng-container>
+
+                            <ng-container *ngIf="!isComicsRoute && marvelData.comics?.available !== null">
+                                <li><span>Comics :</span> <span>{{marvelData.comics?.available}}</span></li>
+                            </ng-container>
+
+                            <ng-container *ngIf="!isSeriesRoute && marvelData.series?.available !== null">
+                                <li><span>Series :</span> <span>{{marvelData.series?.available}}</span></li>
+                            </ng-container>
+
+                            <ng-container *ngIf="!isStoriesRoute && marvelData.stories?.available !== null">
+                                <li><span>Stories :</span> <span>{{marvelData.stories?.available}}</span></li>
+                            </ng-container>
+
+                            <ng-container *ngIf="!isEventRoute && marvelData.creators?.available !== null">
+                                <li><span>Creators :</span> <span>{{marvelData.creators?.available}}</span></li>
+                            </ng-container>
+
+                            <ng-container *ngIf="!isEventRoute && marvelData.events?.available !== null">
+                                <li><span>Events :</span> <span>{{marvelData.events?.available}}</span></li>
+                            </ng-container>
+
+                        </ul>
+                        <br>
+                        <div class="discription__title">Description : <br>
+                            <p class="discription">{{marvelData.description ? marvelData.description : 'No description
+                                found☹️' }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <ng-container *ngIf="comics.length !== 0">
+    <app-comic (load)="loadComics()" [comics]="comics" [comicLoadBtn]="comicLoadBtn" [isOverviewMode]="true">
+    </app-comic>
+</ng-container>
+
+<ng-container *ngIf="seriess.length !== 0">
+    <app-seriees [seriess]="seriess" [isOverviewMode]="true" [seriesLoadBtn]="seriesLoadBtn" (load)="loadSeries()">
+    </app-seriees>
+</ng-container>
+
+<ng-container *ngIf="stories.length !== 0">
+    <app-story [stories]="stories" [isOverviewMode]="true" [storyLoadBtn]="storyLoadBtn" (load)="loadStories()">
+    </app-story>
+</ng-container>
+
+<ng-container *ngIf="events.length !== 0">
+    <app-event [events]="events" [eventLoadBtn]="eventLoadBtn" [isOverviewMode]="true" (load)="loadEvents()">
+    </app-event>
+</ng-container> -->

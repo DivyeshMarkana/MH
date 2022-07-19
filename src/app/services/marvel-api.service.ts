@@ -11,6 +11,8 @@ import { Event } from '../Models/eventModels/Event';
 
 type MarvelDataWrapper = marvelDataWrapper<Character> | marvelDataWrapper<Comic> | marvelDataWrapper<series> | marvelDataWrapper<Story> | marvelDataWrapper<Creator> | marvelDataWrapper<Event>
 
+type MarvelDataType = Character | Comic | series | Event | Creator | Story
+
 @Injectable({
   providedIn: 'root'
 })
@@ -253,7 +255,13 @@ export class MarvelApiService {
     let requestUrl: string = this.baseUrl + endpoint + this.token;
 
     return this.http.get<MarvelDataWrapper>(requestUrl)
+  }
 
+  marvelDataById(currentUrl: string): Observable<MarvelDataWrapper> {
+    let endpont: string = `${currentUrl}?`
+    let requestUrl = this.baseUrl + endpont + this.token
+
+    return this.http.get<MarvelDataWrapper>(requestUrl)
   }
 
 }

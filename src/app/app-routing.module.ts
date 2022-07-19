@@ -10,6 +10,7 @@ import { EventOverviewComponent } from './components/event/event-overview/event-
 import { EventsComponent } from './components/event/events/events.component';
 import { HomeComponent } from './components/home/home.component';
 import { MarvelDataPlaceholderComponent } from './components/marvel-data-placeholder/marvel-data-placeholder.component';
+import { MarvelOverviewComponent } from './components/marvel-overview/marvel-overview.component';
 import { SeriesOverviewComponent } from './components/series/series-overview/series-overview.component';
 import { SeriesComponent } from './components/series/series.component';
 import { StoriesComponent } from './components/stories/stories.component';
@@ -23,46 +24,40 @@ const routes: Routes = [
     path: 'home', component: HomeComponent
   },
   {
-    // path: 'characters', component: CharactersComponent
     path: 'characters', component: MarvelDataPlaceholderComponent
   },
   {
-    path: 'characters/:id', component: CharacterOverviewComponent
+    path: 'characters/:id', component: MarvelOverviewComponent
   },
   {
-    // path: 'comics', component: ComicsComponent
     path: 'comics', component: MarvelDataPlaceholderComponent
   },
   {
-    path: 'comics/:id', component: ComicOverviewComponent
+    path: 'comics/:id', component: MarvelOverviewComponent
   },
   {
-    // path: 'series', component: SeriesComponent
     path: 'series', component: MarvelDataPlaceholderComponent
   },
   {
-    path: 'series/:id', component: SeriesOverviewComponent
+    path: 'series/:id', component: MarvelOverviewComponent
   },
   {
-    // path: 'stories', component: StoriesComponent
     path: 'stories', component: MarvelDataPlaceholderComponent
   },
   {
-    path: 'stories/:id', component: StoryOverviewComponent
+    path: 'stories/:id', component: MarvelOverviewComponent
   },
   {
-    // path: 'creator', component: CreatorsComponent
     path: 'creators', component: MarvelDataPlaceholderComponent
   },
   {
-    path: 'creators/:id', component: CreatorOverviewComponent
+    path: 'creators/:id', component: MarvelOverviewComponent
   },
   {
-    // path: 'events', component: EventsComponent
     path: 'events', component: MarvelDataPlaceholderComponent
   },
   {
-    path: 'events/:id', component: EventOverviewComponent
+    path: 'events/:id', component: MarvelOverviewComponent
   },
 ];
 
