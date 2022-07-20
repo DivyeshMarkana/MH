@@ -68,14 +68,14 @@
 
 <ng-container *ngIf="comics.length !== 0">
     <app-shared-layout [marvelData]="comics" [loadBtn]="loadComics" [isOverviewMode]="true" (load)="loadMore()"
-        (route)="navigation($event)">
+        (route)="navigateComics($event)">
         <h1>Related Comics</h1>
     </app-shared-layout>
 </ng-container>
 
 <ng-container *ngIf="series.length !== 0">
     <app-shared-layout [marvelData]="series" [loadBtn]="loadSeries" [isOverviewMode]="true" (load)="loadMore()"
-        (route)="navigation($event)">
+        (route)="navigateSeries($event)">
         <h1>Related Series</h1>
     </app-shared-layout>
 </ng-container>

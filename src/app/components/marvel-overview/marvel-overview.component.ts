@@ -159,6 +159,15 @@ export class MarvelOverviewComponent implements OnInit {
   navigateCharacters(card: MarvelDataType) {
     this.router.navigate(['/characters', card.id])
   }
+
+  navigateComics(card: MarvelDataType) {
+    this.router.navigate(['/comics', card.id])
+  }
+
+  navigateSeries(card: MarvelDataType) {
+    this.router.navigate(['/series', card.id])
+  }
+
   navigation($evnt) {
 
   }
