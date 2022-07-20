@@ -156,7 +156,10 @@ export class MarvelOverviewComponent implements OnInit {
 
   }
 
-  navigation($event) {
+  navigateCharacters(card: MarvelDataType) {
+    this.router.navigate(['/characters', card.id])
+  }
+  navigation($evnt) {
 
   }
 }

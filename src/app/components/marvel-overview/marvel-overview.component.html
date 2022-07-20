@@ -61,7 +61,7 @@
 
 <ng-container *ngIf="characters.length !== 0">
     <app-shared-layout [marvelData]="characters" [loadBtn]="loadCharacters" [isOverviewMode]="true" (load)="loadMore()"
-        (route)="navigation($event)">
+        (route)="navigateCharacters($event)">
         <h1>Related Characters</h1>
     </app-shared-layout>
 </ng-container>
