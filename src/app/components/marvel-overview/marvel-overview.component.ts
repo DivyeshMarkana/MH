@@ -114,42 +114,36 @@ export class MarvelOverviewComponent implements OnInit {
     this.marvelApiService.marvelData(4, 0, `${this.url}/characters`).subscribe((response) => {
       this.characters = response.data.results
     })
-    console.log('Characters called');
   }
 
   getComics() {
     this.marvelApiService.marvelData(4, 0, `${this.url}/comics`).subscribe((response) => {
       this.comics = response.data.results
     })
-    console.log('Comics called');
   }
 
   getSeries() {
     this.marvelApiService.marvelData(4, 0, `${this.url}/series`).subscribe((response) => {
       this.series = response.data.results
     })
-    console.log('Series called');
   }
 
   getStories() {
     this.marvelApiService.marvelData(4, 0, `${this.url}/stories`).subscribe((response) => {
       this.stories = response.data.results
     })
-    console.log('Stories called');
   }
 
   getCreators() {
     this.marvelApiService.marvelData(4, 0, `${this.url}/creators`).subscribe((response) => {
       this.creators = response.data.results
     })
-    console.log('Creators called');
   }
 
   getEvents() {
     this.marvelApiService.marvelData(4, 0, `${this.url}/events`).subscribe((response) => {
       this.events = response.data.results
     })
-    console.log('Events called');
   }
 
   loadMore() {
@@ -168,7 +162,16 @@ export class MarvelOverviewComponent implements OnInit {
     this.router.navigate(['/series', card.id])
   }
 
-  navigation($evnt) {
-
+  navigateStories(card: MarvelDataType) {
+    this.router.navigate(['/stories', card.id])
   }
+
+  navigateCreator(card: MarvelDataType) {
+    this.router.navigate(['/creators', card.id])
+  }
+
+  navigateEvent(card: MarvelDataType) {
+    this.router.navigate(['/events', card.id])
+  }
+
 }
