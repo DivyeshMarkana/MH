@@ -79,3 +79,24 @@
         <h1>Related Series</h1>
     </app-shared-layout>
 </ng-container>
+
+<ng-container *ngIf="stories.length !== 0">
+    <app-shared-layout [marvelData]="stories" [loadBtn]="loadStories" [isOverviewMode]="true" (load)="loadMore()"
+        (route)="navigation($event)">
+        <h1>Related Stories</h1>
+    </app-shared-layout>
+</ng-container>
+
+<ng-container *ngIf="creators.length !== 0">
+    <app-shared-layout [marvelData]="creators" [loadBtn]="loadCreators" [isOverviewMode]="true" (load)="loadMore()"
+        (route)="navigation($event)">
+        <h1>Related Creators</h1>
+    </app-shared-layout>
+</ng-container>
+
+<ng-container *ngIf="events.length !== 0">
+    <app-shared-layout [marvelData]="events" [loadBtn]="loadEvents" [isOverviewMode]="true" (load)="loadMore()"
+        (route)="navigation($event)">
+        <h1>Related Events</h1>
+    </app-shared-layout>
+</ng-container>

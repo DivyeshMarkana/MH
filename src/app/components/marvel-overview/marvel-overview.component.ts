@@ -38,6 +38,9 @@ export class MarvelOverviewComponent implements OnInit {
   loadCharacters: boolean = false
   loadComics: boolean = false
   loadSeries: boolean = false
+  loadStories: boolean = false
+  loadCreators: boolean = false
+  loadEvents: boolean = false
 
   constructor(private marvelApiService: MarvelApiService, private router: Router, private sharedService: ContentFunctionalityService, private route: ActivatedRoute) { }
 
@@ -50,33 +53,46 @@ export class MarvelOverviewComponent implements OnInit {
         this.isCharacterRoute = true
         this.getComics()
         this.getSeries()
+        this.getStories()
+        this.getEvents()
         break;
       case `/comics/${id}`:
         this.isComicsRoute = true
         this.getCharacters()
-        this.getSeries()
+        this.getStories()
+        this.getCreators()
+        this.getEvents()
         break;
       case `/events/${id}`:
         this.isEventRoute = true
         this.getCharacters()
         this.getComics()
         this.getSeries()
+        this.getStories()
+        this.getCreators()
         break;
       case `/series/${id}`:
         this.isSeriesRoute = true
         this.getCharacters()
         this.getComics()
+        this.getStories()
+        this.getCreators()
+        this.getEvents()
         break;
       case `/stories/${id}`:
         this.isStoriesRoute = true
         this.getCharacters()
         this.getComics()
         this.getSeries()
+        this.getCreators()
+        this.getEvents()
         break;
       case `/creators/${id}`:
         this.isCreatorRoute = true
         this.getComics()
         this.getSeries()
+        this.getStories()
+        this.getEvents()
         break;
 
       default:
@@ -113,6 +129,27 @@ export class MarvelOverviewComponent implements OnInit {
       this.series = response.data.results
     })
     console.log('Series called');
+  }
+
+  getStories() {
+    this.marvelApiService.marvelData(4, 0, `${this.url}/stories`).subscribe((response) => {
+      this.stories = response.data.results
+    })
+    console.log('Stories called');
+  }
+
+  getCreators() {
+    this.marvelApiService.marvelData(4, 0, `${this.url}/creators`).subscribe((response) => {
+      this.creators = response.data.results
+    })
+    console.log('Creators called');
+  }
+
+  getEvents() {
+    this.marvelApiService.marvelData(4, 0, `${this.url}/events`).subscribe((response) => {
+      this.events = response.data.results
+    })
+    console.log('Events called');
   }
 
   loadMore() {
