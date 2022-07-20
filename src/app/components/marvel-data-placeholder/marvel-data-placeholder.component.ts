@@ -18,6 +18,7 @@ type MarvelDataType = Character | Comic | series | Event | Creator | Story
 export class MarvelDataPlaceholderComponent implements OnInit {
 
   currentURL = this.router.url
+
   marvelData: MarvelDataType[] = []
 
   loadBtn: boolean = false

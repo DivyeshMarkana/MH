@@ -5,6 +5,7 @@ import { Creator } from 'src/app/Models/creatorModels/Creator';
 import { Event } from 'src/app/Models/eventModels/Event';
 import { series } from 'src/app/Models/seriesModels/series';
 import { Story } from 'src/app/Models/storyModel/Story';
+import { ContentFunctionalityService } from 'src/app/services/content-functionality.service';
 
 
 type MarvelDataType = Character | Comic | series | Event | Creator | Story
@@ -16,9 +17,13 @@ type MarvelDataType = Character | Comic | series | Event | Creator | Story
 })
 export class SharedLayoutComponent implements OnInit {
 
-  constructor() { }
+  constructor(private sharedService: ContentFunctionalityService) { }
 
   ngOnInit(): void {
+
+    this.sharedService.search.subscribe(value => {
+      this.searchKey = value
+    })
   }
   searchKey: string = ''
 
