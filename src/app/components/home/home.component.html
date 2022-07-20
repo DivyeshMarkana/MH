@@ -37,81 +37,23 @@
     </button>
 </div>
 
-<!-- * Home characters -->
+<!-- ! Home characters starts -->
 
-<div class="p-0 py-3">
-    <div class="pt-3">
-        <div class=" mx-auto py-0 px-4 sm:py-24 sm:px-6 lg:max-w-5xl lg:px-8">
-            <h2 class="sub__heading">Marvel characters</h2>
-            <div
-                class="grid mt-2 pt-2 grid-cols-1 gap-y-6 sm:grid-cols-2 gap-x-6 lg:grid-cols-4 xl:grid-cols-4 xl:gap-x-6">
-                <a class="group border  rounded" *ngFor="let character of characters">
-                    <mat-card [routerLink]="['/character', character.id]"
-                        class="w-full p-0  aspect-w-1 aspect-h-1  rounded-lg overflow-hidden xl:aspect-w-8 xl:aspect-h-8 sm:aspect-w-5 sm:aspect-h-3">
-                        <mat-card-header [routerLink]="['/character-detail', character.id]"
-                            [queryParams]="{character: character.name}">
-                            <mat-card-title class="p-0">
-                                <h4 class="fw-bold" matTooltip="{{character.name}}" matTooltipPosition="above">
-                                    {{character.name | filter}}</h4>
-                            </mat-card-title>
-                        </mat-card-header>
-                        <div class="image__wrapper">
-                            <img src="{{character.thumbnail.path}}.{{character.thumbnail.extension}}"
-                                alt="Tall slender porcelain bottle with natural clay textured body and cork stopper."
-                                class="w-full h-full object-center object-cover group-hover:opacity-75 img">
-                        </div>
-                    </mat-card>
-                </a>
-            </div>
-            <button mat-button color="primary" routerLink="/characters" class="float-right pt-2">More
-                <span class="material-icons">
-                    arrow_right_alt
-                </span>
-            </button>
-        </div>
-    </div>
-</div>
+<app-shared-layout [marvelData]="characters" [isOverviewMode]="true" (route)="navigateCharacters($event)">
+    <h2 class="sub__heading">Marvel Characters</h2>
+</app-shared-layout>
 
+<!-- ! Home characters end -->
 
-<!-- * Home comics -->
+<!-- ! Home comics starts -->
 
-<ng-container *ngIf="comics.length !== 0">
-    <div class="p-0 py-3">
-        <div class="pt-3">
-            <div class=" mx-auto py-0 px-4 sm:py-24 sm:px-6 lg:max-w-5xl lg:px-8">
-                <h2 class="sub__heading">Marvel comics</h2>
-                <div
-                    class="grid mt-2 pt-2 grid-cols-1 gap-y-6 sm:grid-cols-2 gap-x-6 lg:grid-cols-4 xl:grid-cols-4 xl:gap-x-6">
+<app-shared-layout [marvelData]="comics" [isOverviewMode]="true" (route)="navigateComics($event)">
+    <h2 class="sub__heading">Marvel Comics</h2>
+</app-shared-layout>
 
-                    <a class="group border  rounded" *ngFor="let comic of comics">
-                        <mat-card [routerLink]="['/comic', comic.id]" [queryParams]="{comic: comic.title}"
-                            class="w-full p-0  aspect-w-1 aspect-h-1  rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8 sm:aspect-w-5 sm:aspect-h-3">
-                            <mat-card-header [routerLink]="['/comic', comic.id]" [queryParams]="{comic: comic.title}">
-                                <mat-card-title class="p-0">
-                                    <h4 class="fw-bold" matTooltip="{{comic.title}}" matTooltipPosition="above">
-                                        {{comic.title | filter}}</h4>
-                                </mat-card-title>
-                            </mat-card-header>
-                            <div class="image__wrapper">
-                                <img src="{{comic.thumbnail.path}}.{{comic.thumbnail.extension}}"
-                                    alt="Tall slender porcelain bottle with natural clay textured body and cork stopper."
-                                    class="w-full h-full object-center object-cover group-hover:opacity-75 img">
-                            </div>
-                        </mat-card>
-                    </a>
-                </div>
-                <button mat-button color="primary" routerLink="/comics" class="float-right pt-2">More
-                    <span class="material-icons">
-                        arrow_right_alt
-                    </span>
-                </button>
-            </div>
-        </div>
-    </div>
-</ng-container>
+<!-- ! Home comics end -->
 
-
-<!-- * Doctor strange poster -->
+<!-- ! Doctor strange poster starts -->
 
 <div class="container">
     <div class="poster">
@@ -124,37 +66,12 @@
     </div>
 </div>
 
-<!-- * Doctor strange series -->
+<!-- ! Doctor strange poster end -->
 
-<div class="p-0 py-3">
-    <div class="pt-3 mb-5">
-        <div class=" mx-auto py-0 px-4 sm:py-24 sm:px-6 lg:max-w-5xl lg:px-8">
-            <h2 class="sub__heading">Series related to Doctor strange</h2>
-            <div
-                class="grid mt-2 pt-2 grid-cols-1 gap-y-6 sm:grid-cols-2 gap-x-6 lg:grid-cols-4 xl:grid-cols-4 xl:gap-x-6">
+<!-- ! Doctor strange series starts -->
 
-                <a class="group border  rounded" *ngFor="let series of seriess">
-                    <mat-card [routerLink]="['/series', series.id]"
-                        class="w-full p-0  aspect-w-1 aspect-h-1  rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8 sm:aspect-w-5 sm:aspect-h-3">
-                        <mat-card-header [routerLink]="['/series', series.id]" [queryParams]="{series: series.title}">
-                            <mat-card-title class="p-0">
-                                <h4 class="fw-bold" matTooltip="{{series.title}}" matTooltipPosition="above">
-                                    {{series.title | filter}}</h4>
-                            </mat-card-title>
-                        </mat-card-header>
-                        <div class="image__wrapper">
-                            <img src="{{series.thumbnail.path}}.{{series.thumbnail.extension}}"
-                                alt="Tall slender porcelain bottle with natural clay textured body and cork stopper."
-                                class="w-full h-full object-center object-cover group-hover:opacity-75 img">
-                        </div>
-                    </mat-card>
-                </a>
-            </div>
-            <button mat-button color="primary" routerLink="/series" class="float-right pt-2">More
-                <span class="material-icons">
-                    arrow_right_alt
-                </span>
-            </button>
-        </div>
-    </div>
-</div>
+<app-shared-layout [marvelData]="series" [isOverviewMode]="true" (route)="navigateSeries($event)">
+    <h2 class="sub__heading">Series related to Doctor strange</h2>
+</app-shared-layout>
+
+<!-- ! Doctor strange series end -->

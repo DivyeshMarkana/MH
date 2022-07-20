@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Character } from '../../Models/characterModels/Character';
-import { Comic } from '../../Models/comicsModels/Comic';
-import { series } from '../../Models/seriesModels/series';
+import { Router } from '@angular/router';
 import { MarvelApiService } from '../../services/marvel-api.service';
 
 @Component({
@@ -11,17 +9,17 @@ import { MarvelApiService } from '../../services/marvel-api.service';
 })
 export class HomeComponent implements OnInit {
 
-  characters: Character[] = [];
-  comics: Comic[] = [];
-  seriess:series[] = [];
+  characters: any[] = [];
+  comics: any[] = [];
+  series: any[] = [];
   loaded: boolean = false;
   limit: number = 4;
-  CharacterOffset:number = 603
-  comicOffset:number = 605
+  CharacterOffset: number = 603
+  comicOffset: number = 605
   seriesOffset: number = 60
   serieId: number = 1009282
 
-  constructor(private _getContentService: MarvelApiService) { }
+  constructor(private marvelApiService: MarvelApiService, private router: Router) { }
 
   ngOnInit(): void {
     this.getCharacter()
@@ -31,56 +29,34 @@ export class HomeComponent implements OnInit {
   }
 
   getCharacter() {
-    this._getContentService.getCharacters(this.limit, this.CharacterOffset).subscribe((response) => {
+    this.marvelApiService.marvelData(this.limit, this.CharacterOffset, '/characters').subscribe((response) => {
       this.characters = response.data.results
     })
   }
 
   getComics() {
-    this._getContentService.getComics(this.limit, this.comicOffset).subscribe((response) => {
+    this.marvelApiService.marvelData(this.limit, this.comicOffset, '/comics').subscribe((response) => {
       this.comics = response.data.results
     })
   }
 
   getSeries() {
-    this._getContentService.seriesCharacter(this.serieId, this.limit, this.seriesOffset).subscribe((response) => {
-      this.seriess = response.data.results
+    this.marvelApiService.marvelData(this.limit, this.seriesOffset, `/characters/${this.serieId}/series`).subscribe((response) => {
+      this.series = response.data.results
       console.log(response);
-      
+
     })
   }
-  
 
-  selectedIndex: number = 0;
-  indicators: boolean = true;
-  controls: boolean = true;
-  images = [
-    {
-      imgSrc: "https://source.unsplash.com/1550x700/?dark",
-    },
-    {
-      imgSrc: "https://source.unsplash.com/1550x700/?marvel",
-    },
-    {
-      imgSrc: "https://source.unsplash.com/1550x700/?laptop",
-    },
-  ]
-
-  selectImage(index: number) {
-    this.selectedIndex = index
+  navigateCharacters(card: any) {
+    this.router.navigate(['/characters', card.id])
   }
 
-  onPrevClick(): void {
-    if (this.selectedIndex === 0) {
-      this.selectedIndex = this.images.length - 1
-    }
-    this.selectedIndex--
-  }
-  onNextClick(): void {
-    if (this.selectedIndex === 0) {
-      this.selectedIndex = 0
-    }
-    this.selectedIndex++
+  navigateComics(card: any) {
+    this.router.navigate(['/comics', card.id])
   }
 
+  navigateSeries(card: any) {
+    this.router.navigate(['/series', card.id])
+  }
 }
