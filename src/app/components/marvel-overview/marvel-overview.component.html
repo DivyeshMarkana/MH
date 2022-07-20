@@ -60,42 +60,42 @@
 
 
 <ng-container *ngIf="characters.length !== 0">
-    <app-shared-layout [marvelData]="characters" [loadBtn]="loadCharacters" [isOverviewMode]="true" (load)="loadMore()"
-        (route)="navigateCharacters($event)">
+    <app-shared-layout [marvelData]="characters" [loadBtn]="loadCharacters" [isOverviewMode]="true"
+        (load)="loadCharacter()" (route)="navigateCharacters($event)">
         <h1>Related Characters</h1>
     </app-shared-layout>
 </ng-container>
 
 <ng-container *ngIf="comics.length !== 0">
-    <app-shared-layout [marvelData]="comics" [loadBtn]="loadComics" [isOverviewMode]="true" (load)="loadMore()"
+    <app-shared-layout [marvelData]="comics" [loadBtn]="loadComics" [isOverviewMode]="true" (load)="loadComic()"
         (route)="navigateComics($event)">
         <h1>Related Comics</h1>
     </app-shared-layout>
 </ng-container>
 
 <ng-container *ngIf="series.length !== 0">
-    <app-shared-layout [marvelData]="series" [loadBtn]="loadSeries" [isOverviewMode]="true" (load)="loadMore()"
+    <app-shared-layout [marvelData]="series" [loadBtn]="loadSeries" [isOverviewMode]="true" (load)="loadSeriess()"
         (route)="navigateSeries($event)">
         <h1>Related Series</h1>
     </app-shared-layout>
 </ng-container>
 
 <ng-container *ngIf="stories.length !== 0">
-    <app-shared-layout [marvelData]="stories" [loadBtn]="loadStories" [isOverviewMode]="true" (load)="loadMore()"
+    <app-shared-layout [marvelData]="stories" [loadBtn]="loadStories" [isOverviewMode]="true" (load)="loadStory()"
         (route)="navigateStories($event)">
         <h1>Related Stories</h1>
     </app-shared-layout>
 </ng-container>
 
 <ng-container *ngIf="creators.length !== 0">
-    <app-shared-layout [marvelData]="creators" [loadBtn]="loadCreators" [isOverviewMode]="true" (load)="loadMore()"
+    <app-shared-layout [marvelData]="creators" [loadBtn]="loadCreators" [isOverviewMode]="true" (load)="loadCreator()"
         (route)="navigateCreator($event)">
         <h1>Related Creators</h1>
     </app-shared-layout>
 </ng-container>
 
 <ng-container *ngIf="events.length !== 0">
-    <app-shared-layout [marvelData]="events" [loadBtn]="loadEvents" [isOverviewMode]="true" (load)="loadMore()"
+    <app-shared-layout [marvelData]="events" [loadBtn]="loadEvents" [isOverviewMode]="true" (load)="loadEvent()"
         (route)="navigateEvent($event)">
         <h1>Related Events</h1>
     </app-shared-layout>

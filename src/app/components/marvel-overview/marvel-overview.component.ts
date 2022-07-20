@@ -42,6 +42,13 @@ export class MarvelOverviewComponent implements OnInit {
   loadCreators: boolean = false
   loadEvents: boolean = false
 
+  characterOffset: number = 0
+  comicOffset: number = 0
+  seriesOffset: number = 0
+  storyOffset: number = 0
+  creatorOffset: number = 0
+  eventOffset: number = 0
+
   constructor(private marvelApiService: MarvelApiService, private router: Router, private sharedService: ContentFunctionalityService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -111,43 +118,93 @@ export class MarvelOverviewComponent implements OnInit {
   }
 
   getCharacters() {
-    this.marvelApiService.marvelData(4, 0, `${this.url}/characters`).subscribe((response) => {
+    this.marvelApiService.marvelData(4, this.characterOffset, `${this.url}/characters`).subscribe((response) => {
       this.characters = response.data.results
+      this.characterOffset += 4
+      this.loadCharacters = true
+    })
+  }
+
+  loadCharacter() {
+    this, this.marvelApiService.marvelData(4, this.characterOffset, `${this.url}/characters`).subscribe(response => {
+      this.characters = this.characters.concat(response.data.results)
+      this.characterOffset += 4
     })
   }
 
   getComics() {
-    this.marvelApiService.marvelData(4, 0, `${this.url}/comics`).subscribe((response) => {
+    this.marvelApiService.marvelData(4, this.comicOffset, `${this.url}/comics`).subscribe((response) => {
       this.comics = response.data.results
+      this.comicOffset += 4
+      this.loadComics = true
+    })
+  }
+
+  loadComic() {
+    this, this.marvelApiService.marvelData(4, this.comicOffset, `${this.url}/comics`).subscribe(response => {
+      this.comics = this.comics.concat(response.data.results)
+      this.comicOffset += 4
     })
   }
 
   getSeries() {
-    this.marvelApiService.marvelData(4, 0, `${this.url}/series`).subscribe((response) => {
+    this.marvelApiService.marvelData(4, this.seriesOffset, `${this.url}/series`).subscribe((response) => {
       this.series = response.data.results
+      this.seriesOffset += 4
+      this.loadSeries = true
+    })
+  }
+
+  loadSeriess() {
+    this, this.marvelApiService.marvelData(4, this.seriesOffset, `${this.url}/series`).subscribe(response => {
+      this.series = this.series.concat(response.data.results)
+      this.seriesOffset += 4
     })
   }
 
   getStories() {
-    this.marvelApiService.marvelData(4, 0, `${this.url}/stories`).subscribe((response) => {
+    this.marvelApiService.marvelData(4, this.storyOffset, `${this.url}/stories`).subscribe((response) => {
       this.stories = response.data.results
+      this.storyOffset += 4
+      this.loadStories = true
+    })
+  }
+
+  loadStory() {
+    this, this.marvelApiService.marvelData(4, this.storyOffset, `${this.url}/stories`).subscribe(response => {
+      this.stories = this.stories.concat(response.data.results)
+      this.storyOffset += 4
     })
   }
 
   getCreators() {
-    this.marvelApiService.marvelData(4, 0, `${this.url}/creators`).subscribe((response) => {
+    this.marvelApiService.marvelData(4, this.creatorOffset, `${this.url}/creators`).subscribe((response) => {
       this.creators = response.data.results
+      this.creatorOffset += 4
+      this.loadCreators = true
+    })
+  }
+
+  loadCreator() {
+    this, this.marvelApiService.marvelData(4, this.creatorOffset, `${this.url}/creators`).subscribe(response => {
+      this.creators = this.creators.concat(response.data.results)
+      this.creatorOffset += 4
     })
   }
 
   getEvents() {
-    this.marvelApiService.marvelData(4, 0, `${this.url}/events`).subscribe((response) => {
+    this.marvelApiService.marvelData(4, this.eventOffset, `${this.url}/events`).subscribe((response) => {
       this.events = response.data.results
+      this.eventOffset += 4
+      this.loadEvents = true
     })
   }
 
-  loadMore() {
-
+  loadEvent() {
+    this, this.marvelApiService.marvelData(4, this.eventOffset, `${this.url}/events`).subscribe(response => {
+      this.events = this.events.concat(response.data.results)
+      this.eventOffset += 4
+    })
   }
 
   navigateCharacters(card: MarvelDataType) {
