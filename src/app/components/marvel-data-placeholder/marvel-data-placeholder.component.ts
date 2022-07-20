@@ -34,9 +34,12 @@ export class MarvelDataPlaceholderComponent implements OnInit {
   }
 
   getMarvelData() {
+    this.fetching = true
     this.marvelApiService.marvelData(15, 0, this.currentURL).subscribe((response) => {
-      console.log(response);
       this.marvelData = response.data.results
+      this.currentOffset += 15
+      this.fetching = false
+      this.loadBtn = true
     })
   }
 
