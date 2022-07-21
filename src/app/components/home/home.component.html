@@ -39,7 +39,8 @@
 
 <!-- ! Home characters starts -->
 
-<app-shared-layout [marvelData]="characters" [isOverviewMode]="true" (route)="navigateCharacters($event)">
+<app-shared-layout [marvelData]="characters" [isOverviewMode]="true" (route)="navigateCharacters($event)"
+    [loadBtn]="true" (load)="loadCharacter()">
     <h2 class="sub__heading">Marvel Characters</h2>
 </app-shared-layout>
 
@@ -47,7 +48,8 @@
 
 <!-- ! Home comics starts -->
 
-<app-shared-layout [marvelData]="comics" [isOverviewMode]="true" (route)="navigateComics($event)">
+<app-shared-layout [marvelData]="comics" [isOverviewMode]="true" (route)="navigateComics($event)" [loadBtn]="true"
+    (load)="loadComic()">
     <h2 class="sub__heading">Marvel Comics</h2>
 </app-shared-layout>
 
@@ -70,7 +72,8 @@
 
 <!-- ! Doctor strange series starts -->
 
-<app-shared-layout [marvelData]="series" [isOverviewMode]="true" (route)="navigateSeries($event)">
+<app-shared-layout [marvelData]="series" [isOverviewMode]="true" (route)="navigateSeries($event)" [loadBtn]="true"
+    (load)="loadSeries()">
     <h2 class="sub__heading">Series related to Doctor strange</h2>
 </app-shared-layout>
 
