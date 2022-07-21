@@ -72,10 +72,14 @@ mat-card:hover img {
     background-clip      : border-box;
 }
 
+button.back__btn {
+    margin-top: 1.5rem;
+}
+
 .overview__wrapper {
     /* padding   : 3rem 0; */
     margin-inline: auto;
-    min-height: 90vh;
+    min-height   : 90vh;
 }
 
 .overview__img {
