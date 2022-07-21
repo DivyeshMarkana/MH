@@ -1,20 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CharacterOverviewComponent } from './components/characters/character-overview/character-overview.component';
-import { CharactersComponent } from './components/characters/characters.component';
-import { ComicOverviewComponent } from './components/comics/comic-overview/comic-overview.component';
-import { ComicsComponent } from './components/comics/comics.component';
-import { CreatorOverviewComponent } from './components/creator/creator-overview/creator-overview.component';
-import { CreatorsComponent } from './components/creator/creators/creators.component';
-import { EventOverviewComponent } from './components/event/event-overview/event-overview.component';
-import { EventsComponent } from './components/event/events/events.component';
 import { HomeComponent } from './components/home/home.component';
 import { MarvelDataPlaceholderComponent } from './components/marvel-data-placeholder/marvel-data-placeholder.component';
 import { MarvelOverviewComponent } from './components/marvel-overview/marvel-overview.component';
-import { SeriesOverviewComponent } from './components/series/series-overview/series-overview.component';
-import { SeriesComponent } from './components/series/series.component';
-import { StoriesComponent } from './components/stories/stories.component';
-import { StoryOverviewComponent } from './components/stories/story-overview/story-overview.component';
 
 const routes: Routes = [
   {
