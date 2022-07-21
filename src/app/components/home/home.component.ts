@@ -48,6 +48,16 @@ export class HomeComponent implements OnInit {
     })
   }
 
+  loadCharacter() {
+    this.router.navigate(['/characters'])
+  }
+  loadComic() {
+    this.router.navigate(['/comics'])
+  }
+  loadSeries() {
+    this.router.navigate(['/series'])
+  }
+
   navigateCharacters(card: any) {
     this.router.navigate(['/characters', card.id])
   }
